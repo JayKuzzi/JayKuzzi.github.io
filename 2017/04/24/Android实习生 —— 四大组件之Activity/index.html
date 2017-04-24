@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android实习生 —— 四大组件之Activity | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基础知识回顾。 定义及功能一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。  启动和栈一个应用程序通常由多个activities组成，他们通常是松耦合关系。通常，一个应用程序中的activity被指定为”">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android实习生 —— 四大组件之Activity">
+<meta property="og:url" content="http://yoursite.com/2017/04/24/Android实习生 —— 四大组件之Activity/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基础知识回顾。 定义及功能一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。  启动和栈一个应用程序通常由多个activities组成，他们通常是松耦合关系。通常，一个应用程序中的activity被指定为”">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-b23eea06a1d111e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-6b6f54199b70cbb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-c316d617cee70767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-80b9ffa6240c3466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-1ca377d77e50f2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-eb8b909de24ed314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-4502b2941605c4bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-321feaa2137b2fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-44226b927c4e424c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-4e37e0d6bc2e4353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-65354e8b4fb44d9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-8322215770724b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-11e34c535c48204d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-04-24T10:23:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android实习生 —— 四大组件之Activity">
+<meta name="twitter:description" content="基础知识回顾。 定义及功能一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。  启动和栈一个应用程序通常由多个activities组成，他们通常是松耦合关系。通常，一个应用程序中的activity被指定为”">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4821697-b23eea06a1d111e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android实习生 —— 四大组件之Activity" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/24/Android实习生 —— 四大组件之Activity/" class="article-date">
+  <time datetime="2017-04-24T07:35:36.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/first/">first</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android实习生 —— 四大组件之Activity
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基础知识回顾。"><a href="#基础知识回顾。" class="headerlink" title="基础知识回顾。"></a>基础知识回顾。</h1><ul>
+<li><h2 id="定义及功能"><a href="#定义及功能" class="headerlink" title="定义及功能"></a>定义及功能</h2><p>一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。</p>
+</li>
+<li><h2 id="启动和栈"><a href="#启动和栈" class="headerlink" title="启动和栈"></a>启动和栈</h2><p>一个应用程序通常由多个activities组成，他们通常是松耦合关系。通常，一个应用程序中的activity被指定为”main”activity，当第一次启动应用程序的时候呈现给用户的那个activity。每一个activity然后可以启动另一个activity为了完成不同的动作。每一次一个activity启动，前一个activity就停止了，但是系统保留activity在一个栈上（“back stack”）。当一个新activity启动，它被推送到栈顶，取得用户焦点。Back Stack符合简单“后进先出”原则，所以，当用户完成当前activity然后点击back按钮，它被弹出栈（并且被摧毁），然后之前的activity恢复。</p>
+</li>
+<li><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>基本用法：Activity的本质是一个Java类，如：由我们创建工程生成的MainActivity；一般的每个Activity都会存在一个与它匹配的布局文件（xml文件），由它来写入我们需要Activity展示的各种控件和布局。有了布局文件之后，就需要在类里通过OnCreate方法的setContentView方法调用文件资源ID来初始化UI界面和显示。</p>
+</li>
+<li><h2 id="创建和注册"><a href="#创建和注册" class="headerlink" title="创建和注册"></a>创建和注册</h2><p>每个需要显示的Activity都需要我们在工程包下的AndroidMainifest.xml文件进行注册！（注意：程序每次打开时显示的Activity我们称为主界面，它的注册和其他Activity注册有区别）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!--主Activity--&gt;</div><div class="line">&lt;activity  </div><div class="line">Android:name=”.MainActivity”&gt;  </div><div class="line">&lt;intent-filter&gt;  </div><div class="line">&lt;action android:name=”android.intent.action.MAIN”/&gt;  </div><div class="line">&lt;category android:name=”android.intent.category.LAUNCHER”/&gt;  </div><div class="line">&lt;/intent-filter&gt;  </div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>主界面显示的Activity加入了<intent-filter>标签和内部的两句声明，这也是必须的。</intent-filter></p>
+<p><action>元素指定这是一个”main”入口点对这个应用程序。<category>元素指定，这个activity应该被列入系统应用程序列表中（为了允许用户启动这个activity）。<br>此外如果你的应用程序里没有声明任何主活动，它也是可以安装的，只是你无法在启动器中看见或打开，这种程序一般作为第三方服务供其他应用在内部进行调用，如支付宝的快捷支付应用。</category></action></p>
+<h1 id="生命周期。"><a href="#生命周期。" class="headerlink" title="生命周期。"></a>生命周期。</h1><ul>
+<li><h2 id="四种状态"><a href="#四种状态" class="headerlink" title="四种状态"></a>四种状态</h2><blockquote>
+<p><strong>运行状态：</strong>当Activity位于栈顶时，此时正好处于屏幕最前方。<br><strong>暂停状态：</strong>当Activity失去了焦点但仍然对用于可见（如栈顶的Activity是透明的或者栈顶Activity并不是铺满整个手机屏幕）。<br><strong>停止状态：</strong>当Activity被其他Activity完全遮挡，此时此Activity对用户不可见。<br><strong>销毁状态：</strong>当Activity由于人为或系统原因（如低内存等）被销毁。</p>
+</blockquote>
+</li>
+<li><h2 id="七个回调方法"><a href="#七个回调方法" class="headerlink" title="七个回调方法"></a>七个回调方法</h2><blockquote>
+<p><strong>1.onCreate：</strong>活动第一次创建被调用。<br><strong>2.onStart：</strong>活动由不可见变为可见的时候调用。<br><strong>3.onResume：</strong>活动处于与用户交互状态时候调用。<br><strong>4.onPause：</strong>活动失去焦点时被调用。<br><strong>5.onStop：</strong>活动完全不可见的时候调用（如果新活动是一个对话框式活着半透明的活动，onPause会执行，而onStop不会执行）。<br><strong>6.onDestroy：</strong>在活动被销毁之前调用。<br><strong>7.onRestart：</strong>由停止状态变为运行状态之前调用。</p>
+</blockquote>
+</li>
+<li><h2 id="生命周期图"><a href="#生命周期图" class="headerlink" title="生命周期图"></a>生命周期图</h2><p><img src="http://upload-images.jianshu.io/upload_images/4821697-b23eea06a1d111e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生命周期图"></p>
+</li>
+<li><h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><p><em>在实际应用场景中，假设A Activity位于栈顶，此时用户操作，从A Activity跳转到B Activity。那么对AB来说，具体会回调哪些生命周期中的方法呢？回调方法的具体回调顺序又是怎么样的呢？</em><br>开始时，A被实例化，执行的回调有<strong>A:onCreate -&gt; A:onStart -&gt; A:onResume。</strong><br>当用户点击A中按钮来到B时，假设B全部遮挡住了A，将依次执行<strong>A:onPause -&gt; B:onCreate -&gt; B:onStart -&gt; B:onResume -&gt; A:onStop。</strong><br>此时如果点击Back键，将依次执行<strong>B:onPause -&gt; A:onRestart -&gt; A:onStart -&gt; A:onResume -&gt; B:onStop -&gt; B:onDestroy。</strong><br><em>至此，Activity栈中只有A。在Android中，有两个按键在影响Activity生命周期这块需要格外区分下，即Back键和Home键。我们先直接看下实验结果：</em><br>此时如果按下Back键，系统返回到桌面，并依次执行<strong>A:onPause -&gt; A:onStop -&gt; A:onDestroy。</strong><br>此时如果按下Home键（非长按），系统返回到桌面，并依次执行<strong>A:onPause -&gt; A:onStop。</strong>由此可见，Back键和Home键主要区别在于是否会执行onDestroy。</p>
+</li>
+<li><h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>不少应用程序都是采取如Home键的效果，当点击了Back键，系统返回到桌面，然后点击应用程序图标，直接回到之前的Activity界面，这种效果是怎么实现的呢？<br>通过重写按下Back键的回调函数，转成Home键的效果即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void onBackPressed() &#123;</div><div class="line">		Intent home = new Intent(Intent.ACTION_MAIN);</div><div class="line">		home.addCategory(Intent.CATEGORY_HOME);</div><div class="line">		startActivity(home);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当然，此种方式通过Home键效果强行影响到Back键对Activity生命周期的影响。注意，此方法只是针对按Back键需要退回到桌面时的Activity且达到Home效果才重写。<br>或者，为达到此类效果，Activity实际上提供了直接的方法。<br><code>activity.moveTaskToBack(true);</code><br>moveTaskToBack()此方法直接将当前Activity所在的Task移到后台，同时保留activity顺序和状态。</p>
+<h1 id="Activity跳转（Intent）。"><a href="#Activity跳转（Intent）。" class="headerlink" title="Activity跳转（Intent）。"></a>Activity跳转（Intent）。</h1><ul>
+<li><h2 id="startActivity-。"><a href="#startActivity-。" class="headerlink" title="startActivity()。"></a>startActivity()。</h2>Intent的两种用法：显示Intent和隐式Intent。<br>（1）显示Intent一般使用方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent=newIntent(FirstActivity.this,SecondActivity.class);  </div><div class="line">startActivity(intent);  </div><div class="line">//简单的两行就能实现第一个活动跳转到第二个活动界面。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>（2）隐式Intent一般使用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!--首先需要在注册第二个活动时加入标签--&gt;</div><div class="line">&lt;!-- 必须指定CATEGORY_DEFAULT，只有这样startActivity(intent)才能找到 --&gt;  </div><div class="line">&lt;!--注意 Intent Filter顾名思义就是Intent的过滤器，组件通过定义Intent Filter可以决定哪些隐式 --&gt;  </div><div class="line">&lt;activity android:name=”.SecondAcivity”&gt;  </div><div class="line">&lt;intent-filter&gt;  </div><div class="line">&lt;action android:name=”包名.ACTION_START”/&gt;  </div><div class="line">&lt;category android:name=”android.intent.category.DEFAULT”/&gt;   </div><div class="line">&lt;/intent-filter&gt;  </div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
+<p>这样我们就可以用声明的标签来启动隐式Intent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent=new Intent(“包名.ACTION_START”);  </div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>（3）两者的使用区别<br> <strong>显式意图</strong>一般在应用的<strong>内部使用</strong>，因为在应用内部已经知道了组件的名称，直接调用就可以了。当一个应用要激活另一个应用中的Activity时，只能使用隐式意图，根据Activity配置的意图过滤器建一个意图，让意图中的各项参数的值都跟过滤器匹配，这样就可以激活其他应用中的Activity。所以，<strong>隐式意图是在应用与应用之间使用的。</strong></p>
+<ul>
+<li><h2 id="系统意图"><a href="#系统意图" class="headerlink" title="系统意图"></a>系统意图</h2>Intent可以指定你希望启动或描述完成的动作（操作系统会为你选择合适的Activity，可能来自定不同的应用程序）。<br>你的应用程序或许希望执行一些动作，例如发送一份邮件、文件消息或者状态更新，使用你的Activity的数据。在这种情况下，你的应用程序或许没有它自己的Activity来完成这个动作，因此你可以促使设备上其它应用程序提供的Activity来完成你的动作。这才是Intent真正有价值的地方－－你可以创建一个Intent描述一个你希望执行的动作，然后系统启动一个合适的activity从其它应用程序。如果有多种Activities可以处理这个Intent，那么 用户可以选择哪一个来执行。例如，如果你希望允许用户发送邮件，你可以创建下面的Intent:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent= new Intent(Intent.ACTION_SEND);</div><div class="line">				intent.putExtra(Intent.EXTRA_EMAIL,&quot;&quot;);</div><div class="line">				startActivity(intent);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>（常用意图见文章末尾附录。）</em></p>
+<ul>
+<li><h2 id="数据通信"><a href="#数据通信" class="headerlink" title="数据通信"></a>数据通信</h2>一个Intent可以传输小量数据被启动的activity使用。<br>在启动活动时，Intent中提供了一系列putExtra()方法的重载，可以将我们需要传递的数据暂存在Intent中，在打开另一个活动时，从Intent中取出即可。<br>具体例子：<br>（1）比如我们想要传递一个String字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String data=”Hello world!”;  </div><div class="line">Intent intent=newIntent(FirstActivity.this,SecondActivity.class);  </div><div class="line">Intent.putExtra(“extra_data”,data);</div><div class="line">//extra_data是一个标签，data是传入的数据。 </div><div class="line">//相当于Intent对象具有Map键值对功能。</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>然后在SecondActivity的Oncreate方法里取出Intent存入的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent=getIntent();  </div><div class="line">String data=intent.getStringExtra(“extra_data”);</div><div class="line">//用String接收带extra_data标签的数据  </div><div class="line">Log.d(“SecondActivity”,data);//打印出data</div></pre></td></tr></table></figure></p>
+<p>（2）新建一个Bundle对象 ，想该对象中加入键值对，然后将该对象加入Intent中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Intent intent=new Intent();</div><div class="line">Bundle bundle = new Bundle();  </div><div class="line">bundle.putString(&quot;first&quot;, &quot;zhang&quot;);  </div><div class="line">bundle.putInt(&quot;age&quot;, 20);  </div><div class="line">intent.putExtras(bundle);  </div><div class="line">intent.setClass(ActivityMain.this, SecondActivity.class);</div><div class="line">intent.putExtras(bundle);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>然后在第二个Activity中接收<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> Bundle bundle = new Bundle();</div><div class="line"> bundle = this.getIntent().getExtras();</div><div class="line">String a = bundle.getString(&quot;first&quot;);</div><div class="line">int b = Integer.parseInt(bundle.getString(&quot;age&quot;));</div></pre></td></tr></table></figure></p>
+<p>（3）Intent传递Object对象</p>
+<p> Android中Intent传递类对象提供了两种方式一种是 通过实现<strong>Serializable接口</strong>传递对象，一种是通过实现<strong>Parcelable接口</strong>传递对象。要求被传递的对象必须实现上述2种接口中的一种才能通过Intent直接传递。Intent中传递这2种对象的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Bundle.putSerializable(Key,Object);  //实现Serializable接口的对象</div><div class="line">Bundle.putParcelable(Key, Object); //实现Parcelable接口的对象</div></pre></td></tr></table></figure></p>
+<p>以下以最常用的Serializable方式为例 ：</p>
+<pre><code>假设由登录界面（Login）跳转到主界面（MainActivity）传递的对象为登录的用户信息 User类
+
+首先创建一个序列化类：User
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">		import java.io.Serializable;</div><div class="line">		public class User implements Serializable &#123;</div><div class="line">		private int ID;</div><div class="line">		private String UserName;    </div><div class="line">		private String PWD;    </div><div class="line">		public final void setID(int value)</div><div class="line">		&#123;</div><div class="line">				ID = value;</div><div class="line">		&#125;</div><div class="line">		public final int getID()</div><div class="line">		&#123;</div><div class="line">				return ID;</div><div class="line">		&#125;    </div><div class="line">		public final void setUserName(String value)</div><div class="line">		&#123;</div><div class="line">				UserName = value;</div><div class="line">		&#125;</div><div class="line">		public final String getUserName()</div><div class="line">		&#123;</div><div class="line">				return UserName;</div><div class="line">		&#125;  </div><div class="line">		public final void setPWD(String value)</div><div class="line">		&#123;</div><div class="line">				PWD = value;</div><div class="line">		&#125;</div><div class="line">		public final String getPWD()</div><div class="line">		&#123;</div><div class="line">				return PWD;</div><div class="line">		&#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>MainActivity传递内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">intent.setClass(MainActivity.this, SecondActivity.class);</div><div class="line">Bundle bundle = new Bundle();</div><div class="line">bundle.putSerializable(&quot;user&quot;, user);</div><div class="line">intent.putExtras(bundle);</div><div class="line">this.startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>SecondActivity接收<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = this.getIntent(); </div><div class="line">user=(User)intent.getSerializableExtra(&quot;user&quot;);</div></pre></td></tr></table></figure></p>
+<p>以上就可以实现对象的传递。<br>补充：<br>如果传递的是List<object>,可以把list强转成Serializable类型,而且object类型也必须实现了Serializable接口<br> <code>Intent.putExtras(key, (Serializable)list)</code><br>接收<br><code>(List&lt;YourObject&gt;)getIntent().getSerializable(key)</code></object></p>
+<pre><code>【补充】
+parcelable和Serializable的区别又是什么呢？
+</code></pre><p><strong>Serializable</strong>的作用是保存对象的属性到本地文件，数据库，网络流等方便数据传输，也可程序之间传递。</p>
+<pre><code>**parcelable**的设计的目的是为了解决Serializable效率不高的问题，内存开销小，所以在内存间传递数据的方式用parcelable，缺点是不能持久化。
+</code></pre><ul>
+<li><h2 id="startActivityForResult"><a href="#startActivityForResult" class="headerlink" title="startActivityForResult()"></a>startActivityForResult()</h2>Activity退出时返回结果至前一个Activity<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//  1.通过startActivityForResult方式启动一个新Activity </div><div class="line">Intent intent=newIntent(FirstActivity,this,SecondActivity.class);   </div><div class="line">startActivityForResult(intent, 200);  </div><div class="line">//参数为intent对象， requestCode请求码</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  2.新Activity设定setResult方法，通过该方法可以传递responseCode 和 Intent对象  </div><div class="line">Intent intent=new Intent();  </div><div class="line">//Intent中也可以传递Bundle</div><div class="line">Intent.putExtra(“data_return”,”Helloworld!”);  </div><div class="line">setResult(101,intent);  </div><div class="line"> //参数为responseCode响应码 和 intent对象  </div><div class="line">finish();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//  3.在MainActivity中覆写onActivityResult方法，新Activity一旦退出，就会执行该方法  </div><div class="line">protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123; </div><div class="line">super.onActivityResult(requestCode, resultCode, data);</div><div class="line">				//如果请求标识与返回标识一样,则把数据返回到tv上</div><div class="line">				if (requestCode == 200 &amp; resultCode ==101) &#123;</div><div class="line">						String s = data.getStringExtra(&quot;data_return&quot;);</div><div class="line">						tv.setText(s);</div><div class="line">				&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="启动模式。"><a href="#启动模式。" class="headerlink" title="启动模式。"></a>启动模式。</h1><ul>
+<li><h2 id="4种启动模式"><a href="#4种启动模式" class="headerlink" title="4种启动模式"></a>4种启动模式</h2></li>
+</ul>
+<blockquote>
+<p><strong>standard（标准模式）：</strong>每当启动一个新活动，它都会进入返回栈并位于栈顶的位置，这种模式下，系统不会在乎这个活动是否已经存在于返回栈中，每次启动都会创建并都放在栈顶。</p>
+<p><strong>singleTop（栈顶复用）：</strong>在启动活动时如果发现栈中该活动已经位于栈顶，则重用该实例( 会调用实例的onNewIntent() )而不会创建新的实例。若不在栈顶，则会创建新的实例。</p>
+<p><strong>singleTask（栈内复用）：</strong>启动活动时如果发现栈中已经存在该活动，则重用该实例(会调用实例的 onNewIntent() )，并且将位于它之上的活动统统出栈，如果没有发现就会新建一个实例。</p>
+<p><strong>singleIntance（单例模式）：</strong>会有一个单独的返回栈来管理这个活动，而且栈中只有此活动，不管是任何一个程序来访问这个活动，都共用这个返回栈，也就解决了共享活动的问题。</p>
+<p>######设置方法：在AndroidMainifest.xml文件中activity标签name之下加入声明：Android:launchMode=” standard、singleTop、singleTask、singleInstance(四选一)”这样就可以配置活动的启动模式了。</p>
+</blockquote>
+<ul>
+<li><h2 id="详解standard"><a href="#详解standard" class="headerlink" title="详解standard"></a>详解standard</h2>standard模式是默认的启动模式，不用为<activity>配置android:launchMode属性即可，当然也可以指定值为standard。<br>我们将会一个Activity，命名为FirstActivity，来演示一下标准的启动模式。FirstActivity代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public void onCreate(Bundle savedInstanceState) &#123;  </div><div class="line">				super.onCreate(savedInstanceState);  </div><div class="line">				setContentView(R.layout.first);  </div><div class="line">				TextView textView = (TextView) findViewById(R.id.textView);  </div><div class="line">				textView.setText(this.toString());  </div><div class="line">				Button button = (Button) findViewById(R.id.button);  </div><div class="line">				button.setOnClickListener(new View.OnClickListener() &#123;  </div><div class="line">						@Override  </div><div class="line">						public void onClick(View v) &#123;  </div><div class="line">								Intent intent = new Intent(FirstActivity.this, FirstActivity.class);  </div><div class="line">								startActivity(intent);  </div><div class="line">						&#125;  </div><div class="line">				&#125;);  </div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+</activity></li>
+</ul>
+<p>我们FirstActivity界面中的TextView用于显示当前Activity实例的序列号，Button用于跳转到下一个FirstActivity界面。<br>然后我们连续点击几次按钮，将会出现下面的现象<br><img src="http://upload-images.jianshu.io/upload_images/4821697-6b6f54199b70cbb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>我们注意到都是FirstActivity的实例，但序列号不同，并且我们需要连续按后退键两次，才能回到第一个FristActivity。standard模式的原理如下图所示<br><img src="http://upload-images.jianshu.io/upload_images/4821697-c316d617cee70767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转">如图所示，<strong>每次跳转系统都会在task中生成一个新的FirstActivity实例，并且放于栈结构的顶部，当我们按下后退键时，才能看到原来的FirstActivity实例。</strong><br>这就是standard启动模式，不管有没有已存在的实例，都生成新的实例。</p>
+<ul>
+<li><h2 id="详解singleTop"><a href="#详解singleTop" class="headerlink" title="详解singleTop"></a>详解singleTop</h2>我们在上面的基础上为<activity>指定属性android:launchMode=”singleTop”，系统就会按照singleTop启动模式处理跳转行为。我们重复上面几个动作，将会出现下面的现象：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-80b9ffa6240c3466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>我们看到这个结果跟standard有所不同，三个序列号是相同的，也就是说使用的都是同一个FirstActivity实例；如果按一下后退键，程序立即退出，说明当前栈结构中只有一个Activity实例。singleTop模式的原理如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-1ca377d77e50f2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>正如上图所示，跳转时系统会先在栈结构中寻找是否有一个FirstActivity实例正位于栈顶，如果有则不再生成新的，而是直接使用。也许朋友们会有疑问，我只看到栈内只有一个Activity，如果是多个Activity怎么办，如果不是在栈顶会如何？我们接下来再通过一个示例来证实一下大家的疑问。<br>我们再新建一个Activity命名为SecondActivity，如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;  </div><div class="line">			super.onCreate(savedInstanceState);  </div><div class="line">			setContentView(R.layout.second);  </div><div class="line">			TextView textView = (TextView) findViewById(R.id.textView);  </div><div class="line">			textView.setText(this.toString());  </div><div class="line">			Button button = (Button) findViewById(R.id.button);  </div><div class="line">			button.setOnClickListener(new View.OnClickListener() &#123;  </div><div class="line">					@Override  </div><div class="line">					public void onClick(View v) &#123;  </div><div class="line">							Intent intent = new Intent(SecondActivity.this, FirstActivity.class);  </div><div class="line">							startActivity(intent);                </div><div class="line">					&#125;  </div><div class="line">			&#125;);  </div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+</activity></li>
+</ul>
+<p>然后将之前的FirstActivity跳转代码改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent(FirstActivity.this, SecondActivity.class);  </div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>是的，FirstActivity会跳转到SecondActivity，SecondActivity又会跳转到FirstActivity。演示结果如下：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-eb8b909de24ed314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>我们看到，两个FirstActivity的序列号是不同的，证明从SecondActivity跳转到FirstActivity时生成了新的FirstActivity实例。原理图如下：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-4502b2941605c4bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>我们看到，<strong>当从SecondActivity跳转到FirstActivity时，系统发现存在有FirstActivity实例,但不是位于栈顶，于是重新生成一个实例。<br>这就是singleTop启动模式，如果发现有对应的Activity实例正位于栈顶，则重复利用，不再生成新的实例。</strong></p>
+<ul>
+<li><h2 id="详解singleTask"><a href="#详解singleTask" class="headerlink" title="详解singleTask"></a>详解singleTask</h2><p>在上面的基础上我们修改FirstActivity的属性android:launchMode=”singleTask”。演示的结果如下：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-321feaa2137b2fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>我们注意到，在上面的过程中，FirstActivity的序列号是不变的，SecondActivity的序列号却不是唯一的，说明从SecondActivity跳转到FirstActivity时，没有生成新的实例，但是从FirstActivity跳转到SecondActivity时生成了新的实例。singleTask模式的原理图如下图所示：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-44226b927c4e424c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>在图中的下半部分是SecondActivity跳转到FirstActivity后的栈结构变化的结果，我们注意到，<strong>SecondActivity消失了</strong>，没错，在这个跳转过程中系统发现有存在的FirstActivity实例，<strong>于是不再生成新的实例，而是将FirstActivity之上的Activity实例统统出栈，将FirstActivity变为栈顶对象，显示到幕前。</strong>也许朋友们有疑问，如果将SecondActivity也设置为singleTask模式，那么SecondActivity实例是不是可以唯一呢？在我们这个示例中是不可能的，因为每次从SecondActivity跳转到FirstActivity时，SecondActivity实例都被迫出栈，下次等FirstActivity跳转到SecondActivity时，找不到存在的SecondActivity实例，于是必须生成新的实例。但是如果我们有ThirdActivity，让SecondActivity和ThirdActivity互相跳转，那么SecondActivity实例就可以保证唯一。<br>这就是singleTask模式，如果发现有对应的Activity实例，则使此Activity实例之上的其他Activity实例统统出栈，使此Activity实例成为栈顶对象，显示到幕前。</p>
+</li>
+<li><h2 id="详解singleInstance"><a href="#详解singleInstance" class="headerlink" title="详解singleInstance"></a>详解singleInstance</h2><p>这种启动模式比较特殊，因为它会启用一个新的栈结构，将Acitvity放置于这个新的栈结构中，并保证不再有其他Activity实例进入。<br>我们修改FirstActivity的launchMode=”standard”，SecondActivity的launchMode=”singleInstance”，由于涉及到了多个栈结构，我们需要在每个Activity中显示当前栈结构的id，所以我们为每个Activity添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">TextView taskIdView = (TextView) findViewById(R.id.taskIdView);  </div><div class="line">taskIdView.setText(&quot;current task id: &quot; + this.getTaskId());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>然后我们再演示一下这个流程：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-4e37e0d6bc2e4353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>我们发现这两个Activity实例分别被放置在不同的栈结构中，关于singleInstance的原理图如下：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-65354e8b4fb44d9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>我们看到从FirstActivity跳转到SecondActivity时，重新启用了一个新的栈结构，来放置SecondActivity实例，然后按下后退键，再次回到原始栈结构；图中下半部分显示的在SecondActivity中再次跳转到FirstActivity，这个时候系统会在原始栈结构中生成一个FirstActivity实例，然后回退两次，注意，并没有退出，而是回到了SecondActivity，为什么呢？是因为从SecondActivity跳转到FirstActivity的时候，我们的起点变成了SecondActivity实例所在的栈结构，这样一来，我们需要“回归”到这个栈结构。<br>如果我们修改FirstActivity的launchMode值为singleTop、singleTask、singleInstance中的任意一个，流程将会如图所示：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-8322215770724b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"><br>singleInstance启动模式可能是最复杂的一种模式，为了帮助大家理解，我举一个例子，假如我们有一个share应用，其中的ShareActivity是入口Activity，也是可供其他应用调用的Activity，我们把这个Activity的启动模式设置为singleInstance，然后在其他应用中调用。我们编辑ShareActivity的配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;activity android:name=&quot;.ShareActivity&quot; android:launchMode=&quot;singleInstance&quot;&gt;  </div><div class="line">		&lt;intent-filter&gt;  </div><div class="line">				&lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;  </div><div class="line">				&lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;  </div><div class="line">		&lt;/intent-filter&gt;  </div><div class="line">		&lt;intent-filter&gt;  </div><div class="line">				&lt;action android:name=&quot;android.intent.action.SINGLE_INSTANCE_SHARE&quot; /&gt;  </div><div class="line">				&lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;  </div><div class="line">		&lt;/intent-filter&gt;  </div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
+<p>然后我们在其他应用中这样启动该Activity：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent(&quot;android.intent.action.SINGLE_INSTANCE_SHARE&quot;);  </div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>当我们打开ShareActivity后再按后退键回到原来界面时，ShareActivity做为一个独立的个体存在，如果这时我们打开share应用，无需创建新的ShareActivity实例即可看到结果，因为系统会自动查找，存在则直接利用。大家可以在ShareActivity中打印一下taskId，看看效果。关于这个过程，原理图如下：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-11e34c535c48204d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="跳转"></p>
+<ul>
+<li><h2 id="启动模式应用场景"><a href="#启动模式应用场景" class="headerlink" title="启动模式应用场景"></a>启动模式应用场景</h2></li>
+</ul>
+<blockquote>
+<p><strong>singleTop</strong>适合<strong>接收通知启动的内容显示页面</strong>。例如，某个新闻客户端的新闻内容页面，如果收到10个新闻推送，每次都打开一个新闻内容页面是很烦人的。所以要从外界尽可能多的跳转到一个界面。</p>
+<p><strong>singleTask</strong>适合作为程序入口点。例如<strong>浏览器的主界面、联系人activity</strong>。不管从多少个应用启动浏览器，只会启动主界面一次，其余情况都会走onNewIntent，并且会清空主界面上面的其他页面。</p>
+<p><strong>singleInstance</strong>适合需要与程序分离开的页面。这种模式的使用情况比较罕见，例如<strong>闹铃提醒</strong>，将闹铃提醒与闹铃设置分离。<strong>呼叫来电界面。</strong><br><em>singleInstance不要用于中间页面，如果用于中间页面，跳转会有问题，比如：A -&gt; B (singleInstance) -&gt; C，完全退出后，再次启动，首先打开的是B。</em></p>
+</blockquote>
+<ul>
+<li><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>LauncherMode 分为两组：<br><strong>第一组standard和SingleTop是一组用的比较多，他们二个唯一的区别就是SingleTop如果在当前Task的顶部，同时在startActivity()这个Activity的时候就不会再创建新的实例，而是执行该实例的onNewIntent()方法，其他情况下的用法是一样的；</strong><br><strong>第二组SingleTask和SingleIntance这一组用的比较少，要结合特定情况来使用，这一组的使用区别是比较大的，在我们开发APP的过程中要合理的使用Activity的启动模式来使我们的APP更加的快捷，流畅，提高用户体验。如果有写的不好的还忘指点。</strong></li>
+</ul>
+<h1 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h1><ul>
+<li><h2 id="Activity中finish-onDestroy-和System-exit-的区别"><a href="#Activity中finish-onDestroy-和System-exit-的区别" class="headerlink" title="Activity中finish() onDestroy() 和System.exit()的区别"></a>Activity中finish() onDestroy() 和System.exit()的区别</h2></li>
+</ul>
+<blockquote>
+<p><strong>Activity.finish()</strong><br>Call this when your activity is done and should be closed.<br>在你的activity动作完成的时候，或者Activity需要关闭的时候，调用此方法。当你调用此方法的时候，<em>系统只是将最上面的Activity移出了栈，并没有及时的调用onDestory()方法</em>，<strong>其占用的资源也没有被及时释放。</strong>因为移出了栈，所以当你点击手机上面的“back”按键的时候，也不会再找到这个Activity。</p>
+<p><strong>Activity.onDestory()</strong><br>the system is temporarily destroying this instance of the activity to save space.<br>系统销毁了这个Activity的实例在内存中占据的空间。<br>在Activity的生命周期中，onDestory()方法是他生命的最后一步，资源空间等就被回收了。当重新进入此Activity的时候，必须重新创建，执行onCreate()方法。</p>
+<p><strong>System.exit(0)</strong><br>这玩意是退出整个应用程序的，是针对整个Application的。将整个进程直接KO掉。</p>
+<p><strong>finish函数仅仅把当前Activity退出了，但是并没有释放他的资源。安卓系统自己决定何时从内存中释放应用程序。当系统没有可用内存到时候，会按照优先级，释放部分应用。</strong></p>
+</blockquote>
+<ul>
+<li><h2 id="AppCompatActivity、ActionBarActivity、FragmentActivity和Activity的区别"><a href="#AppCompatActivity、ActionBarActivity、FragmentActivity和Activity的区别" class="headerlink" title="AppCompatActivity、ActionBarActivity、FragmentActivity和Activity的区别"></a>AppCompatActivity、ActionBarActivity、FragmentActivity和Activity的区别</h2></li>
+</ul>
+<blockquote>
+<p>support v4 FragmentActivity  兼容2.x模式下使用Fragment<br>support v7 AppCompatActivity 兼容2.x模式下使用Fragment和ActionBar，ActionBarActivity是AppCompatActivity过时产品<br>如果3.0以上直接继承Activity，便可使用Fragment和ActionBar</p>
+</blockquote>
+<ul>
+<li><h2 id="资源内存不足导致低优先级Activity被杀死"><a href="#资源内存不足导致低优先级Activity被杀死" class="headerlink" title="资源内存不足导致低优先级Activity被杀死"></a>资源内存不足导致低优先级Activity被杀死</h2></li>
+</ul>
+<blockquote>
+<p>Activity优先级<br>前台Activity——正在和用户交互的Activity，优先级最高<br>可见但非前台Activity——Activity中弹出的对话框导致Activity可见但无法交互<br>后台Activity——已经被暂停的Activity，优先级最低<br>系统内存不足是，会按照以上顺序杀死Activity，并通过onSaveInstanceState和onRestoreInstanceState这两个方法来存储和恢复数据。</p>
+</blockquote>
+<ul>
+<li><h2 id="ActivityManager–获得正在运行的activity、service、进程、最近运行的应用。"><a href="#ActivityManager–获得正在运行的activity、service、进程、最近运行的应用。" class="headerlink" title="ActivityManager–获得正在运行的activity、service、进程、最近运行的应用。"></a>ActivityManager–获得正在运行的activity、service、进程、最近运行的应用。</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">ActivityManager mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE) ;    </div><div class="line">//获得系统运行的进程  </div><div class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; appList1 = mActivityManager  </div><div class="line">				.getRunningAppProcesses();  </div><div class="line">for (RunningAppProcessInfo running : appList1) &#123;  </div><div class="line">		System.out.println(running.processName);  </div><div class="line">&#125;  </div><div class="line">System.out.println(&quot;================&quot;);  </div><div class="line">//获得当前正在运行的service  </div><div class="line">List&lt;ActivityManager.RunningServiceInfo&gt; appList2 = mActivityManager  </div><div class="line">				.getRunningServices(100);  </div><div class="line">for (ActivityManager.RunningServiceInfo running : appList2) &#123;  </div><div class="line">		System.out.println(running.service.getClassName());  </div><div class="line">&#125;  </div><div class="line">System.out.println(&quot;================&quot;);  </div><div class="line">//获得当前正在运行的activity  </div><div class="line">List&lt;ActivityManager.RunningTaskInfo&gt; appList3 = mActivityManager  </div><div class="line">				.getRunningTasks(1000);  </div><div class="line">for (ActivityManager.RunningTaskInfo running : appList3) &#123;  </div><div class="line">		System.out.println(running.baseActivity.getClassName());  </div><div class="line">&#125;  </div><div class="line">System.out.println(&quot;================&quot;);  </div><div class="line">//获得最近运行的应用  </div><div class="line">List&lt;ActivityManager.RecentTaskInfo&gt; appList4 = mActivityManager  </div><div class="line">				.getRecentTasks(100, 1);  </div><div class="line">for (ActivityManager.RecentTaskInfo running : appList4) &#123;  </div><div class="line">		System.out.println(running.origActivity.getClassName());  </div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<h1 id="【附录】"><a href="#【附录】" class="headerlink" title="【附录】"></a>【附录】</h1><ul>
+<li>常用Intent意图表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line">(1).调用拨号程序</div><div class="line">Uri uri = Uri.parse(&quot;tel:10086&quot;); </div><div class="line">Intent intent = new Intent(Intent.ACTION_DIAL, uri); </div><div class="line">startActivity(intent); </div><div class="line">(2).发送短信或者彩信</div><div class="line">//发生短信</div><div class="line">Uri uri = Uri.parse(&quot;smsto:10086&quot;); </div><div class="line">Intent intent = new Intent(Intent.ACTION_SENDTO, uri); </div><div class="line">intent.putExtra(&quot;sms_body&quot;, &quot;Hello&quot;); </div><div class="line">startActivity(intent); </div><div class="line">//发送彩信，相当于发送带附件的短信</div><div class="line">Intent intent = new Intent(Intent.ACTION_SEND); </div><div class="line">intent.putExtra(&quot;sms_body&quot;, &quot;Hello&quot;); </div><div class="line">Uri uri = Uri.parse(&quot;content://media/external/images/media/23&quot;); </div><div class="line">intent.putExtra(Intent.EXTRA_STREAM, uri); </div><div class="line">intent.setType(&quot;image/png&quot;); </div><div class="line">startActivity(intent); </div><div class="line">(3).通过浏览器打开网页</div><div class="line">Uri uri = Uri.parse(&quot;http://www.google.com&quot;); </div><div class="line">Intent intent  = new Intent(Intent.ACTION_VIEW, uri); </div><div class="line">startActivity(intent);</div><div class="line">(4).发送电子邮件</div><div class="line">Uri uri = Uri.parse(&quot;mailto:someone@domain.com&quot;); </div><div class="line">Intent intent = new Intent(Intent.ACTION_SENDTO, uri); </div><div class="line">startActivity(intent); </div><div class="line">//给someone@domain.com发邮件发送内容为“Hello”的邮件 </div><div class="line">Intent intent = new Intent(Intent.ACTION_SEND); </div><div class="line">intent.putExtra(Intent.EXTRA_EMAIL, &quot;someone@domain.com&quot;); </div><div class="line">intent.putExtra(Intent.EXTRA_SUBJECT, &quot;Subject&quot;); </div><div class="line">intent.putExtra(Intent.EXTRA_TEXT, &quot;Hello&quot;); </div><div class="line">intent.setType(&quot;text/plain&quot;); </div><div class="line">startActivity(intent); </div><div class="line">// 给多人发邮件 </div><div class="line">Intent intent=new Intent(Intent.ACTION_SEND); </div><div class="line">String[] tos = &#123;&quot;1@abc.com&quot;, &quot;2@abc.com&quot;&#125;; // 收件人 </div><div class="line">String[] ccs = &#123;&quot;3@abc.com&quot;, &quot;4@abc.com&quot;&#125;; // 抄送 </div><div class="line">String[] bccs = &#123;&quot;5@abc.com&quot;, &quot;6@abc.com&quot;&#125;; // 密送 </div><div class="line">intent.putExtra(Intent.EXTRA_EMAIL, tos); </div><div class="line">intent.putExtra(Intent.EXTRA_CC, ccs); </div><div class="line">intent.putExtra(Intent.EXTRA_BCC, bccs); </div><div class="line">intent.putExtra(Intent.EXTRA_SUBJECT, &quot;Subject&quot;); </div><div class="line">intent.putExtra(Intent.EXTRA_TEXT, &quot;Hello&quot;); </div><div class="line">intent.setType(&quot;message/rfc822&quot;); </div><div class="line">startActivity(intent); </div><div class="line">(5).显示地图与路径规划</div><div class="line">// 打开Google地图中国北京位置（北纬39.9，东经116.3） </div><div class="line">Uri uri = Uri.parse(&quot;geo:39.9,116.3&quot;); </div><div class="line">Intent intent = new Intent(Intent.ACTION_VIEW, uri); </div><div class="line">startActivity(intent); </div><div class="line">// 路径规划：从北京某地（北纬39.9，东经116.3）到上海某地（北纬31.2，东经121.4） </div><div class="line">Uri uri = Uri.parse(&quot;http://maps.google.com/maps?f=d&amp;saddr=39.9 116.3&amp;daddr=31.2 121.4&quot;); </div><div class="line">Intent intent = new Intent(Intent.ACTION_VIEW, uri); </div><div class="line">startActivity(intent); </div><div class="line">(6).播放多媒体</div><div class="line">Intent intent = new Intent(Intent.ACTION_VIEW); </div><div class="line">Uri uri = Uri.parse(&quot;file:///sdcard/foo.mp3&quot;); </div><div class="line">intent.setDataAndType(uri, &quot;audio/mp3&quot;); </div><div class="line">startActivity(intent); </div><div class="line">Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL_CONTENT_URI, &quot;1&quot;); </div><div class="line">Intent intent = new Intent(Intent.ACTION_VIEW, uri); </div><div class="line">startActivity(intent); </div><div class="line">(7).拍照</div><div class="line">// 打开拍照程序 </div><div class="line">Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);  </div><div class="line">startActivityForResult(intent, 0); </div><div class="line">// 取出照片数据 </div><div class="line">Bundle extras = intent.getExtras();  </div><div class="line">Bitmap bitmap = (Bitmap) extras.get(&quot;data&quot;); </div><div class="line">(8).获取并剪切图片</div><div class="line">// 获取并剪切图片 </div><div class="line">Intent intent = new Intent(Intent.ACTION_GET_CONTENT); </div><div class="line">intent.setType(&quot;image/*&quot;); </div><div class="line">intent.putExtra(&quot;crop&quot;, &quot;true&quot;); // 开启剪切 </div><div class="line">intent.putExtra(&quot;aspectX&quot;, 1); // 剪切的宽高比为1：2 </div><div class="line">intent.putExtra(&quot;aspectY&quot;, 2); </div><div class="line">intent.putExtra(&quot;outputX&quot;, 20); // 保存图片的宽和高 </div><div class="line">intent.putExtra(&quot;outputY&quot;, 40);  </div><div class="line">intent.putExtra(&quot;output&quot;, Uri.fromFile(new File(&quot;/mnt/sdcard/temp&quot;))); // 保存路径 </div><div class="line">intent.putExtra(&quot;outputFormat&quot;, &quot;JPEG&quot;);// 返回格式 </div><div class="line">startActivityForResult(intent, 0); </div><div class="line">// 剪切特定图片 </div><div class="line">Intent intent = new Intent(&quot;com.android.camera.action.CROP&quot;);  </div><div class="line">intent.setClassName(&quot;com.android.camera&quot;, &quot;com.android.camera.CropImage&quot;);  </div><div class="line">intent.setData(Uri.fromFile(new File(&quot;/mnt/sdcard/temp&quot;)));  </div><div class="line">intent.putExtra(&quot;outputX&quot;, 1); // 剪切的宽高比为1：2 </div><div class="line">intent.putExtra(&quot;outputY&quot;, 2); </div><div class="line">intent.putExtra(&quot;aspectX&quot;, 20); // 保存图片的宽和高 </div><div class="line">intent.putExtra(&quot;aspectY&quot;, 40); </div><div class="line">intent.putExtra(&quot;scale&quot;, true); </div><div class="line">intent.putExtra(&quot;noFaceDetection&quot;, true);  </div><div class="line">intent.putExtra(&quot;output&quot;, Uri.parse(&quot;file:///mnt/sdcard/temp&quot;));  </div><div class="line">startActivityForResult(intent, 0); </div><div class="line">(9).打开Google Market</div><div class="line">// 打开Google Market直接进入该程序的详细页面 </div><div class="line">Uri uri = Uri.parse(&quot;market://details?id=&quot; + &quot;com.demo.app&quot;); </div><div class="line">Intent intent = new Intent(Intent.ACTION_VIEW, uri); </div><div class="line">startActivity(intent); </div><div class="line">(10).安装和卸载程序</div><div class="line">Uri uri = Uri.fromParts(&quot;package&quot;, &quot;com.demo.app&quot;, null);   </div><div class="line">Intent intent = new Intent(Intent.ACTION_DELETE, uri);   </div><div class="line">startActivity(intent); </div><div class="line">(11).进入设置界面</div><div class="line">// 进入无线网络设置界面（其它可以举一反三）   </div><div class="line">Intent intent = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);</div><div class="line">startActivityForResult(intent, 0);</div></pre></td></tr></table></figure>
+<p>整理作者：<a href="http://woobo.me" target="_blank" rel="external">汪博</a><br>少壮不努力，老大徒悲伤。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/24/Android实习生 —— 四大组件之Activity/" data-id="cj1w2ybfb0001aucgksmtjrt2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/first/">first</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/24/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/24/Android实习生 —— 四大组件之Activity/">Android实习生 —— 四大组件之Activity</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
