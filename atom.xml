@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jaykuzzi.github.io/"/>
-  <updated>2017-06-26T08:58:23.000Z</updated>
+  <updated>2017-06-26T11:53:53.000Z</updated>
   <id>https://jaykuzzi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://jaykuzzi.github.io/2016/06/26/Service/"/>
     <id>https://jaykuzzi.github.io/2016/06/26/Service/</id>
     <published>2016-06-26T08:28:56.000Z</published>
-    <updated>2017-06-26T08:58:23.000Z</updated>
+    <updated>2017-06-26T11:53:53.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/06/26/Service/service.png" alt=""><br><a id="more"></a></p>
 <h1 id="基础回顾"><a href="#基础回顾" class="headerlink" title="基础回顾"></a><center>基础回顾</center></h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Service是可以在<strong>后台执行长时间（长生命周期）</strong>而又<strong>不与用户产生UI交互（没有用户界面）</strong>的操作。</p>
@@ -145,7 +145,7 @@
     <link href="https://jaykuzzi.github.io/2016/04/24/Activity/"/>
     <id>https://jaykuzzi.github.io/2016/04/24/Activity/</id>
     <published>2016-04-24T07:35:36.000Z</published>
-    <updated>2017-06-26T09:02:11.000Z</updated>
+    <updated>2017-06-26T11:54:49.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/04/24/Activity/activity.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="基础知识回顾"><a href="#基础知识回顾" class="headerlink" title="基础知识回顾"></a><center>基础知识回顾</center></h1><h2 id="定义及功能"><a href="#定义及功能" class="headerlink" title="定义及功能"></a>定义及功能</h2><p>  一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。</p>
