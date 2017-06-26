@@ -112,7 +112,7 @@
 <meta property="og:title" content="Android实习生 —— 四大组件之Activity">
 <meta property="og:url" content="https://jaykuzzi.github.io/2016/04/24/Android实习生 —— 四大组件之Activity/index.html">
 <meta property="og:site_name" content="Woobo'Blog">
-<meta property="og:image" content="http://z.k1982.com/design_img/201410/201410142311521463.jpeg">
+<meta property="og:image" content="https://jaykuzzi.github.io/2016/04/24/Android实习生%20——%20四大组件之Activity/Service/activity.jpeg">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-b23eea06a1d111e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-6b6f54199b70cbb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-c316d617cee70767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -126,10 +126,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-65354e8b4fb44d9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-8322215770724b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-11e34c535c48204d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-26T03:56:52.000Z">
+<meta property="og:updated_time" content="2017-06-26T09:00:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android实习生 —— 四大组件之Activity">
-<meta name="twitter:image" content="http://z.k1982.com/design_img/201410/201410142311521463.jpeg">
+<meta name="twitter:image" content="https://jaykuzzi.github.io/2016/04/24/Android实习生%20——%20四大组件之Activity/Service/activity.jpeg">
 
 
 
@@ -461,7 +461,7 @@
       
 
       
-        <p><img src="http://z.k1982.com/design_img/201410/201410142311521463.jpeg" alt="img"><br><a id="more"></a></p>
+        <p><img src="/2016/04/24/Android实习生 —— 四大组件之Activity/Service/activity.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="基础知识回顾"><a href="#基础知识回顾" class="headerlink" title="基础知识回顾"></a><center>基础知识回顾</center></h1><h2 id="定义及功能"><a href="#定义及功能" class="headerlink" title="定义及功能"></a>定义及功能</h2><p>  一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。</p>
 <h2 id="启动和栈"><a href="#启动和栈" class="headerlink" title="启动和栈"></a>启动和栈</h2><p>  一个应用程序通常由多个activities组成，他们通常是松耦合关系。通常，一个应用程序中的activity被指定为”main”activity，当第一次启动应用程序的时候呈现给用户的那个activity。每一个activity然后可以启动另一个activity为了完成不同的动作。每一次一个activity启动，前一个activity就停止了，但是系统保留activity在一个栈上（“back stack”）。当一个新activity启动，它被推送到栈顶，取得用户焦点。Back Stack符合简单“后进先出”原则，所以，当用户完成当前activity然后点击back按钮，它被弹出栈（并且被摧毁），然后之前的activity恢复。</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>  基本用法：Activity的本质是一个Java类，如：由我们创建工程生成的MainActivity；一般的每个Activity都会存在一个与它匹配的布局文件（xml文件），由它来写入我们需要Activity展示的各种控件和布局。有了布局文件之后，就需要在类里通过OnCreate方法的setContentView方法调用文件资源ID来初始化UI界面和显示。</p>
