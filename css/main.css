@@ -1799,7 +1799,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2bed;
+  background: #f2ffda;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2648,5 +2648,5 @@ embed {
 }
 .brand {
   background: #000;
-  border-radius: 15px 5px 25px;
+  border-radius: 15px 5px;
 }
