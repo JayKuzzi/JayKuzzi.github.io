@@ -1,100 +1,467 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Woobo&#39;Blog</title>
-  
-  <link href="/atom.xml" rel="self"/>
-  
-  <link href="https://jaykuzzi.github.io/"/>
-  <updated>2017-06-26T03:28:39.000Z</updated>
-  <id>https://jaykuzzi.github.io/</id>
-  
-  <author>
-    <name>汪博</name>
-    
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Android实习生 —— 四大组件之Broadcast Receiver</title>
-    <link href="https://jaykuzzi.github.io/2016/05/02/Android%E5%AE%9E%E4%B9%A0%E7%94%9F%20%E2%80%94%E2%80%94%20%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8BBroadcast%20Receiver/"/>
-    <id>https://jaykuzzi.github.io/2016/05/02/Android实习生 —— 四大组件之Broadcast Receiver/</id>
-    <published>2016-05-02T00:33:41.000Z</published>
-    <updated>2017-06-26T03:28:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/source/img/broadcast.jpg" alt="img"><br><a id="more"></a></p>
-<p>#前言</p>
-<ul>
-<li><p>#####基础知识。<br><strong>1.</strong>Android广播分为两个方面：广播发送者和广播接收者，通常情况下，BroadcastReceiver指的就是广播接收者（广播接收器）。<strong><em>广播可以跨进程甚至跨App直接通信。</em></strong></p>
-<p>  <strong>2.</strong>你的APP可以接收广播(如当电话呼入时，或者数据网络可用时)进行接收并做出响应。</p>
-<p>  <strong>3.</strong>广播接收器没有用户界面。然而，它们可以<strong>启动一个Activity或Service服务</strong>来响应它们收到的信息，或者<strong>用NotificationManager 来通知用户</strong>。通知可以用很多种方式来吸引用户的注意力──闪动背灯、震动、播放声音等。一般来说是在状态栏上放一个持久的图标，用户可以打开它并获取消息。</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li>#####实现流程。<br>Android中的广播将广播的发送者和接受者极大程度上解耦，使得系统能够方便集成，更易扩展。具体实现流程要点粗略概括如下：<br><strong>1.</strong>广播接收者BroadcastReceiver通过Binder机制向AMS(Activity Manager Service)进行注册；<br><strong>2.</strong>广播发送者通过Binder机制向AMS发送广播；<br><strong>3.</strong>AMS查找符合相应条件（IntentFilter/Permission等）的BroadcastReceiver，将广播发送到BroadcastReceiver（一般情况下是Activity）相应的消息循环队列中；<br><strong>4.</strong>消息循环执行拿到此广播，回调BroadcastReceiver中的onReceive()方法。<br><img src="http://upload-images.jianshu.io/upload_images/4821697-509a9631abac3f80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Activity Manager、NotificationManager位于安卓架构图Framework层"></li>
-</ul>
-<p>#一、广播定义及类型。<br>    <strong>广播定义：</strong>Android系统在运行的过程中，会产生很多系统广播，比如开机、电量改变、收发短信、拨打电话、屏幕解锁。当然我们也可以发送自定义普通或有序广播。</p>
-<hr>
-<p> <strong>广播类型：</strong><br><strong>1.普通广播：</strong>通过Context.sendBroadcast(Intent intent)发送，可以在同一时刻（逻辑上）被所有广播接收者无需等待的接收到。<br><strong>优点：</strong>消息传递的效率比较高。<br><strong>缺点：</strong>1.接收者不能修改该广播。2.无法终止广播Intent的传播，即无法阻止其他接收者的接收动作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent(&quot;One&quot;);</div><div class="line">intent.putExtra(&quot;msg&quot;, &quot;这是一条普通广播&quot;);</div><div class="line">sendBroadcast(intent);</div></pre></td></tr></table></figure></p>
-<pre><code>**2.有序广播：**通过Context.sendOrderedBroadcast(intent, receiverPermission)发送，是按照接收者声明的优先级别，被接收者依次接收广播。
-</code></pre><p><strong>优点：</strong>1、广播可以通过接收者调用abortBroadcast()方法截断广播（被截断的广播不能再继续传递该广播）。2、接收者能修改处理结果（比如通过传递Bundle）传递给下一个接收者（一般情况下，不建议对有序广播进行此类操作，尤其是针对系统中的有序广播）。<br><strong>缺点：</strong>消息传递的效率比普通广播低。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent2 = new Intent(&quot;Two&quot;);</div><div class="line">intent2.putExtra(&quot;msg&quot;, &quot;这是一条有序广播&quot;);</div><div class="line">sendOrderedBroadcast(intent2, null);</div></pre></td></tr></table></figure></p>
-<pre><code>**3.系统广播：**只要涉及到手机的基本操作，基本上都会发出相应的系统广播。如：开机启动，网络状态改变，拍照，屏幕关闭与开启，点亮不足等等。每个系统广播都具有特定的intent-filter，其中主要包括具体的action，系统广播发出后，将被相应的BroadcastReceiver接收。系统广播在系统内部当特定事件发生时，由系统自动发出。***详见文章末尾附录***
+<!doctype html>
 
-**4.异步广播：**通过mContext.sendStickyBroadcast(intent)发送，此广播会一直滞留（等待），以便有人注册这则广播消息后能尽快的收到这条广播。其他功能与sendBroadcast相同。但是使用sendStickyBroadcast 发送广播需要获得BROADCAST_STICKY permission，如果没有这个permission则会抛出异常。
-</code></pre><p><strong>优点：</strong>广播先发送，接收者后注册依然能收到广播。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent3 = new Intent(&quot;Three&quot;);</div><div class="line">intent3.putExtra(&quot;msg&quot;, &quot;这是一条异步广播&quot;);</div><div class="line">sendStickyBroadcast(intent3);</div></pre></td></tr></table></figure></p>
-<p>#二、广播接收者。</p>
-<ul>
-<li><strong>广播接收者定义：</strong>BroadcastReceiver也就是“广播接收者”的意思，顾名思义，它就是用来接收来自系统和应用中的广播，且可以做出相关操作。</li>
-</ul>
-<hr>
-<ul>
-<li>######实现方法：<br><strong>第一步：</strong>定义广播接收者，继承BroadcastReceiver，并重写onReceive()方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">public class MyReceiver01 extends BroadcastReceiver &#123;  </div><div class="line">		@Override public void onReceive(Contextcontext, Intentintent) &#123;  </div><div class="line">				//abortBroadcast();//接到的广播为有序的广播则可截断</div><div class="line">				String s = intent.getStringExtra(&quot;msg&quot;);</div><div class="line">	    System.out.println(&quot;MyReceiver01收到消息：&quot;+s);</div><div class="line">		&#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>【关于接收的广播类型的说明】</strong></p>
-<ul>
-<li><strong>接收的广播为普通广播：</strong><br>1、不可以在onReceive里面截断广播，否则会打印异常。<br>2、不可以处理广播。</li>
-<li><strong>接收的广播为有序广播：</strong><br>1、可以在onReceive里面通过abortBroadcast()截断广播，使广播不再传播。<br>2、可以在onReceive里面接收广播Intent携带的数据（String字符串、Bundle对象、或者实现Serializable接口、Parcelable接口的Object对象）。<br>3、可向低优先级接收者传递新的数据，如下代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//我是高优先级接收者</div><div class="line">@Override public void onReceive(Contextcontext, Intentintent) &#123;  </div><div class="line">				Bundle bundle = new Bundle();  </div><div class="line">				bundle.putString(&quot;next_receiver&quot;, &quot;下一个广播接收者&quot;);  </div><div class="line">				setResultExtras(bundle);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//我是低优先级接收者</div><div class="line">@Override  </div><div class="line">		public void onReceive(Context context, Intent intent) &#123;  </div><div class="line">				Bundle bundle = getResultExtras(true);  </div><div class="line">				String content = bundle.getString(&quot;next_receiver&quot;); </div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<pre><code>**第二步：**注册感兴趣的广播Intent，注册方法有两种：
-</code></pre><p><strong>1、动态注册</strong>（在onCreate代码中进行注册）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IntentFilter filter = new IntentFilter(&quot;感兴趣的广播名、例如上面发送的有序广播：Two&quot;);  </div><div class="line">MyReceiver01  receiver = new MyReceiver01();  </div><div class="line">intentfilter.setPriority(200);//设置优先级</div><div class="line">registerReceiver(receiver, filter);</div></pre></td></tr></table></figure></p>
-<p><strong>2、静态注册</strong>（在AndroidManifest.xml配置文件中注册）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!--prioritys设置优先级--&gt;</div><div class="line">&lt;receiver android:name=&quot;. MyReceiver01&quot;&gt;  </div><div class="line">	 &lt;intent-filter android:priority=&quot;100&quot;&gt;  </div><div class="line">				&lt;action android:name=&quot;感兴趣的广播名、例如上面发送的有序广播：Two&quot;/&gt;  </div><div class="line">	 &lt;/intent-filter&gt;  </div><div class="line">&lt;/receiver&gt;</div><div class="line">```  </div><div class="line">**【关于优先级别的说明】**</div><div class="line"> - ** 设置方法**（如上面注册代码所示）：</div><div class="line">**1.静态设置：**声明在静态注册的广播接收者的intent-filter元素的android:priority属性中。</div><div class="line">**2.动态设置：**调用IntentFilter对象的setPriority()进行声明。</div><div class="line"></div><div class="line">	- **特别说明**</div><div class="line"> **1.**静态注册时设置优先级。数越大优先级别越高,取值范围:-1000到1000。就会先接受到消息。</div><div class="line">**2.**动态注册优先级高于任何静态注册。</div><div class="line">**3.**如果动态注册和静态注册都有注册，则会执行两次onReceive。</div><div class="line">**4.**同级别的接收顺序是随机的。</div><div class="line"></div><div class="line">	**【关于动、静态注册方式特别说明】**</div><div class="line"> - **静态注册广播：**又叫常驻型广播，当你的应用程序关闭了，如果有广播信息来，你写的广播接收器同样的能接受到，他的注册方式就是在你的应用程序中的AndroidManifast.xml进行订阅的。</div><div class="line"></div><div class="line">	- **动态注册广播：**又叫非常驻型广播，当应用程序结束了，广播自然就没有了，比如你在Activity中的onCreate或者onResume中订阅广播，同时你必须在onDestory或者onPause中取消广播订阅。不然会报异常，这样你的广播接收器就一个非常驻型的了。</div></pre></td></tr></table></figure></p>
-<p>protected void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.activity_main);<br>        //动态注册BC2 接收者<br>        IntentFilter intentfilter = new IntentFilter(“One”);<br>        BC2 bc2 = new BC2();<br>        registerReceiver(bc2, intentfilter);<br>    }//必须在onDestory取消广播订阅<br>protected void onDestroy() {<br>        super.onDestroy();<br>        unregisterReceiver(bc2);<br>    }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> - **注意：**</div><div class="line">1、动态注册的时候使用的是隐式Intent方式，所以在发送广播的时候需要使用隐式Intent去发送，不然是广播接收者是接收不到广播。</div><div class="line"></div><div class="line">		2、静态注册的时候，因为在AndroidMainfest.xml中订阅的，所以在发送广播的时候使用显示Intent和隐式Intent都可以</div><div class="line">***所以以防万一，我们一般都采用隐式Intent去发送广播。***</div><div class="line"></div><div class="line">		3、对于静态注册的ContextReceiver，回调onReceive(context, intent)中的context具体指的是ReceiverRestrictedContext；</div><div class="line"></div><div class="line">	 4、对于动态注册的ContextReceiver，回调onReceive(context, intent)中的context具体指的是Activity Context；</div><div class="line"></div><div class="line">---</div><div class="line">- #####生命周期。</div><div class="line"> - 它并不像 Activity 一样复杂，运行原理很简单如下图</div><div class="line">![生命周期](http://upload-images.jianshu.io/upload_images/4821697-9d502f10fa1521ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</div><div class="line">	- 广播接收者生命周期**只有十秒**左右，如果在 onReceive() 内做超过十秒内的事情，就会报**ANR(Application No Response) 程序无响应的错误信息**，如果需要完成一项比较耗时的工作 , 应该通过发送 Intent 给 **Service**， 由Service 来完成 。</div><div class="line"></div><div class="line">	- 这里不能使用子线程来解决 , 因为 BroadcastReceiver 的生命周期很短 , 子线程可能还没有结束BroadcastReceiver 就先结束了 .BroadcastReceiver 一旦结束 , 此时 BroadcastReceiver 的所在进程很容易在系统需要内存时被优先杀死 , 因为它属于空进程 ( 没有任何活动组件的进程 ). 如果它的宿主进程被杀死 , 那么正在工作的子线程也会被杀死 . 所以采用子线程来解决是不可靠的</div><div class="line"></div><div class="line">#三、广播实例。</div><div class="line"></div><div class="line">	*为了帮助大家更好的理解，以下写了一个接收系统系统电量广播并处理的小例子。*</div></pre></td></tr></table></figure></p>
-<p>//第一步，定义广播接收者<br>public class BatteryChangedReceiver extends BroadcastReceiver {<br>private static final String TAG = “BatteryChangedReceiver”;<br>    @Override<br>    public void onReceive(Context context, Intent intent) {<br>            int currLevel =   intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);  //当前电量<br>            int total = intent.getIntExtra(BatteryManager.EXTRA_SCALE,   1);      //总电量<br>            int percent = currLevel * 100 / total;<br>            Log.i(TAG, “battery: “ + percent + “%”);<br>     }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">//第二步，注册广播接收者</div><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">		super.onCreate(savedInstanceState);</div><div class="line">		setContentView(R.layout.activity_main);</div><div class="line">		//动态注册电量广播接收者</div><div class="line">		IntentFilter intentfilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED;);</div><div class="line">		BatteryChangedReceiver batteryChangedReceiver = new BatteryChangedReceiver();</div><div class="line">		registerReceiver(bc2, intentfilter);</div><div class="line">	&#125;//必须在onDestory取消广播订阅</div><div class="line">protected void onDestroy() &#123;</div><div class="line">		super.onDestroy();</div><div class="line">		unregisterReceiver(batteryChangedReceiver);</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>#【附录】</p>
-<ul>
-<li>常见系统广播</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div></pre></td><td class="code"><pre><div class="line">//关闭或打开飞行模式时的广播</div><div class="line">Intent.ACTION_AIRPLANE_M;</div><div class="line"></div><div class="line">//充电状态，或者电池的电量发生变化;//电池的充电状态、电荷级别改变，不能通过组建声;</div><div class="line">Intent.ACTION_BATTERY_CH;</div><div class="line"></div><div class="line">//表示电池电量低</div><div class="line">Intent.ACTION_BATTERY_LO;</div><div class="line"></div><div class="line">//表示电池电量充足</div><div class="line">Intent.ACTION_BATTERY_OK;</div><div class="line"></div><div class="line">//关闭或打开飞行模式时的广播</div><div class="line">Intent.ACTION_AIRPLANE_MODE_CHANGED;</div><div class="line"></div><div class="line">//充电状态，或者电池的电量发生变化//电池的充电状态、电荷级别改变，不能通过组建声明接收这个广播，只有通过Context.registerReceiver()注册</div><div class="line">Intent.ACTION_BATTERY_CHANGED;</div><div class="line"></div><div class="line">//表示电池电量低</div><div class="line">Intent.ACTION_BATTERY_LOW;</div><div class="line"></div><div class="line">//表示电池电量充足，即从电池电量低变化到饱满时会发出广播</div><div class="line">Intent.ACTION_BATTERY_OKAY;</div><div class="line"></div><div class="line">//在系统启动完成后，这个动作被广播一次（只有一次）。</div><div class="line">Intent.ACTION_BOOT_COMPLETED;</div><div class="line"></div><div class="line">//按下照相时的拍照按键(硬件按键)时发出的广播</div><div class="line">Intent.ACTION_CAMERA_BUTTON;</div><div class="line"></div><div class="line">//当屏幕超时进行锁屏时,当用户按下电源按钮,长按或短按(不管有没跳出话框)，进行锁屏时,android系统都会广播此Action消息</div><div class="line">Intent.ACTION_CLOSE_SYSTEM_DIALOGS;</div><div class="line"></div><div class="line">//设备当前设置被改变时发出的广播(包括的改变:界面语言，设备方向，等，请参考Configuration.java)</div><div class="line">Intent.ACTION_CONFIGURATION_CHANGED;</div><div class="line"></div><div class="line">//设备日期发生改变时会发出此广播</div><div class="line">Intent.ACTION_DATE_CHANGED;</div><div class="line"></div><div class="line">//设备内存不足时发出的广播,此广播只能由系统使用，其它APP不可用</div><div class="line">Intent.ACTION_DEVICE_STORAGE_LOW;</div><div class="line"></div><div class="line">//设备内存从不足到充足时发出的广播,此广播只能由系统使用，其它APP不可用</div><div class="line">Intent.ACTION_DEVICE_STORAGE_OK;</div><div class="line"></div><div class="line">//发出此广播的地方frameworks\base\services\java\com\android\server\DockObserver.java</div><div class="line">Intent.ACTION_DOCK_EVENT;</div><div class="line"></div><div class="line">//移动APP完成之后，发出的广播(移动是指:APP2SD)</div><div class="line">Intent.ACTION_EXTERNAL_APPLICATIONS_AVAILABLE;</div><div class="line"></div><div class="line">//正在移动APP时，发出的广播(移动是指:APP2SD)</div><div class="line">Intent.ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE;</div><div class="line"></div><div class="line">//Gtalk已建立连接时发出的广播</div><div class="line">Intent.ACTION_GTALK_SERVICE_CONNECTED;</div><div class="line"></div><div class="line">//Gtalk已断开连接时发出的广播</div><div class="line">Intent.ACTION_GTALK_SERVICE_DISCONNECTED;</div><div class="line"></div><div class="line">//在耳机口上插入耳机时发出的广播</div><div class="line">Intent.ACTION_HEADSET_PLUG;</div><div class="line"></div><div class="line">//改变输入法时发出的广播</div><div class="line">Intent.ACTION_INPUT_METHOD_CHANGED;</div><div class="line"></div><div class="line">//设备当前区域设置已更改时发出的广播</div><div class="line">Intent.ACTION_LOCALE_CHANGED;</div><div class="line"></div><div class="line">//表示用户和包管理所承认的低内存状态通知应该开始。</div><div class="line">Intent.ACTION_MANAGE_PACKAGE_STORAGE;</div><div class="line"></div><div class="line">//未正确移除SD卡(正确移除SD卡的方法:设置--SD卡和设备内存--卸载SD卡)，但已把SD卡取出来时发出的广播 ,扩展介质（扩展卡）已经从 SD 卡插槽拔出，但是挂载点 (mount point) 还没解除 (unmount)</div><div class="line">Intent.ACTION_MEDIA_BAD_REMOVAL;</div><div class="line"></div><div class="line">//按下&quot;Media Button&quot; 按键时发出的广播,假如有&quot;Media Button&quot; 按键的话(硬件按键)</div><div class="line">Intent.ACTION_MEDIA_BUTTON;</div><div class="line"></div><div class="line">//插入外部储存装置，比如SD卡时，系统会检验SD卡，此时发出的广播?</div><div class="line">Intent.ACTION_MEDIA_CHECKING;</div><div class="line"></div><div class="line">//已拔掉外部大容量储存设备发出的广播（比如SD卡，或移动硬盘）,不管有没有正确卸载都会发出此广播, 用户想要移除扩展介质（拔掉扩展卡）。</div><div class="line">Intent.ACTION_MEDIA_EJECT;</div><div class="line"></div><div class="line">//插入SD卡并且已正确安装（识别）时发出的广播, 扩展介质被插入，而且已经被挂载。</div><div class="line">Intent.ACTION_MEDIA_MOUNTED;</div><div class="line"></div><div class="line">//拓展介质存在，但使用不兼容FS（或为空）的路径安装点检查介质包含在Intent.mData领域。</div><div class="line">Intent.ACTION_MEDIA_NOFS;</div><div class="line"></div><div class="line">//外部储存设备已被移除，不管有没正确卸载,都会发出此广播， 扩展介质被移除。</div><div class="line">Intent.ACTION_MEDIA_REMOVED;</div><div class="line"></div><div class="line">//广播：已经扫描完介质的一个目录</div><div class="line">Intent.ACTION_MEDIA_SCANNER_FINISHED;</div><div class="line"></div><div class="line">//请求媒体扫描仪扫描文件并将其添加到媒体数据库。</div><div class="line">Intent.ACTION_MEDIA_SCANNER_SCAN_FILE;</div><div class="line"></div><div class="line">//广播：开始扫描介质的一个目录</div><div class="line">Intent.ACTION_MEDIA_SCANNER_STARTED;</div><div class="line"></div><div class="line">// 广播：扩展介质的挂载被解除 (unmount)，因为它已经作为 USB 大容量存储被共享。</div><div class="line">Intent.ACTION_MEDIA_SHARED;</div><div class="line"></div><div class="line">Intent.ACTION_MEDIA_UNMOUNTABLE;//</div><div class="line"></div><div class="line">// 广播：扩展介质存在，但是还没有被挂载 (mount)</div><div class="line">Intent.ACTION_MEDIA_UNMOUNTED</div><div class="line"></div><div class="line">Intent.ACTION_NEW_OUTGOING_CALL;</div><div class="line"></div><div class="line">//成功的安装APK之后//广播：设备上新安装了一个应用程序包。//一个新应用包已经安装在设备上，数据包括包名（最新安装的包程序不能接收到这个广播）</div><div class="line">Intent.ACTION_PACKAGE_ADDED;</div><div class="line"></div><div class="line">//一个已存在的应用程序包已经改变，包括包名</div><div class="line">Intent.ACTION_PACKAGE_CHANGED;</div><div class="line"></div><div class="line">//清除一个应用程序的数据时发出的广播(在设置－－应用管理－－选中某个应用，之后点清除数据时?)//用户已经清除一个包的数据，包括包名（清除包程序不能接收到这个广播）</div><div class="line">Intent.ACTION_PACKAGE_DATA_CLEARED;</div><div class="line"></div><div class="line">//触发一个下载并且完成安装时发出的广播，比如在电子市场里下载应用？</div><div class="line">Intent.ACTION_PACKAGE_INSTALL;</div><div class="line"></div><div class="line">//成功的删除某个APK之后发出的广播, 一个已存在的应用程序包已经从设备上移除，包括包名（正在被安装的包程序不能接收到这个广播）</div><div class="line">Intent.ACTION_PACKAGE_REMOVED;</div><div class="line"></div><div class="line">//替换一个现有的安装包时发出的广播（不管现在安装的APP比之前的新还是旧，都会发出此广播？）</div><div class="line">Intent.ACTION_PACKAGE_REPLACED;</div><div class="line"></div><div class="line">//用户重新开始一个包，包的所有进程将被杀死，所有与其联系的运行时间状态应该被移除，包括包名（重新开始包程序不能接收到这个广播）</div><div class="line">Intent.ACTION_PACKAGE_RESTARTED;</div><div class="line"></div><div class="line">//插上外部电源时发出的广播</div><div class="line">Intent.ACTION_POWER_CONNECTED;</div><div class="line"></div><div class="line">//已断开外部电源连接时发出的广播</div><div class="line">Intent.ACTION_POWER_DISCONNECTED;</div><div class="line"></div><div class="line">Intent.ACTION_PROVIDER_CHANGED;//</div><div class="line"></div><div class="line">//重启设备时的广播</div><div class="line">Intent.ACTION_REBOOT;</div><div class="line"></div><div class="line">//屏幕被关闭之后的广播</div><div class="line">Intent.ACTION_SCREEN_OFF;</div><div class="line"></div><div class="line">//屏幕被打开之后的广播</div><div class="line">Intent.ACTION_SCREEN_ON;</div><div class="line"></div><div class="line">//关闭系统时发出的广播</div><div class="line">Intent.ACTION_SHUTDOWN;</div><div class="line"></div><div class="line">//时区发生改变时发出的广播</div><div class="line">Intent.ACTION_TIMEZONE_CHANGED;</div><div class="line"></div><div class="line">//时间被设置时发出的广播</div><div class="line">Intent.ACTION_TIME_CHANGED;</div><div class="line"></div><div class="line">//广播：当前时间已经变化（正常的时间流逝）， 当前时间改变，每分钟都发送，不能通过组件声明来接收</div><div class="line">，只有通过Context.registerReceiver()方法来注册</div><div class="line">Intent.ACTION_TIME_TICK;</div><div class="line"></div><div class="line">//一个用户ID已经从系统中移除发出的广播</div><div class="line">Intent.ACTION_UID_REMOVED;</div><div class="line"></div><div class="line">//设备已进入USB大容量储存状态时发出的广播？</div><div class="line">Intent.ACTION_UMS_CONNECTED;</div><div class="line"></div><div class="line">//设备已从USB大容量储存状态转为正常状态时发出的广播？</div><div class="line">Intent.ACTION_UMS_DISCONNECTED;</div><div class="line"></div><div class="line">Intent.ACTION_USER_PRESENT;//</div><div class="line"></div><div class="line">//设备墙纸已改变时发出的广播</div><div class="line">Intent.ACTION_WALLPAPER_CHANGED;</div></pre></td></tr></table></figure>
-<hr>
-<p>整理作者：<a href="http://www.jianshu.com/u/19513cee1eb8" target="_blank" rel="external">汪博</a><br>少壮不努力，老大徒悲伤。<br>本文为Android学习规划打造，如有不好的地方请多多指教。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4821697-4edb9b76779471a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/source/img/broadcast.jpg&quot; alt=&quot;img&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
-    
-  </entry>
+
+
   
-  <entry>
-    <title>Android实习生 —— 四大组件之Activity</title>
-    <link href="https://jaykuzzi.github.io/2016/04/24/Android%E5%AE%9E%E4%B9%A0%E7%94%9F%20%E2%80%94%E2%80%94%20%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8BActivity/"/>
-    <id>https://jaykuzzi.github.io/2016/04/24/Android实习生 —— 四大组件之Activity/</id>
-    <published>2016-04-24T07:35:36.000Z</published>
-    <updated>2017-06-26T03:19:24.000Z</updated>
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
-    <content type="html"><![CDATA[<p><img src="http://z.k1982.com/design_img/201410/201410142311521463.jpeg" alt="img"><br><a id="more"></a></p>
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Woobo'Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android实习生 —— 四大组件之Activity">
+<meta property="og:url" content="https://jaykuzzi.github.io/2016/04/24/Android实习生 —— 四大组件之Activity/index.html">
+<meta property="og:site_name" content="Woobo'Blog">
+<meta property="og:image" content="http://z.k1982.com/design_img/201410/201410142311521463.jpeg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-b23eea06a1d111e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-6b6f54199b70cbb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-c316d617cee70767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-80b9ffa6240c3466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-1ca377d77e50f2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-eb8b909de24ed314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-4502b2941605c4bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-321feaa2137b2fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-44226b927c4e424c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-4e37e0d6bc2e4353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-65354e8b4fb44d9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-8322215770724b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-11e34c535c48204d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-26T03:19:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android实习生 —— 四大组件之Activity">
+<meta name="twitter:image" content="http://z.k1982.com/design_img/201410/201410142311521463.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '8IA2N5GR5A',
+      apiKey: '031396c620fb110cf991deacf13a46e7',
+      indexName: 'Test',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jaykuzzi.github.io/2016/04/24/Android实习生 —— 四大组件之Activity/"/>
+
+
+
+
+
+  <title> Android实习生 —— 四大组件之Activity | Woobo'Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c6c1e0e765e99bd6d467611c858d18a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Woobo'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="http://123.207.216.171" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            作业
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/JayKuzzi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github-alt"></i> <br />
+            
+            GitHub
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jaykuzzi.github.io/2016/04/24/Android实习生 —— 四大组件之Activity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汪博">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Woobo'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android实习生 —— 四大组件之Activity
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-24T15:35:36+08:00">
+                2016-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2016/04/24/Android实习生 —— 四大组件之Activity/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/04/24/Android实习生 —— 四大组件之Activity/" class="leancloud_visitors" data-flag-title="Android实习生 —— 四大组件之Activity">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://z.k1982.com/design_img/201410/201410142311521463.jpeg" alt="img"><br><a id="more"></a></p>
 <h1 id="基础知识回顾"><a href="#基础知识回顾" class="headerlink" title="基础知识回顾"></a><center>基础知识回顾</center></h1><h2 id="定义及功能"><a href="#定义及功能" class="headerlink" title="定义及功能"></a>定义及功能</h2><p>  一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。</p>
 <h2 id="启动和栈"><a href="#启动和栈" class="headerlink" title="启动和栈"></a>启动和栈</h2><p>  一个应用程序通常由多个activities组成，他们通常是松耦合关系。通常，一个应用程序中的activity被指定为”main”activity，当第一次启动应用程序的时候呈现给用户的那个activity。每一个activity然后可以启动另一个activity为了完成不同的动作。每一次一个activity启动，前一个activity就停止了，但是系统保留activity在一个栈上（“back stack”）。当一个新activity启动，它被推送到栈顶，取得用户焦点。Back Stack符合简单“后进先出”原则，所以，当用户完成当前activity然后点击back按钮，它被弹出栈（并且被摧毁），然后之前的activity恢复。</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>  基本用法：Activity的本质是一个Java类，如：由我们创建工程生成的MainActivity；一般的每个Activity都会存在一个与它匹配的布局文件（xml文件），由它来写入我们需要Activity展示的各种控件和布局。有了布局文件之后，就需要在类里通过OnCreate方法的setContentView方法调用文件资源ID来初始化UI界面和显示。</p>
@@ -180,19 +547,661 @@ parcelable和Serializable的区别又是什么呢？
 <blockquote>
 <p><strong>整理作者：</strong><a href="http://woobo.me" target="_blank" rel="external">汪博</a><br><strong>个人名言：</strong>少壮不努力，老大徒悲伤。</p>
 </blockquote>
-]]></content>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="汪博 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>微信二维码</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="汪博 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="汪博 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/02/Android实习生 —— 四大组件之Broadcast Receiver/" rel="next" title="Android实习生 —— 四大组件之Broadcast Receiver">
+                <i class="fa fa-chevron-left"></i> Android实习生 —— 四大组件之Broadcast Receiver
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-    <summary type="html">
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
-      &lt;p&gt;&lt;img src=&quot;http://z.k1982.com/design_img/201410/201410142311521463.jpeg&quot; alt=&quot;img&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
-    
-  </entry>
+  </div>
+
+
+        </div>
+        
+          
   
-</feed>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="汪博" />
+          <p class="site-author-name" itemprop="name">汪博</p>
+           
+              <p class="site-description motion-element" itemprop="description">致力进军IT行业，并一直为此付诸行动。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JayKuzzi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/19513cee1eb8" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础知识回顾"><span class="nav-number">1.</span> <span class="nav-text">基础知识回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义及功能"><span class="nav-number">1.1.</span> <span class="nav-text">定义及功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动和栈"><span class="nav-number">1.2.</span> <span class="nav-text">启动和栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">1.3.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和注册"><span class="nav-number">1.4.</span> <span class="nav-text">创建和注册</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期"><span class="nav-number">2.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四种状态"><span class="nav-number">2.1.</span> <span class="nav-text">四种状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七个回调方法"><span class="nav-number">2.2.</span> <span class="nav-text">七个回调方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期图"><span class="nav-number">2.3.</span> <span class="nav-text">生命周期图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解"><span class="nav-number">2.4.</span> <span class="nav-text">详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展"><span class="nav-number">2.5.</span> <span class="nav-text">扩展</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity跳转"><span class="nav-number">3.</span> <span class="nav-text">Activity跳转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#startActivity-。"><span class="nav-number">3.1.</span> <span class="nav-text">startActivity()。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统意图"><span class="nav-number">3.2.</span> <span class="nav-text">系统意图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据通信"><span class="nav-number">3.3.</span> <span class="nav-text">数据通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#startActivityForResult"><span class="nav-number">3.4.</span> <span class="nav-text">startActivityForResult()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启动模式"><span class="nav-number">4.</span> <span class="nav-text">启动模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四种启动模式"><span class="nav-number">4.1.</span> <span class="nav-text">四种启动模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解standard"><span class="nav-number">4.2.</span> <span class="nav-text">详解standard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解singleTop"><span class="nav-number">4.3.</span> <span class="nav-text">详解singleTop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解singleTask"><span class="nav-number">4.4.</span> <span class="nav-text">详解singleTask</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解singleInstance"><span class="nav-number">4.5.</span> <span class="nav-text">详解singleInstance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动模式应用场景"><span class="nav-number">4.6.</span> <span class="nav-text">启动模式应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.7.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他补充"><span class="nav-number">5.</span> <span class="nav-text">其他补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity中finish-onDestroy-和System-exit-的区别"><span class="nav-number">5.1.</span> <span class="nav-text">Activity中finish() onDestroy() 和System.exit()的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AppCompatActivity、ActionBarActivity、FragmentActivity和Activity的区别"><span class="nav-number">5.2.</span> <span class="nav-text">AppCompatActivity、ActionBarActivity、FragmentActivity和Activity的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源内存不足导致低优先级Activity被杀死"><span class="nav-number">5.3.</span> <span class="nav-text">资源内存不足导致低优先级Activity被杀死</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActivityManager–获得正在运行的activity、service、进程、最近运行的应用。"><span class="nav-number">5.4.</span> <span class="nav-text">ActivityManager–获得正在运行的activity、service、进程、最近运行的应用。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#【附录】"><span class="nav-number">6.</span> <span class="nav-text">【附录】</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">汪博</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "5825dc9947c64560bd650e469d61b111",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("OpoWRhWQhY7q2aJaNfEed18l-gzGzoHsz", "jA46wsGuqL12oHGFIyuwCssg");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
