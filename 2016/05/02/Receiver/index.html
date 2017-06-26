@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, BB" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -107,15 +107,33 @@
 
 
 
-<meta name="description" content="致力进军IT行业，并一直为此付诸行动。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Woobo'Blog">
-<meta property="og:url" content="https://jaykuzzi.github.io/index.html">
+<meta name="description" content="#目录1234567891011121314151617181920212223242526272829303132333435363738一、基础知识回顾。		1.定义及功能		2.启动和栈		3.基本用法		4.创建和注册二、生命周期。		1.四种状态		2.七个回调方法		3.生命周期图		4.详解		5.扩展三、Activity跳转（Intent）。		1.可以开启另一个Activity">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Receiver">
+<meta property="og:url" content="https://jaykuzzi.github.io/2016/05/02/Receiver/index.html">
 <meta property="og:site_name" content="Woobo'Blog">
-<meta property="og:description" content="致力进军IT行业，并一直为此付诸行动。">
+<meta property="og:description" content="#目录1234567891011121314151617181920212223242526272829303132333435363738一、基础知识回顾。		1.定义及功能		2.启动和栈		3.基本用法		4.创建和注册二、生命周期。		1.四种状态		2.七个回调方法		3.生命周期图		4.详解		5.扩展三、Activity跳转（Intent）。		1.可以开启另一个Activity">
+<meta property="og:image" content="https://jaykuzzi.github.io/2016/05/02/Receiver/main.jpeg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-b23eea06a1d111e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-6b6f54199b70cbb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-c316d617cee70767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-80b9ffa6240c3466.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-1ca377d77e50f2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-eb8b909de24ed314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-4502b2941605c4bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-321feaa2137b2fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-44226b927c4e424c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-4e37e0d6bc2e4353.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-65354e8b4fb44d9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-8322215770724b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-11e34c535c48204d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-4edb9b76779471a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-26T03:41:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Woobo'Blog">
-<meta name="twitter:description" content="致力进军IT行业，并一直为此付诸行动。">
+<meta name="twitter:title" content="Receiver">
+<meta name="twitter:description" content="#目录1234567891011121314151617181920212223242526272829303132333435363738一、基础知识回顾。		1.定义及功能		2.启动和栈		3.基本用法		4.创建和注册二、生命周期。		1.四种状态		2.七个回调方法		3.生命周期图		4.详解		5.扩展三、Activity跳转（Intent）。		1.可以开启另一个Activity">
+<meta name="twitter:image" content="https://jaykuzzi.github.io/2016/05/02/Receiver/main.jpeg">
 
 
 
@@ -143,13 +161,13 @@
 
 
 
-  <link rel="canonical" href="https://jaykuzzi.github.io/"/>
+  <link rel="canonical" href="https://jaykuzzi.github.io/2016/05/02/Receiver/"/>
 
 
 
 
 
-  <title> Woobo'Blog </title>
+  <title> Receiver | Woobo'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -184,9 +202,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -323,9 +339,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -355,10 +371,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/05/02/Receiver/" itemprop="url">
-                  Receiver
-                </a>
+                Receiver
               
             
           </h1>
@@ -409,6 +422,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2016/05/02/Receiver/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -442,9 +465,7 @@
       
 
       
-        
-          
-            <p><img src="/2016/05/02/Receiver/main.jpeg" alt=""></p>
+        <p><img src="/2016/05/02/Receiver/main.jpeg" alt=""></p>
 <p>#目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">一、基础知识回顾。</div><div class="line">		1.定义及功能</div><div class="line">		2.启动和栈</div><div class="line">		3.基本用法</div><div class="line">		4.创建和注册</div><div class="line">二、生命周期。</div><div class="line">		1.四种状态</div><div class="line">		2.七个回调方法</div><div class="line">		3.生命周期图</div><div class="line">		4.详解</div><div class="line">		5.扩展</div><div class="line">三、Activity跳转（Intent）。</div><div class="line">		1.可以开启另一个Activity通过传递一个Intent并且startActivity()方法启动它。描述了你希望启动的Activity。</div><div class="line">		（1）显示Intent一般使用方法</div><div class="line">		（2）隐式Intent一般使用方法</div><div class="line">		（3）两者的使用区别</div><div class="line">		2.Intent可以指定你希望启动或描述完成的动作（操作系统会为你选择合适的Activity，可能来自定不同的应用程序）。</div><div class="line">一个Intent可以传输小量数据被启动的activity使用。</div><div class="line">		（1）Intent传递String字符串</div><div class="line">		（2）Intent传递Bundle对象</div><div class="line">		（3）Intent传递Object对象（Serializable接口Parcelable接口）</div><div class="line">				【补充】parcelable和Serializable的区别</div><div class="line">		3.Activity退出时返回结果至前一个Activity</div><div class="line">四、启动模式。</div><div class="line">		1.standard、singleTop、singleTask、singleInstance</div><div class="line">		详解standard</div><div class="line">		详解singleTop</div><div class="line">		详解singleTask</div><div class="line">		详解singleInstance</div><div class="line">		2.启动模式应用场景</div><div class="line">		3.总结</div><div class="line">五、其他补充</div><div class="line">		1.Activity中finish() onDestroy() 和System.exit()的区别</div><div class="line">		2.AppCompatActivity、ActionBarActivity、FragmentActivity和Activity的区别</div><div class="line">		3.资源内存不足导致低优先级Activity被杀死</div><div class="line">		4.ActivityManager--获得正在运行的activity与service.</div><div class="line">【附录】</div><div class="line">		常用Intent意图表</div></pre></td></tr></table></figure></p>
 <p>#一、基础知识回顾。</p>
 <ul>
@@ -597,200 +618,121 @@ parcelable和Serializable的区别又是什么呢？
 </code></pre><p>整理作者：<a href="http://www.jianshu.com/u/19513cee1eb8" target="_blank" rel="external">汪博</a><br>少壮不努力，老大徒悲伤。<br>本文为Android学习规划打造，如有不好的地方请多多指教。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4821697-4edb9b76779471a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 
-          
-        
       
     </div>
 
     <div>
       
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="汪博 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>微信二维码</div>
+</div>
+
+
+      
     </div>
 
     <div>
       
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://jaykuzzi.github.io/2016/04/24/Android实习生 —— 四大组件之Activity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="汪博">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Woobo'Blog">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/24/Android实习生 —— 四大组件之Activity/" itemprop="url">
-                  Android实习生 —— 四大组件之Activity
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-24T15:35:36+08:00">
-                2016-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2016/04/24/Android实习生 —— 四大组件之Activity/" class="leancloud_visitors" data-flag-title="Android实习生 —— 四大组件之Activity">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="汪博 WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="汪博 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
+
+      
+    </div>
+
+    <div>
       
         
-          <p><img src="http://z.k1982.com/design_img/201410/201410142311521463.jpeg" alt="img"><br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/24/Android实习生 —— 四大组件之Activity/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
       
 
       
+        
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/24/Android实习生 —— 四大组件之Activity/" rel="prev" title="Android实习生 —— 四大组件之Activity">
+                Android实习生 —— 四大组件之Activity <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -798,6 +740,12 @@ parcelable和Serializable的区别又是什么呢？
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
 
         </div>
         
@@ -817,8 +765,17 @@ parcelable和Serializable的区别又是什么呢？
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -907,6 +864,22 @@ parcelable和Serializable的区别又是什么呢？
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动模式应用场景"><span class="nav-number">1.</span> <span class="nav-text">启动模式应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用Intent意图表"><span class="nav-number">1.1.</span> <span class="nav-text">常用Intent意图表</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1005,6 +978,10 @@ parcelable和Serializable的区别又是什么呢？
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
