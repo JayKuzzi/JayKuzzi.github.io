@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jaykuzzi.github.io/"/>
-  <updated>2017-06-27T03:18:20.000Z</updated>
+  <updated>2017-06-27T03:20:01.000Z</updated>
   <id>https://jaykuzzi.github.io/</id>
   
   <author>
@@ -16,13 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Json</title>
+    <title>Android实习生 —— 网络请求及数据解析</title>
     <link href="https://jaykuzzi.github.io/2017/02/12/Json/"/>
     <id>https://jaykuzzi.github.io/2017/02/12/Json/</id>
     <published>2017-02-12T05:09:33.000Z</published>
-    <updated>2017-06-27T03:18:20.000Z</updated>
+    <updated>2017-06-27T03:20:01.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/2017/02/12/Json/josn.png" alt=""><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="/2017/02/12/Json/json.png" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p>大部分andriod应用需要与服务器进行数据交互，<strong>HTTP、FTP、SMTP</strong>或者是直接基于<strong>SOCKET编程</strong>都可以进行数据交互，但是<strong>HTTP必然是使用最广泛的协议</strong>。<br><strong>在总结之前先来了解一下Http协议，也是对技术支持的一些补充。</strong></p>
 <h2 id="1、http协议定义"><a href="#1、http协议定义" class="headerlink" title="1、http协议定义"></a>1、http协议定义</h2><p>HTTP协议是基于TCP/IP协议之上的协议，是<strong>客户端</strong>和<strong>服务器</strong>之间的应用层的协议，是通用的、无状态的面向对象的协议。 </p>
 <h2 id="2、客户端连接服务器实现内部的原理"><a href="#2、客户端连接服务器实现内部的原理" class="headerlink" title="2、客户端连接服务器实现内部的原理"></a>2、客户端连接服务器实现内部的原理</h2><p><img src="http://upload-images.jianshu.io/upload_images/4821697-d453b9ea47d0b83b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>分析上图，步骤如下：<br>第一步：在浏览器客户端中得到用户输入的内容。<br>第二步：浏览器得到这个网址之后，内部会将这个域名发送到DNS上，进行域名解析。得到它的IP之后就会链接到指定的服务器上，假如服务器的地址是：221.104.13.32:80，从浏览器到服务器端口它使用到最底层的TCP/IP协议。<br>第三步：实现TCP/IP协议用Socket来完成，使用了Socket的套接字。<br>第四步：服务器端的80端口监听客户端的链接，这样客户端到服务器就链接上了。<br><strong>通俗一点讲，用户在浏览器输入网址，通过http协议发出去，网址经过DNS域名解析，解析成指定的ip地址，并在80端口上监听用户的请求。服务器监听到请求之后，会以三种方式返回给客户端：HTML、XML、JASON。</strong></p>
@@ -70,7 +70,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;/2017/02/12/Json/josn.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;/2017/02/12/Json/json.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
