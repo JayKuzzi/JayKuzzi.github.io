@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jaykuzzi.github.io/"/>
-  <updated>2017-06-27T12:07:50.000Z</updated>
+  <updated>2017-06-27T12:13:38.000Z</updated>
   <id>https://jaykuzzi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://jaykuzzi.github.io/2017/03/02/Review/"/>
     <id>https://jaykuzzi.github.io/2017/03/02/Review/</id>
     <published>2017-03-02T09:13:19.000Z</published>
-    <updated>2017-06-27T12:07:50.000Z</updated>
+    <updated>2017-06-27T12:13:38.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2017/03/02/Review/Review.jpg" alt=""><br><a id="more"></a><br>【此文章仅供作者复习使用，表达含糊，看不懂正常～】</p>
 <h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a><center>系统架构</center></h1><h2 id="linux-内核层"><a href="#linux-内核层" class="headerlink" title="linux 内核层"></a>linux 内核层</h2><p>为安卓设备提供了底层的驱动 ——– 显示、音频、蓝牙驱动。电源管理</p>
@@ -77,6 +77,8 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="知识复习" scheme="https://jaykuzzi.github.io/categories/Android/%E7%9F%A5%E8%AF%86%E5%A4%8D%E4%B9%A0/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
     
@@ -89,7 +91,7 @@
     <link href="https://jaykuzzi.github.io/2017/02/12/Json/"/>
     <id>https://jaykuzzi.github.io/2017/02/12/Json/</id>
     <published>2017-02-12T05:09:33.000Z</published>
-    <updated>2017-06-27T03:20:01.000Z</updated>
+    <updated>2017-06-27T12:13:23.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2017/02/12/Json/json.png" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p>大部分andriod应用需要与服务器进行数据交互，<strong>HTTP、FTP、SMTP</strong>或者是直接基于<strong>SOCKET编程</strong>都可以进行数据交互，但是<strong>HTTP必然是使用最广泛的协议</strong>。<br><strong>在总结之前先来了解一下Http协议，也是对技术支持的一些补充。</strong></p>
@@ -145,8 +147,16 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="数据处理" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="数据处理" scheme="https://jaykuzzi.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
@@ -155,7 +165,7 @@
     <link href="https://jaykuzzi.github.io/2016/12/27/AsyncTask/"/>
     <id>https://jaykuzzi.github.io/2016/12/27/AsyncTask/</id>
     <published>2016-12-27T03:50:25.000Z</published>
-    <updated>2017-06-27T03:18:21.000Z</updated>
+    <updated>2017-06-27T12:12:07.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/12/27/AsyncTask/Asyn.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p>在【<a href="http://www.jianshu.com/p/0c6939e41681" target="_blank" rel="external">异步处理之Handler</a>】中我们已经了解了<strong>关于线程</strong>的相关知识，明白<strong>为什么要进行异步处理</strong>以及使用Handler进行异步处理的方式，今天我们就来了解一下异步处理的另一种方式 —— <strong> AsyncTask。</strong></p>
@@ -183,8 +193,16 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="异步处理" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="异步处理" scheme="https://jaykuzzi.github.io/tags/%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
@@ -193,7 +211,7 @@
     <link href="https://jaykuzzi.github.io/2016/10/27/Handler/"/>
     <id>https://jaykuzzi.github.io/2016/10/27/Handler/</id>
     <published>2016-10-27T02:38:09.000Z</published>
-    <updated>2017-06-27T02:59:11.000Z</updated>
+    <updated>2017-06-27T12:12:37.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/10/27/Handler/handler.jpg" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p>在学习Handler之前，我们要先了解一下<strong>ActivityThread（主线程或UI线程）。</strong></p>
@@ -234,8 +252,16 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="异步处理" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="异步处理" scheme="https://jaykuzzi.github.io/tags/%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
@@ -244,7 +270,7 @@
     <link href="https://jaykuzzi.github.io/2016/08/27/ScreenAdaptation/"/>
     <id>https://jaykuzzi.github.io/2016/08/27/ScreenAdaptation/</id>
     <published>2016-08-27T02:15:24.000Z</published>
-    <updated>2017-06-27T02:32:33.000Z</updated>
+    <updated>2017-06-27T12:14:02.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/08/27/ScreenAdaptation/ScreenAdaptation.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="为什么要进行屏幕适配"><a href="#为什么要进行屏幕适配" class="headerlink" title="为什么要进行屏幕适配"></a><center>为什么要进行屏幕适配</center></h1><p><strong>为什么要进行屏幕适配、对哪些设备进行适配？</strong><br>在近几年的发展当中，安卓设备数量逐渐增长，由于安卓设备的开放性，导致安卓设备的屏幕尺寸大小碎片化极为严重。<br><img src="http://upload-images.jianshu.io/upload_images/4821697-1bb40c6ad800aab9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Android设备分辨率"><br>从<a href="http://tip.umeng.com/uploads/data_report/2016phone.pdf?spm=0.0.0.0.OcsHmH&amp;file=2016phone.pdf" target="_blank" rel="external">【友盟+】2016年手机生态发展报告H1 </a>中看截止16年手机分辨率使用情况：Android设备720p和1080p是主流，如果对前5中Android设备分辨率进行适配就能让app在90%的安卓设备上比较美观的兼容。</p>
@@ -275,8 +301,16 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="适配" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E9%80%82%E9%85%8D/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="适配" scheme="https://jaykuzzi.github.io/tags/%E9%80%82%E9%85%8D/"/>
     
   </entry>
   
@@ -285,7 +319,7 @@
     <link href="https://jaykuzzi.github.io/2016/07/15/DataStorage/"/>
     <id>https://jaykuzzi.github.io/2016/07/15/DataStorage/</id>
     <published>2016-07-15T01:48:54.000Z</published>
-    <updated>2017-06-27T02:08:36.000Z</updated>
+    <updated>2017-06-27T12:13:10.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/07/15/DataStorage/disk.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p><strong>Android提供了5种方式来让用户保存持久化应用程序数据。</strong><br>①  使用SharedPreferences存储数据　<br>②  文件存储数据<br>③  SQLite数据库存储数据<br>④  使用ContentProvider存储数据<br>⑤  网络存储数据　<br><strong>我们可以根据需求选择对应的方式。文章根据相关Demo讲述各种方式的用法及优缺点说明，在文章末尾附录会有相关Demo的下载 。</strong><br><strong>通过以上方式还可以实现数据的在不同app间的数据共享。</strong></p>
@@ -357,8 +391,16 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="数据处理" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="数据处理" scheme="https://jaykuzzi.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
@@ -367,7 +409,7 @@
     <link href="https://jaykuzzi.github.io/2016/07/05/ContentProvider/"/>
     <id>https://jaykuzzi.github.io/2016/07/05/ContentProvider/</id>
     <published>2016-07-05T12:17:59.000Z</published>
-    <updated>2017-06-27T02:13:27.000Z</updated>
+    <updated>2017-06-27T12:11:09.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/07/05/ContentProvider/content.png" alt=""><br><a id="more"></a></p>
 <h1 id="基础回顾"><a href="#基础回顾" class="headerlink" title="基础回顾"></a><center>基础回顾</center></h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ContentProvider（数据提供者）是在应用程序间共享数据的一种接口机制，虽然我们可以采用文件存储方式、sharedpreferences方式在程序间进行共享数据，但ContentProvider提供了更为高级的数据共享方法，应用程序可以指定需要共享的数据，而其他应用程序则可以在不知数据来源、路径的情况下，对共享数据进行查询、添加、删除和更新等操作，当应用继承ContentProvider类，并重写该类用于提供数据和存储数据的方法，就可以向其他应用共享其数据。<br><img src="http://upload-images.jianshu.io/upload_images/4821697-fc2bc00457198686.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ContentProvider"></p>
@@ -411,8 +453,16 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="四大组件" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="四大组件" scheme="https://jaykuzzi.github.io/tags/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
     
   </entry>
   
@@ -421,7 +471,7 @@
     <link href="https://jaykuzzi.github.io/2016/06/26/Service/"/>
     <id>https://jaykuzzi.github.io/2016/06/26/Service/</id>
     <published>2016-06-26T08:28:56.000Z</published>
-    <updated>2017-06-26T11:53:53.000Z</updated>
+    <updated>2017-06-27T12:11:48.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/06/26/Service/service.png" alt=""><br><a id="more"></a></p>
 <h1 id="基础回顾"><a href="#基础回顾" class="headerlink" title="基础回顾"></a><center>基础回顾</center></h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Service是可以在<strong>后台执行长时间（长生命周期）</strong>而又<strong>不与用户产生UI交互（没有用户界面）</strong>的操作。</p>
@@ -475,8 +525,16 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="四大组件" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/tags/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="四大组件" scheme="https://jaykuzzi.github.io/tags/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
     
   </entry>
   
@@ -485,7 +543,7 @@
     <link href="https://jaykuzzi.github.io/2016/05/02/Receiver/"/>
     <id>https://jaykuzzi.github.io/2016/05/02/Receiver/</id>
     <published>2016-05-02T03:38:57.000Z</published>
-    <updated>2017-06-27T12:07:50.000Z</updated>
+    <updated>2017-06-27T12:11:23.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/05/02/Receiver/main.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p><strong>1.</strong>Android广播分为两个方面：广播发送者和广播接收者，通常情况下，BroadcastReceiver指的就是广播接收者（广播接收器）。<strong><em>广播可以跨进程甚至跨App直接通信。</em></strong><br><strong>2.</strong>你的APP可以接收广播(如当电话呼入时，或者数据网络可用时)进行接收并做出响应。<br><strong>3.</strong>广播接收器没有用户界面。然而，它们可以<strong>启动一个Activity或Service服务</strong>来响应它们收到的信息，或者<strong>用NotificationManager 来通知用户</strong>。通知可以用很多种方式来吸引用户的注意力──闪动背灯、震动、播放声音等。一般来说是在状态栏上放一个持久的图标，用户可以打开它并获取消息。</p>
@@ -536,6 +594,10 @@
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
     
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="四大组件" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
+    
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
     
@@ -550,7 +612,7 @@
     <link href="https://jaykuzzi.github.io/2016/04/24/Activity/"/>
     <id>https://jaykuzzi.github.io/2016/04/24/Activity/</id>
     <published>2016-04-24T07:35:36.000Z</published>
-    <updated>2017-06-27T12:07:47.000Z</updated>
+    <updated>2017-06-27T12:10:50.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/04/24/Activity/activity.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="基础知识回顾"><a href="#基础知识回顾" class="headerlink" title="基础知识回顾"></a><center>基础知识回顾</center></h1><h2 id="定义及功能"><a href="#定义及功能" class="headerlink" title="定义及功能"></a>定义及功能</h2><p>  一个Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务，例如拨号、拍照、发送email、看地图。每一个activity被给予一个窗口，在上面可以绘制用户接口。窗口通常充满屏幕，但也可以小于屏幕而浮于其它窗口之上。</p>
@@ -647,6 +709,10 @@ parcelable和Serializable的区别又是什么呢？
     </summary>
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
+    
+      <category term="四大组件" scheme="https://jaykuzzi.github.io/categories/Android/%E5%AE%9E%E4%B9%A0%E7%94%9F/%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6/"/>
     
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
