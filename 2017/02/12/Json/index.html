@@ -1,0 +1,1165 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Woobo'Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Json">
+<meta property="og:url" content="https://jaykuzzi.github.io/2017/02/12/Json/index.html">
+<meta property="og:site_name" content="Woobo'Blog">
+<meta property="og:image" content="https://jaykuzzi.github.io/2017/02/12/Json/josn.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-d453b9ea47d0b83b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-02f7676c93afa928.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-90e380713a9f13b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-fbe0c0aeb7172bb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-5d88369641f05659.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-06de65cffbe1899c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-e0595ce0b9d0014b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-594ff4334e0749ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-330a39205ab155e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-c5955f2768594479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-25e7e6e9f747aa94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-ad25678b2163488b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-a3eafe8a7d865dc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-27T03:18:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Json">
+<meta name="twitter:image" content="https://jaykuzzi.github.io/2017/02/12/Json/josn.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '8IA2N5GR5A',
+      apiKey: '031396c620fb110cf991deacf13a46e7',
+      indexName: 'Test',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jaykuzzi.github.io/2017/02/12/Json/"/>
+
+
+
+
+
+  <title> Json | Woobo'Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c6c1e0e765e99bd6d467611c858d18a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Woobo'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="http://123.207.216.171" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            作业
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/JayKuzzi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github-alt"></i> <br />
+            
+            GitHub
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jaykuzzi.github.io/2017/02/12/Json/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汪博">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Woobo'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Json
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T13:09:33+08:00">
+                2017-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/02/12/Json/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/02/12/Json/" class="leancloud_visitors" data-flag-title="Json">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2017/02/12/Json/josn.png" alt=""><br><a id="more"></a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p>大部分andriod应用需要与服务器进行数据交互，<strong>HTTP、FTP、SMTP</strong>或者是直接基于<strong>SOCKET编程</strong>都可以进行数据交互，但是<strong>HTTP必然是使用最广泛的协议</strong>。<br><strong>在总结之前先来了解一下Http协议，也是对技术支持的一些补充。</strong></p>
+<h2 id="1、http协议定义"><a href="#1、http协议定义" class="headerlink" title="1、http协议定义"></a>1、http协议定义</h2><p>HTTP协议是基于TCP/IP协议之上的协议，是<strong>客户端</strong>和<strong>服务器</strong>之间的应用层的协议，是通用的、无状态的面向对象的协议。 </p>
+<h2 id="2、客户端连接服务器实现内部的原理"><a href="#2、客户端连接服务器实现内部的原理" class="headerlink" title="2、客户端连接服务器实现内部的原理"></a>2、客户端连接服务器实现内部的原理</h2><p><img src="http://upload-images.jianshu.io/upload_images/4821697-d453b9ea47d0b83b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>分析上图，步骤如下：<br>第一步：在浏览器客户端中得到用户输入的内容。<br>第二步：浏览器得到这个网址之后，内部会将这个域名发送到DNS上，进行域名解析。得到它的IP之后就会链接到指定的服务器上，假如服务器的地址是：221.104.13.32:80，从浏览器到服务器端口它使用到最底层的TCP/IP协议。<br>第三步：实现TCP/IP协议用Socket来完成，使用了Socket的套接字。<br>第四步：服务器端的80端口监听客户端的链接，这样客户端到服务器就链接上了。<br><strong>通俗一点讲，用户在浏览器输入网址，通过http协议发出去，网址经过DNS域名解析，解析成指定的ip地址，并在80端口上监听用户的请求。服务器监听到请求之后，会以三种方式返回给客户端：HTML、XML、JASON。</strong></p>
+<h2 id="3、Http请求方式、区别"><a href="#3、Http请求方式、区别" class="headerlink" title="3、Http请求方式、区别"></a>3、Http请求方式、区别</h2><p>根据HTTP标准，HTTP请求可以使用多种请求方法。例如：HTTP1.1支持7种请求方法：GET、POST、HEAD、OPTIONS、PUT、DELETE和TARCE。在Internet应用中，最常用的方法是GET和POST。<br>区别：<br><strong>在客户端，GET方式在通过URL提交数据，数据在URL中可以看到；POST方式，数据放在HTML HEADER内提交。</strong><br><strong>对于GET方式，服务器端用Request.QueryString获取变量的值，对于POST方式，服务器用Request.Form获取提交的数据。</strong><br><strong>GET方式提交的数据不能大于2KB（主要是URL长度限制），而POST则没有此限制。</strong><br><strong>安全性问题。使用GET的时候，参数会显示在地址栏上，而POST不会。所以，如果这些数据是中文数据而且是非敏感数据，那么使用GET；如果用户输入的数据不是中文字符而且包含敏感数据，那么还是使用POST为好。</strong></p>
+<h2 id="4、HTTP返回请求数据的三种方式"><a href="#4、HTTP返回请求数据的三种方式" class="headerlink" title="4、HTTP返回请求数据的三种方式:"></a>4、HTTP返回请求数据的三种方式:</h2><p><strong>以HTML代码内容返回。 </strong><br><strong>以XML字符串的形式返回，在以后的android开发中这种形式返回数据比较多。 </strong><br><strong>以JSON对象形式返回，在网络流量上考虑JSON要比XML方式要好一些，便于解析。</strong><br><strong>在Android当中，一般使用xml和Json数据解析。</strong></p>
+<h1 id="Android中的网络请求方式"><a href="#Android中的网络请求方式" class="headerlink" title="Android中的网络请求方式"></a><center>Android中的网络请求方式</center></h1><p>Android中的WebView控件已经在后台帮我们处理好了发送HTTP请求、接收服务响应、解析返回数据，以及最终的页面展示这几步工作，不过由于它封装得太好了，反而不能直观地看出HTTP协议是如何工作的。因此接下来我们通过手动发送HTTP请求的方式，来更加深入的了解这一过程。</p>
+<h2 id="1、在Android上发送HTTP请求的方式"><a href="#1、在Android上发送HTTP请求的方式" class="headerlink" title="1、在Android上发送HTTP请求的方式"></a>1、在Android上发送HTTP请求的方式</h2><p>一般有两种：HttpURLConnection、HttpCient</p>
+<h2 id="2、关于HttpClient的废除在android-6-0-api-23-SDK，不再提供org-apache-http-只保留几个类-，HttpClient相关类移除，推荐使用HTTPURLConnection。"><a href="#2、关于HttpClient的废除在android-6-0-api-23-SDK，不再提供org-apache-http-只保留几个类-，HttpClient相关类移除，推荐使用HTTPURLConnection。" class="headerlink" title="2、关于HttpClient的废除在android 6.0(api 23) SDK，不再提供org.apache.http.*(只保留几个类)，HttpClient相关类移除，推荐使用HTTPURLConnection。"></a>2、关于HttpClient的废除在android 6.0(api 23) SDK，不再提供org.apache.http.*(只保留几个类)，HttpClient相关类移除，推荐使用HTTPURLConnection。</h2><p>废除原因：<strong>之前一直使用HttClient是由于HttpURLConnection不稳定导致，那么现在谷歌虽然修复了HttpURLConnection之前存在的一些问题。</strong><br>若还需使用该类，点击查看<a href="http://blog.csdn.net/yangqingqo/article/details/48214865" target="_blank" rel="external">解决办法</a>。</p>
+<h2 id="3、HttpURLConnection、HttpCient介绍。-HttpCient废除之前"><a href="#3、HttpURLConnection、HttpCient介绍。-HttpCient废除之前" class="headerlink" title="3、HttpURLConnection、HttpCient介绍。(HttpCient废除之前)"></a>3、HttpURLConnection、HttpCient介绍。(HttpCient废除之前)</h2><p>HttpClient是apache的开源框架，封装了访问http的请求头，参数，内容体，响应等等，使用起来比较方便，而HttpURLConnection是java的标准类，什么都没封装，用起来太原始，不方便，比如重访问的自定义，以及一些高级功能等。<br>从稳定性方面来说的话，HttpClient很稳定，功能强，BUG少，容易控制细节，而之前的HttpURLConnection一直存在着版本兼容的问题，不过在后续的版本中已经相继修复掉了。</p>
+<h2 id="4、HttpURLConnection和HttpCient区别-HttpURLConnection优势"><a href="#4、HttpURLConnection和HttpCient区别-HttpURLConnection优势" class="headerlink" title="4、HttpURLConnection和HttpCient区别(HttpURLConnection优势)"></a>4、HttpURLConnection和HttpCient区别(HttpURLConnection优势)</h2><p>1、HttpUrlConnection是Android SDK的标准实现，而HttpClient是apache的开源实现；<br>2、HttpUrlConnection直接支持GZIP压缩；HttpClient也支持，但要自己写代码处理；<br>3、HttpUrlConnection直接在系统层面做了缓存策略处理，加快重复请求的速度。<br>4、HttpUrlConnection直接支持系统级连接池，即打开的连接不会直接关闭，在一段时间内所有程序可共用；HttpClient当然也能做到，但毕竟不如官方直接系统底层支持好；</p>
+<h2 id="5、Android配置网络权限"><a href="#5、Android配置网络权限" class="headerlink" title="5、Android配置网络权限"></a>5、Android配置网络权限</h2><p>因为需要访问网络，需在AndroidManifest.xml中添加如下权限<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="HttpURLConnection-Demo"><a href="#HttpURLConnection-Demo" class="headerlink" title="HttpURLConnection(Demo)"></a><center>HttpURLConnection(Demo)</center></h1><h2 id="1、Get请求实现（Demo）"><a href="#1、Get请求实现（Demo）" class="headerlink" title="1、Get请求实现（Demo）"></a>1、Get请求实现（Demo）</h2><p>由于网络请求可能造成耗时操作（网络环境差的情况下）对ui线程的阻塞，我们开启子线程去操作网络请求。<br>【关于UI线程，请看<a href="http://www.jianshu.com/p/0c6939e41681" target="_blank" rel="external">《Android实习生 —— 异步处理之Handler》</a>】<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">connectWithHttpURLConnection</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> Thread( <span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				Message msg =<span class="keyword">new</span> Message();</div><div class="line">				HttpURLConnection connection = <span class="keyword">null</span>;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="comment">// 调用URL对象的openConnection方法获取HttpURLConnection的实例</span></div><div class="line">					URL url = <span class="keyword">new</span> URL(<span class="string">"http://www.baidu.com"</span>);</div><div class="line">					connection = (HttpURLConnection) url.openConnection();</div><div class="line">					<span class="comment">// 设置请求方式，GET或POST</span></div><div class="line">					connection.setRequestMethod(<span class="string">"GET"</span>);</div><div class="line">					<span class="comment">// 设置连接超时、读取超时的时间，单位为毫秒（ms）</span></div><div class="line">					connection.setConnectTimeout(<span class="number">8000</span>);</div><div class="line">					connection.setReadTimeout(<span class="number">8000</span>);</div><div class="line">					<span class="comment">// 设置是否使用缓存  默认是true</span></div><div class="line">					connection.setUseCaches(<span class="keyword">true</span>);</div><div class="line">					<span class="comment">//设置请求头里面的属性</span></div><div class="line">					<span class="comment">//connection.setRequestProperty();</span></div><div class="line">					<span class="comment">// 开始连接</span></div><div class="line">					Log.i(<span class="string">"HttpURLConnection.GET"</span>,<span class="string">"开始连接"</span>);</div><div class="line">					connection.connect();</div><div class="line">					<span class="keyword">if</span> (connection.getResponseCode() == <span class="number">200</span>) &#123;</div><div class="line">						Log.i(<span class="string">"HttpURLConnection.GET"</span>, <span class="string">"请求成功"</span>);</div><div class="line">						InputStream in = connection.getInputStream();</div><div class="line">						<span class="comment">// 使用BufferedReader对象读取返回的数据流</span></div><div class="line">						<span class="comment">// 按行读取，存储在StringBuider对象response中</span></div><div class="line">						BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</div><div class="line">						StringBuilder response = <span class="keyword">new</span> StringBuilder();</div><div class="line">						String line;</div><div class="line">						<span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">							response.append(line);</div><div class="line">						&#125;</div><div class="line">						<span class="comment">// 此处省略处理数据的代码,通过handler直接将返回的结果消息发送给UI线程列队</span></div><div class="line">						Bundle bundle =<span class="keyword">new</span> Bundle();</div><div class="line">						bundle.putString(<span class="string">"data"</span>, String.valueOf(response));</div><div class="line">						msg.setData(bundle);</div><div class="line">						handler.sendMessage(msg);</div><div class="line">					&#125;<span class="keyword">else</span>&#123;</div><div class="line">						Log.i(<span class="string">"HttpURLConnection.GET"</span>, <span class="string">"请求失败"</span>);</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125; <span class="keyword">finally</span> &#123;</div><div class="line">					<span class="keyword">if</span> (connection != <span class="keyword">null</span>)&#123;</div><div class="line">						<span class="comment">// 结束后，关闭连接</span></div><div class="line">						connection.disconnect();</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;).start();</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-02f7676c93afa928.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Get请求效果"><br><strong>打印消息</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-90e380713a9f13b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="打印消息"></p>
+<h2 id="2、Post请求实现（Demo）"><a href="#2、Post请求实现（Demo）" class="headerlink" title="2、Post请求实现（Demo）"></a>2、Post请求实现（Demo）</h2><p><strong>正如前言中第3条所述，在客户端，GET方式在通过URL提交数据，数据在URL中可以看到；POST方式，数据放在HTML HEADER内提交。</strong><br>在Get方法中请求参数可以直接写到地址栏中，如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用“&amp;”隔开不同参数</span></div><div class="line"> String path = <span class="string">"https://reg.163.com/logins.jsp?id=helloworld&amp;pwd=android"</span>;</div></pre></td></tr></table></figure></p>
+<p>但在Post方式中要把“请求的参数”转换为byte数组，然后通过DataOutputStream(urlConn.getOutputStream())把参数写入。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">connectWithHttpURLConnectionPOST</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				Message msg = <span class="keyword">new</span> Message();</div><div class="line">				String path = <span class="string">"https://reg.163.com/logins.jsp"</span>;</div><div class="line">				<span class="comment">// 请求的参数转换为byte数组</span></div><div class="line">				String params = <span class="keyword">null</span>;</div><div class="line">				HttpURLConnection urlConn = <span class="keyword">null</span>;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					params = <span class="string">"id="</span> + URLEncoder.encode(<span class="string">"helloworld"</span>, <span class="string">"UTF-8"</span>)</div><div class="line">							+ <span class="string">"&amp;pwd="</span> + URLEncoder.encode(<span class="string">"android"</span>, <span class="string">"UTF-8"</span>);</div><div class="line">					<span class="keyword">byte</span>[] postData = params.getBytes();</div><div class="line">					<span class="comment">// 新建一个URL对象</span></div><div class="line">					URL url = <span class="keyword">new</span> URL(path);</div><div class="line">					<span class="comment">// 打开一个HttpURLConnection连接</span></div><div class="line">					urlConn = (HttpURLConnection) url.openConnection();</div><div class="line">					<span class="comment">// 设置连接超时时间</span></div><div class="line">					urlConn.setConnectTimeout(<span class="number">8</span> * <span class="number">1000</span>);</div><div class="line">					<span class="comment">// Post请求必须设置允许输出</span></div><div class="line">					urlConn.setDoOutput(<span class="keyword">true</span>);</div><div class="line">					<span class="comment">// Post请求不能使用缓存</span></div><div class="line">					urlConn.setUseCaches(<span class="keyword">false</span>);</div><div class="line">					<span class="comment">// 设置为Post请求</span></div><div class="line">					urlConn.setRequestMethod(<span class="string">"POST"</span>);</div><div class="line">					urlConn.setInstanceFollowRedirects(<span class="keyword">true</span>);</div><div class="line">					<span class="comment">// 配置请求Content-Type</span></div><div class="line">					urlConn.setRequestProperty(<span class="string">"Content-Type"</span>,</div><div class="line">							<span class="string">"application/x-www-form-urlencode"</span>);</div><div class="line">					<span class="comment">// 开始连接</span></div><div class="line">					urlConn.connect();</div><div class="line">					Log.i(<span class="string">"HttpURLConnection.POST"</span>, <span class="string">"开始连接"</span>);</div><div class="line">					<span class="comment">// 发送请求参数</span></div><div class="line">					DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(urlConn.getOutputStream());</div><div class="line">					dos.write(postData);</div><div class="line">					dos.flush();</div><div class="line">					dos.close();</div><div class="line">					<span class="comment">// 判断请求是否成功</span></div><div class="line">					<span class="keyword">if</span> (urlConn.getResponseCode() == <span class="number">200</span>) &#123;</div><div class="line">						<span class="comment">// 获取返回的数据</span></div><div class="line">						InputStream in = urlConn.getInputStream();</div><div class="line">						<span class="comment">// 使用BufferedReader对象读取返回的数据流</span></div><div class="line">						<span class="comment">// 按行读取，存储在StringBuider对象response中</span></div><div class="line">						BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</div><div class="line">						StringBuilder response = <span class="keyword">new</span> StringBuilder();</div><div class="line">						String line;</div><div class="line">						<span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">							response.append(line);</div><div class="line">						&#125;</div><div class="line">						Log.i(<span class="string">"HttpURLConnection.POST"</span>, <span class="string">"请求成功"</span>);</div><div class="line">						<span class="comment">// 此处省略处理数据的代码,直接将返回的结果消息发送给UI线程列队</span></div><div class="line">						Bundle bundle = <span class="keyword">new</span> Bundle();</div><div class="line">						bundle.putString(<span class="string">"data"</span>, String.valueOf(response));</div><div class="line">						msg.setData(bundle);</div><div class="line">						handler.sendMessage(msg);</div><div class="line">					&#125; <span class="keyword">else</span> &#123;</div><div class="line">						Log.i(<span class="string">"HttpURLConnection.POST"</span>, <span class="string">"请求失败"</span>);</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125; <span class="keyword">finally</span> &#123;</div><div class="line">					<span class="keyword">if</span> (urlConn != <span class="keyword">null</span>) &#123;</div><div class="line">						<span class="comment">// 结束后，关闭连接</span></div><div class="line">						urlConn.disconnect();</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;).start();</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-fbe0c0aeb7172bb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Post请求效果"></p>
+<h1 id="HttpCient-Demo"><a href="#HttpCient-Demo" class="headerlink" title="HttpCient(Demo)"></a><center>HttpCient(Demo)</center></h1><h2 id="1、关于-HttpCient废除"><a href="#1、关于-HttpCient废除" class="headerlink" title="1、关于 HttpCient废除"></a>1、关于 HttpCient废除</h2><p>在android 6.0(api 23) SDK，不再提供org.apache.http.<em>(只保留几个类)，HttpClient相关类移除，推荐使用HTTPURLConnection。<br>废除原因：<em>*之前一直使用HttClient是由于HttpURLConnection不稳定导致，那么现在谷歌虽然修复了HttpURLConnection之前存在的一些问题。</em></em><br>若还需使用该类，点击查看<a href="http://blog.csdn.net/yangqingqo/article/details/48214865" target="_blank" rel="external">解决办法</a>。</p>
+<h2 id="2、HttpCient介绍"><a href="#2、HttpCient介绍" class="headerlink" title="2、HttpCient介绍"></a>2、HttpCient介绍</h2><p>HttpClient其实是一个interface类型，HttpClient封装了对象需要执行的Http请求、身份验证、连接管理和其它特性。<strong>既然HttpClient是一个接口，因此无法创建它的实例。</strong>从文档上看，HttpClient有三个已知的实现类分别是：<strong>AbstractHttpClient, AndroidHttpClient, DefaultHttpClient</strong>，会发现有一个专门为Android应用准备的实现类<strong>AndroidHttpClient</strong>，当然使用常规的<strong>DefaultHttpClient</strong>也可以实现功能。</p>
+<h2 id="3、HttpCient实现步骤"><a href="#3、HttpCient实现步骤" class="headerlink" title="3、HttpCient实现步骤"></a>3、HttpCient实现步骤</h2><p>（i）创建代表客户端的HttpClient对象。<br>（ii）创建代表请求的对象，如果需要发送GET请求，则创建HttpGet对象，如果需要发送POST请求，则创建HttpPost对象。<br><strong>【对于发送请求的参数，GET和POST使用的方式不同，GET方式可以使用拼接字符串的方式，把参数拼接在URL结尾；POST方式需要使用setEntity(HttpEntity entity)方法来设置请求参数。】</strong><br>（iii）调用HttpClient对象的execute（HttpUriRequest request）发送请求，执行该方法后，将获得服务器返回的HttpResponse对象。服务器发还给我们的数据就在这个HttpResponse相应当中。调用HttpResponse的对应方法获取服务器的响应头、响应内容等。<br>（iv）检查相应状态是否正常。服务器发给客户端的相应，有一个相应码：相应码为200，正常；相应码为404，客户端错误；相应码为505，服务器端错误。<br>（v）获得相应对象当中的数据。</p>
+<h2 id="4、HttpCient实现实例（GET）（Demo）"><a href="#4、HttpCient实现实例（GET）（Demo）" class="headerlink" title="4、HttpCient实现实例（GET）（Demo）"></a>4、HttpCient实现实例（GET）（Demo）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendRequestWithHttpClient</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="comment">//用HttpClient发送请求，分为五步</span></div><div class="line">				<span class="comment">//第一步：创建HttpClient对象</span></div><div class="line">				HttpClient httpCient = <span class="keyword">new</span> DefaultHttpClient();</div><div class="line">				<span class="comment">//第二步：创建代表请求的对象,参数是访问的服务器地址</span></div><div class="line">				HttpGet httpGet = <span class="keyword">new</span> HttpGet(<span class="string">"http://www.baidu.com"</span>);</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="comment">//第三步：执行请求，获取服务器发还的相应对象</span></div><div class="line">					HttpResponse httpResponse = httpCient.execute(httpGet);</div><div class="line">					<span class="comment">//第四步：检查相应的状态是否正常：检查状态码的值是200表示正常</span></div><div class="line">					<span class="keyword">if</span> (httpResponse.getStatusLine().getStatusCode() == <span class="number">200</span>) &#123;</div><div class="line">						<span class="comment">//第五步：从相应对象当中取出数据，放到entity当中</span></div><div class="line">						HttpEntity entity = httpResponse.getEntity();</div><div class="line">						String response = EntityUtils.toString(entity, <span class="string">"utf-8"</span>);<span class="comment">//将entity当中的数据转换为字符串</span></div><div class="line">						<span class="comment">//在子线程中将Message对象发出去</span></div><div class="line">						Message message = <span class="keyword">new</span> Message();</div><div class="line">						message.what = SHOW_RESPONSE;</div><div class="line">						message.obj = response.toString();</div><div class="line">						handler.sendMessage(message);</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;).start();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><strong>效果</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-5d88369641f05659.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Get请求效果"></p>
+<h2 id="5、HttpCient实现实例（POST）（Demo）"><a href="#5、HttpCient实现实例（POST）（Demo）" class="headerlink" title="5、HttpCient实现实例（POST）（Demo）"></a>5、HttpCient实现实例（POST）（Demo）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendRequestWithHttpClientPOST</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="comment">//用HttpClient发送请求，分为五步</span></div><div class="line">				<span class="comment">//第一步：创建HttpClient对象</span></div><div class="line">				HttpClient httpClient = <span class="keyword">new</span> DefaultHttpClient();</div><div class="line">				<span class="comment">//第二步：创建代表请求的对象,参数是访问的服务器地址</span></div><div class="line">				HttpPost httpPost= <span class="keyword">new</span> HttpPost(<span class="string">"https://reg.163.com/logins.jsp"</span>);</div><div class="line">				<span class="comment">// 使用NameValuePair（键值对）存放参数</span></div><div class="line">				List&lt;NameValuePair&gt; data = <span class="keyword">new</span> ArrayList&lt;NameValuePair&gt;();</div><div class="line">				<span class="comment">// 添加键值对</span></div><div class="line">				data.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"id"</span>, <span class="string">"helloworld"</span>));</div><div class="line">				data.add(<span class="keyword">new</span> BasicNameValuePair(<span class="string">"pwd"</span>, <span class="string">"android"</span>));</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="comment">// 使用setEntity方法传入编码后的参数</span></div><div class="line">					httpPost.setEntity(<span class="keyword">new</span> UrlEncodedFormEntity(data, <span class="string">"utf-8"</span>));</div><div class="line">					<span class="comment">//第三步：执行请求，获取服务器发还的相应对象</span></div><div class="line">					HttpResponse httpResponse = httpClient.execute(httpPost);</div><div class="line">					<span class="comment">//第四步：检查相应的状态是否正常：检查状态码的值是200表示正常</span></div><div class="line">					<span class="keyword">if</span> (httpResponse.getStatusLine().getStatusCode() == <span class="number">200</span>) &#123;</div><div class="line">						Log.i(<span class="string">"mm"</span>,<span class="string">"success"</span>);</div><div class="line">						<span class="comment">//第五步：从相应对象当中取出数据，放到entity当中</span></div><div class="line">						HttpEntity entity = httpResponse.getEntity();</div><div class="line">						String response = EntityUtils.toString(entity, <span class="string">"utf-8"</span>);<span class="comment">//将entity当中的数据转换为字符串</span></div><div class="line">						<span class="comment">//在子线程中将Message对象发出去</span></div><div class="line">						Message message = <span class="keyword">new</span> Message();</div><div class="line">						message.what = <span class="number">1</span>;</div><div class="line">						message.obj = response.toString();</div><div class="line">						handler.sendMessage(message);</div><div class="line">					&#125;<span class="keyword">else</span>&#123;</div><div class="line">						Log.i(<span class="string">"mm"</span>,<span class="string">"fail"</span>);</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;).start();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><strong>效果</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-06de65cffbe1899c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="POST效果"></p>
+<h1 id="HttpURLConnection抽象请求方法（Demo）"><a href="#HttpURLConnection抽象请求方法（Demo）" class="headerlink" title="HttpURLConnection抽象请求方法（Demo）"></a><center>HttpURLConnection抽象请求方法（Demo）</center></h1><h2 id="1、JQuery"><a href="#1、JQuery" class="headerlink" title="1、JQuery"></a>1、JQuery</h2><p>如果你使用过JQuery（一个javasript库），你一定对JQuery的网路编程印象深刻，比如一个HTTP请求只需以下几行代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// JQuery的post方法</span></div><div class="line">$.post(<span class="string">"http://www.cnblogs.com/gzdaijie"</span>,&#123;</div><div class="line">		<span class="string">"stu_no"</span>:<span class="number">12345</span>,</div><div class="line">		<span class="string">"stu_name"</span>:<span class="string">"Tom"</span>,</div><div class="line">	&#125;).done(function()&#123;</div><div class="line">		<span class="comment">//...请求成功的代码</span></div><div class="line">	&#125;).fail(function()&#123;</div><div class="line">		<span class="comment">//...请求失败的代码</span></div><div class="line">	&#125;).always(function()&#123;</div><div class="line">		<span class="comment">//...总会执行的代码</span></div><div class="line">	&#125;)</div></pre></td></tr></table></figure></p>
+<p>我们当然不希望每次网络请求都写下“二”中那么繁琐的代码，那么android的HTTP请求能否像JQuery那么简单呢？当然可以！下面的代码实现了HttpURLConnection的HTTP请求方法封装</p>
+<h2 id="2、定义接口HttpCallbackListener，为了实现回调"><a href="#2、定义接口HttpCallbackListener，为了实现回调" class="headerlink" title="2、定义接口HttpCallbackListener，为了实现回调"></a>2、定义接口HttpCallbackListener，为了实现回调</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义HttpCallbackListener接口</span></div><div class="line"><span class="comment">// 包含两个方法，成功和失败的回调函数定义</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HttpCallbackListener</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onFinish</span><span class="params">(String response)</span></span>;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onError</span><span class="params">(Exception e)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3、创建HttpTool类，抽象请求方法（GET）"><a href="#3、创建HttpTool类，抽象请求方法（GET）" class="headerlink" title="3、创建HttpTool类，抽象请求方法（GET）"></a>3、创建HttpTool类，抽象请求方法（GET）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpTool</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sendRequest</span><span class="params">(<span class="keyword">final</span> String address,</span></span></div><div class="line">								   <span class="keyword">final</span> HttpCallbackListener listener) &#123;</div><div class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				HttpURLConnection connection = <span class="keyword">null</span>;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					<span class="comment">// 调用URL对象的openConnection方法获取HttpURLConnection的实例</span></div><div class="line">					URL url = <span class="keyword">new</span> URL(address);</div><div class="line">					connection = (HttpURLConnection) url.openConnection();</div><div class="line">					<span class="comment">// 设置请求方式，GET或POST</span></div><div class="line">					connection.setRequestMethod(<span class="string">"GET"</span>);</div><div class="line">					<span class="comment">// 设置连接超时、读取超时的时间，单位为毫秒（ms）</span></div><div class="line">					connection.setConnectTimeout(<span class="number">8000</span>);</div><div class="line">					connection.setReadTimeout(<span class="number">8000</span>);</div><div class="line">					<span class="comment">// 设置是否使用缓存  默认是true</span></div><div class="line">					connection.setUseCaches(<span class="keyword">true</span>);</div><div class="line">					<span class="comment">//设置请求头里面的属性</span></div><div class="line">					<span class="comment">//connection.setRequestProperty();</span></div><div class="line">					<span class="comment">// 开始连接</span></div><div class="line">					Log.i(<span class="string">"HttpURLConnection.GET"</span>,<span class="string">"开始连接"</span>);</div><div class="line">					connection.connect();</div><div class="line">					<span class="keyword">if</span> (connection.getResponseCode() == <span class="number">200</span>) &#123;</div><div class="line">						Log.i(<span class="string">"HttpURLConnection.GET"</span>, <span class="string">"请求chenggong"</span>);</div><div class="line">						InputStream in = connection.getInputStream();</div><div class="line">						BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(in));</div><div class="line">						StringBuilder response = <span class="keyword">new</span> StringBuilder();</div><div class="line">						String line;</div><div class="line">						<span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;</div><div class="line">							response.append(line);</div><div class="line">						&#125;</div><div class="line">						<span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</div><div class="line">							<span class="comment">// 回调方法 onFinish()</span></div><div class="line">							listener.onFinish(response.toString());</div><div class="line">						&#125;</div><div class="line">					&#125; <span class="keyword">else</span> &#123;</div><div class="line">						Log.i(<span class="string">"HttpURLConnection.GET"</span>, <span class="string">"请求失败"</span>);</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">					<span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</div><div class="line">						<span class="comment">// 回调方法 onError()</span></div><div class="line">						listener.onError(e);</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">finally</span> &#123;</div><div class="line">					<span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</div><div class="line">						connection.disconnect();</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;).start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4、调用示例"><a href="#4、调用示例" class="headerlink" title="4、调用示例"></a>4、调用示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">				<span class="comment">//使用该HttpTool发起GET请求</span></div><div class="line">				String url = <span class="string">"http://www.jianshu.com"</span>;</div><div class="line">				HttpTool.sendRequest(url,<span class="keyword">new</span> HttpCallbackListener()&#123;</div><div class="line">					<span class="meta">@Override</span></div><div class="line">					<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">(String response)</span> </span>&#123;</div><div class="line">						<span class="comment">// ...省略对返回结果的处理代码</span></div><div class="line">						Message message = <span class="keyword">new</span> Message();</div><div class="line">						message.what = <span class="number">0</span>;</div><div class="line">						message.obj = response.toString();</div><div class="line">						handler.sendMessage(message);</div><div class="line">					&#125;</div><div class="line">					<span class="meta">@Override</span></div><div class="line">					<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Exception e)</span> </span>&#123;</div><div class="line">						<span class="comment">// ...省略请求失败的处理代码</span></div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">		&#125;</div><div class="line">		&#125;);</div></pre></td></tr></table></figure>
+<p><strong>效果</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-e0595ce0b9d0014b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="5、抽象请求方法（POST）"><a href="#5、抽象请求方法（POST）" class="headerlink" title="5、抽象请求方法（POST）"></a>5、抽象请求方法（POST）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 在GET方法实现的基础上增加一个参数params即可，</span></div><div class="line"> * 将参数转换为字符串后传入</div><div class="line"> * 也可以传入键值对集合，再处理 */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sendRequest</span><span class="params">(<span class="keyword">final</span> String address,</span></span></div><div class="line">	<span class="keyword">final</span> String params, <span class="keyword">final</span> HttpCallbackListener listener)&#123;</div><div class="line">		<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="文件下载（Demo）"><a href="#文件下载（Demo）" class="headerlink" title="文件下载（Demo）"></a><center>文件下载（Demo）</center></h1><h2 id="1、DownLoadManager简介"><a href="#1、DownLoadManager简介" class="headerlink" title="1、DownLoadManager简介"></a>1、DownLoadManager简介</h2><p>虽然我们可以通过HTTP请求的方式下载文件，在api level 9之后，android系统为我们提供了DownLoadManager类，这是android提供的系统服务，我们通过这个服务完成文件下载。整个下载过程全部交给系统负责，不需要我们过多的处理。<br>其包含两个内部类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DownLoadManager.Query:主要用于查询下载信息。</div><div class="line">DownLoadManager.Request:主要用于发起一个下载请求。</div></pre></td></tr></table></figure></p>
+<h2 id="2、功能实现"><a href="#2、功能实现" class="headerlink" title="2、功能实现"></a>2、功能实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用系统下载器下载</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">downloadAPK</span><span class="params">(String versionUrl, String versionName)</span> </span>&#123;</div><div class="line">	<span class="comment">//创建下载任务</span></div><div class="line">	DownloadManager.Request request = <span class="keyword">new</span> DownloadManager.Request(Uri.parse(versionUrl));</div><div class="line">	request.setAllowedOverRoaming(<span class="keyword">false</span>);<span class="comment">//漫游网络是否可以下载</span></div><div class="line">	request.setTitle(<span class="string">"jar包下载"</span>);<span class="comment">//下载是通知栏标题</span></div><div class="line">	<span class="comment">//request.setAllowedNetworkTypes() 设置制定网络下下载，传入系统常量值。</span></div><div class="line">	<span class="comment">//提供的网络常量有：NETWORK_BLUETOOTH、NETWORK_MOBILE、NETWORK_WIFI。</span></div><div class="line">	<span class="comment">//设置文件类型，可以在下载结束后自动打开该文件</span></div><div class="line">	MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();</div><div class="line">	String mimeString = mimeTypeMap.getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(versionUrl));</div><div class="line">	request.setMimeType(mimeString);</div><div class="line">	<span class="comment">//在通知栏中显示，默认就是显示的</span></div><div class="line">	request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);</div><div class="line">	request.setVisibleInDownloadsUi(<span class="keyword">true</span>);</div><div class="line">	<span class="comment">//sdcard的目录下的download文件夹，必须设置</span></div><div class="line">	request.setDestinationInExternalPublicDir(<span class="string">"/download/"</span>, versionName);</div><div class="line">	<span class="comment">//request.setDestinationInExternalFilesDir(),也可以自己制定下载路径</span></div><div class="line">	<span class="comment">//将下载请求加入下载队列</span></div><div class="line">	downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);</div><div class="line">	<span class="comment">//加入下载队列后会给该任务返回一个long型的id，</span></div><div class="line">	<span class="comment">//通过该id可以取消任务，重启任务等等，看上面源码中框起来的方法</span></div><div class="line">	mTaskId = downloadManager.enqueue(request);</div><div class="line">	<span class="comment">//注册广播接收者，监听下载状态</span></div><div class="line">	registerReceiver(receiver,</div><div class="line">			<span class="keyword">new</span> IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>广播接收器<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> BroadcastReceiver receiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">			checkDownloadStatus();<span class="comment">//检查下载状态</span></div><div class="line">		&#125;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure></p>
+<p> 检查下载状态<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">checkDownloadStatus</span><span class="params">()</span> </span>&#123;</div><div class="line">		DownloadManager.Query query = <span class="keyword">new</span> DownloadManager.Query();</div><div class="line">		query.setFilterById(mTaskId);<span class="comment">//筛选下载任务，传入任务ID，可变参数</span></div><div class="line">		Cursor c = downloadManager.query(query);</div><div class="line">		<span class="keyword">if</span> (c.moveToFirst()) &#123;</div><div class="line">			<span class="keyword">int</span> status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));</div><div class="line">			<span class="keyword">switch</span> (status) &#123;</div><div class="line">				<span class="keyword">case</span> DownloadManager.STATUS_SUCCESSFUL:</div><div class="line">					Toast.makeText(<span class="keyword">this</span>,<span class="string">"下载完成"</span>,Toast.LENGTH_SHORT).show();</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				<span class="keyword">case</span> DownloadManager.STATUS_FAILED:</div><div class="line">					Toast.makeText(<span class="keyword">this</span>,<span class="string">"下载失败"</span>,Toast.LENGTH_SHORT).show();</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-594ff4334e0749ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下载效果"><br>文件下载路径<br><img src="http://upload-images.jianshu.io/upload_images/4821697-330a39205ab155e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件下载路径"></p>
+<h1 id="JSON数据解析（Demo）"><a href="#JSON数据解析（Demo）" class="headerlink" title="JSON数据解析（Demo）"></a><center>JSON数据解析（Demo）</center></h1><h2 id="1、解析单条Json数据"><a href="#1、解析单条Json数据" class="headerlink" title="1、解析单条Json数据"></a>1、解析单条Json数据</h2><p><img src="http://upload-images.jianshu.io/upload_images/4821697-c5955f2768594479.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单条数据"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//单条数据</span></div><div class="line">	<span class="function"><span class="keyword">private</span> String <span class="title">parseItemJSONWithJSONObject</span><span class="params">(String jsonData)</span> </span>&#123;</div><div class="line">		String status=<span class="keyword">null</span>;</div><div class="line">		String message=<span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//第一步：将从网络字符串jsonData字符串装入JSONObject</span></div><div class="line">			JSONObject jsonObject = <span class="keyword">new</span> JSONObject(jsonData);</div><div class="line">			<span class="comment">//第二步：因为单条数据，所以用jsonObject.getString方法直接取出对应键值</span></div><div class="line">			status = jsonObject.getString(<span class="string">"status"</span>);</div><div class="line">			message = jsonObject.getString(<span class="string">"message"</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="string">"status: "</span>+ status+<span class="string">"\n"</span>+<span class="string">"message: "</span> + message;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2、解析多条Json数据"><a href="#2、解析多条Json数据" class="headerlink" title="2、解析多条Json数据"></a>2、解析多条Json数据</h2><p><img src="http://upload-images.jianshu.io/upload_images/4821697-25e7e6e9f747aa94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多条数据"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//多条数据</span></div><div class="line">	<span class="function"><span class="keyword">private</span> String <span class="title">parseJSONWithJSONObject</span><span class="params">(String jsonData)</span> </span>&#123;</div><div class="line">		StringBuffer sb =<span class="keyword">new</span> StringBuffer();</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//第一步：将从网络字符串jsonData字符串装入JSONObject，即JSONObject</span></div><div class="line">			JSONObject jsonObject = <span class="keyword">new</span> JSONObject(jsonData);</div><div class="line">			<span class="comment">//第二步：因为多条数据，所以将"取出来的、要遍历的"字段装入JSONArray（这里要遍历data字段）</span></div><div class="line">			JSONArray jsonArray = jsonObject.getJSONArray(<span class="string">"data"</span>);</div><div class="line">			<span class="comment">//第三步：循环遍历，依次取出JSONObject对象</span></div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</div><div class="line">				JSONObject jsonObject2 = jsonArray.getJSONObject(i);</div><div class="line">				String time = jsonObject2.getString(<span class="string">"time"</span>);</div><div class="line">				String ftime = jsonObject2.getString(<span class="string">"ftime"</span>);</div><div class="line">				String context = jsonObject2.getString(<span class="string">"context"</span>);</div><div class="line">				sb.append(<span class="string">"time: "</span> + time+<span class="string">"  "</span>+<span class="string">"ftime: "</span> + ftime+<span class="string">"\n"</span>+<span class="string">"context: "</span> + context+<span class="string">"\n\n"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> sb.toString();</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>效果</strong><br><img src="http://upload-images.jianshu.io/upload_images/4821697-ad25678b2163488b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单条"><br><img src="http://upload-images.jianshu.io/upload_images/4821697-a3eafe8a7d865dc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="多条"></p>
+<h1 id="图片数据解析（Demo）"><a href="#图片数据解析（Demo）" class="headerlink" title="图片数据解析（Demo）"></a><center>图片数据解析（Demo）</center></h1><p>使用Http请求下载网络图片并通过handler机制更新系统ui。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> String PATH = <span class="string">"https://www.baidu.com/img/bdlogo.png"</span>;</div><div class="line">	<span class="keyword">private</span> Button button;</div><div class="line">	<span class="keyword">private</span> ImageView imageView;</div><div class="line">	<span class="keyword">public</span> Handler handler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">			<span class="keyword">if</span> (msg.what == RESULT_OK) &#123;</div><div class="line">				<span class="keyword">byte</span>[] data = (<span class="keyword">byte</span>[]) msg.obj;</div><div class="line">				<span class="comment">//使用Bitmap类解析图片</span></div><div class="line">				Bitmap bitmap = BitmapFactory.decodeByteArray(data, <span class="number">0</span>,</div><div class="line">						data.length);</div><div class="line">				imageView.setImageBitmap(bitmap);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">		setContentView(R.layout.activity_main);</div><div class="line">		imageView = (ImageView) findViewById(R.id.imageView1);</div><div class="line">		button = (Button) findViewById(R.id.btn);</div><div class="line">		button.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">				picDown();</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">picDown</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				HttpClient httpClient = <span class="keyword">new</span> DefaultHttpClient();</div><div class="line">				HttpGet httpGet = <span class="keyword">new</span> HttpGet(PATH);</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					HttpResponse httpResponse = httpClient.execute(httpGet);</div><div class="line">					<span class="keyword">if</span> (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) &#123;</div><div class="line">						<span class="keyword">byte</span>[] data = EntityUtils.toByteArray(httpResponse</div><div class="line">								.getEntity());</div><div class="line">						Message message = Message.obtain();</div><div class="line">						message.obj = data;</div><div class="line">						message.what = RESULT_OK;</div><div class="line">						handler.sendMessage(message);</div><div class="line">					&#125;</div><div class="line">				&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125; <span class="keyword">finally</span> &#123;</div><div class="line">					<span class="keyword">if</span> (httpClient != <span class="keyword">null</span></div><div class="line">							&amp;&amp; httpClient.getConnectionManager() != <span class="keyword">null</span>) &#123;</div><div class="line">						httpClient.getConnectionManager().shutdown();</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;).start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="【附录】"><a href="#【附录】" class="headerlink" title="【附录】"></a>【附录】</h1><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a href="https://github.com/JayKuzzi/Android/tree/master/HttpURLConnectionDemo" target="_blank" rel="external">HttpURLConnection</a><br><a href="https://github.com/JayKuzzi/Android/tree/master/HttpCientDemo" target="_blank" rel="external">HttpCient</a><br><a href="https://github.com/JayKuzzi/Android/tree/master/HttpURLConnectionListenerDemo" target="_blank" rel="external">HttpURLConnection抽象请求方法</a><br><a href="https://github.com/JayKuzzi/Android/tree/master/FileDownload" target="_blank" rel="external">文件下载</a><br><a href="https://github.com/JayKuzzi/Android/tree/master/JsonDemo" target="_blank" rel="external">JSON数据解析</a><br><a href="https://github.com/JayKuzzi/Android/tree/master/PicDemo" target="_blank" rel="external">图片数据解析</a></p>
+<blockquote>
+<p><strong>整理作者：</strong><a href="http://woobo.me" target="_blank" rel="external">汪博</a><br><strong>个人名言：</strong>少壮不努力，老大徒悲伤。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="汪博 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>微信二维码</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="汪博 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="汪博 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/27/AsyncTask/" rel="prev" title="Android实习生 —— 异步处理之AsyncTask">
+                Android实习生 —— 异步处理之AsyncTask <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="汪博" />
+          <p class="site-author-name" itemprop="name">汪博</p>
+           
+              <p class="site-description motion-element" itemprop="description">致力进军IT行业，并一直为此付诸行动。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JayKuzzi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/19513cee1eb8" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、http协议定义"><span class="nav-number">1.1.</span> <span class="nav-text">1、http协议定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、客户端连接服务器实现内部的原理"><span class="nav-number">1.2.</span> <span class="nav-text">2、客户端连接服务器实现内部的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Http请求方式、区别"><span class="nav-number">1.3.</span> <span class="nav-text">3、Http请求方式、区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、HTTP返回请求数据的三种方式"><span class="nav-number">1.4.</span> <span class="nav-text">4、HTTP返回请求数据的三种方式:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android中的网络请求方式"><span class="nav-number">2.</span> <span class="nav-text">Android中的网络请求方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、在Android上发送HTTP请求的方式"><span class="nav-number">2.1.</span> <span class="nav-text">1、在Android上发送HTTP请求的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、关于HttpClient的废除在android-6-0-api-23-SDK，不再提供org-apache-http-只保留几个类-，HttpClient相关类移除，推荐使用HTTPURLConnection。"><span class="nav-number">2.2.</span> <span class="nav-text">2、关于HttpClient的废除在android 6.0(api 23) SDK，不再提供org.apache.http.*(只保留几个类)，HttpClient相关类移除，推荐使用HTTPURLConnection。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、HttpURLConnection、HttpCient介绍。-HttpCient废除之前"><span class="nav-number">2.3.</span> <span class="nav-text">3、HttpURLConnection、HttpCient介绍。(HttpCient废除之前)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、HttpURLConnection和HttpCient区别-HttpURLConnection优势"><span class="nav-number">2.4.</span> <span class="nav-text">4、HttpURLConnection和HttpCient区别(HttpURLConnection优势)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、Android配置网络权限"><span class="nav-number">2.5.</span> <span class="nav-text">5、Android配置网络权限</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HttpURLConnection-Demo"><span class="nav-number">3.</span> <span class="nav-text">HttpURLConnection(Demo)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Get请求实现（Demo）"><span class="nav-number">3.1.</span> <span class="nav-text">1、Get请求实现（Demo）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、Post请求实现（Demo）"><span class="nav-number">3.2.</span> <span class="nav-text">2、Post请求实现（Demo）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HttpCient-Demo"><span class="nav-number">4.</span> <span class="nav-text">HttpCient(Demo)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、关于-HttpCient废除"><span class="nav-number">4.1.</span> <span class="nav-text">1、关于 HttpCient废除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、HttpCient介绍"><span class="nav-number">4.2.</span> <span class="nav-text">2、HttpCient介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、HttpCient实现步骤"><span class="nav-number">4.3.</span> <span class="nav-text">3、HttpCient实现步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、HttpCient实现实例（GET）（Demo）"><span class="nav-number">4.4.</span> <span class="nav-text">4、HttpCient实现实例（GET）（Demo）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、HttpCient实现实例（POST）（Demo）"><span class="nav-number">4.5.</span> <span class="nav-text">5、HttpCient实现实例（POST）（Demo）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HttpURLConnection抽象请求方法（Demo）"><span class="nav-number">5.</span> <span class="nav-text">HttpURLConnection抽象请求方法（Demo）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、JQuery"><span class="nav-number">5.1.</span> <span class="nav-text">1、JQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、定义接口HttpCallbackListener，为了实现回调"><span class="nav-number">5.2.</span> <span class="nav-text">2、定义接口HttpCallbackListener，为了实现回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、创建HttpTool类，抽象请求方法（GET）"><span class="nav-number">5.3.</span> <span class="nav-text">3、创建HttpTool类，抽象请求方法（GET）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、调用示例"><span class="nav-number">5.4.</span> <span class="nav-text">4、调用示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、抽象请求方法（POST）"><span class="nav-number">5.5.</span> <span class="nav-text">5、抽象请求方法（POST）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件下载（Demo）"><span class="nav-number">6.</span> <span class="nav-text">文件下载（Demo）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、DownLoadManager简介"><span class="nav-number">6.1.</span> <span class="nav-text">1、DownLoadManager简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、功能实现"><span class="nav-number">6.2.</span> <span class="nav-text">2、功能实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSON数据解析（Demo）"><span class="nav-number">7.</span> <span class="nav-text">JSON数据解析（Demo）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、解析单条Json数据"><span class="nav-number">7.1.</span> <span class="nav-text">1、解析单条Json数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、解析多条Json数据"><span class="nav-number">7.2.</span> <span class="nav-text">2、解析多条Json数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片数据解析（Demo）"><span class="nav-number">8.</span> <span class="nav-text">图片数据解析（Demo）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#【附录】"><span class="nav-number">9.</span> <span class="nav-text">【附录】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">9.1.</span> <span class="nav-text">Demo</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">汪博</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "5825dc9947c64560bd650e469d61b111",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("OpoWRhWQhY7q2aJaNfEed18l-gzGzoHsz", "jA46wsGuqL12oHGFIyuwCssg");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
