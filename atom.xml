@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jaykuzzi.github.io/"/>
-  <updated>2017-06-27T02:59:11.000Z</updated>
+  <updated>2017-06-27T03:01:21.000Z</updated>
   <id>https://jaykuzzi.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://jaykuzzi.github.io/2016/12/27/AsyncTask/"/>
     <id>https://jaykuzzi.github.io/2016/12/27/AsyncTask/</id>
     <published>2016-12-27T03:50:25.000Z</published>
-    <updated>2017-06-27T02:59:11.000Z</updated>
+    <updated>2017-06-27T03:01:21.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/2016/12/27/AsyncTask/Async.jpeg" alt=""><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="/2016/12/27/AsyncTask/Asyn.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><p>在【<a href="http://www.jianshu.com/p/0c6939e41681" target="_blank" rel="external">异步处理之Handler</a>】中我们已经了解了<strong>关于线程</strong>的相关知识，明白<strong>为什么要进行异步处理</strong>以及使用Handler进行异步处理的方式，今天我们就来了解一下异步处理的另一种方式 —— <strong> AsyncTask。</strong></p>
 <h1 id="AsyncTask简介"><a href="#AsyncTask简介" class="headerlink" title="AsyncTask简介"></a><center>AsyncTask简介</center></h1><p>Android应用的主线程（UI 线程）肩负着绘制用户界面和及时响应用户操作的重任，为了避免在主线程中做耗时操作而产生的ANR提示，我们就要把耗时的任务移出主线程，交给工作者线程去做。工作者线程主要有<a href="http://www.jianshu.com/p/9413ebc80381" target="_blank" rel="external">AsyncTask</a>、<a href="http://www.jianshu.com/p/eeb2bd59853f" target="_blank" rel="external">IntentService</a>、<a href="http://www.jianshu.com/p/0c6939e41681" target="_blank" rel="external">HandlerThread</a>，它们本质上都是对线程或线程池的封装。</p>
 <h1 id="AsyncTask和Handler对比"><a href="#AsyncTask和Handler对比" class="headerlink" title="AsyncTask和Handler对比"></a><center>AsyncTask和Handler对比</center></h1><h2 id="1、AsyncTask实现的原理和适用的优缺点"><a href="#1、AsyncTask实现的原理和适用的优缺点" class="headerlink" title="1、AsyncTask实现的原理和适用的优缺点"></a>1、AsyncTask实现的原理和适用的优缺点</h2><p>AsyncTask提供的<strong>轻量级的异步类</strong>,可以<strong>直接继承AsyncTask</strong>,在类中<strong>实现异步操作</strong>,并<strong>提供接口反馈当前异步执行的程度</strong>(可以通过接口实现UI进度更新),最后反馈执行的结果给UI主线程.<br><strong>优点:简单快捷 、过程可控。</strong><br><strong>缺点:</strong><br><strong>在使用多个异步操作和并需要进行Ui变更时,就变得复杂起来。</strong><br><strong>只是代码上轻量一些，而实际上要比handler更耗资源。</strong></p>
@@ -42,7 +42,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;/2016/12/27/AsyncTask/Async.jpeg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;/2016/12/27/AsyncTask/Asyn.jpeg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
