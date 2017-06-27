@@ -109,14 +109,14 @@
 
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Review">
+<meta property="og:title" content="安卓知识复习">
 <meta property="og:url" content="https://jaykuzzi.github.io/2017/03/02/Review/index.html">
 <meta property="og:site_name" content="Woobo'Blog">
 <meta property="og:image" content="https://jaykuzzi.github.io/2017/03/02/Review/Review.jpg">
 <meta property="og:image" content="https://jaykuzzi.github.io/2017/03/02/Review/life.png">
-<meta property="og:updated_time" content="2017-06-27T10:04:07.000Z">
+<meta property="og:updated_time" content="2017-06-27T12:03:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Review">
+<meta name="twitter:title" content="安卓知识复习">
 <meta name="twitter:image" content="https://jaykuzzi.github.io/2017/03/02/Review/Review.jpg">
 
 
@@ -151,7 +151,7 @@
 
 
 
-  <title> Review | Woobo'Blog </title>
+  <title> 安卓知识复习 | Woobo'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -355,7 +355,7 @@
             
             
               
-                Review
+                安卓知识复习
               
             
           </h1>
@@ -400,6 +400,28 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Java/实习生/" itemprop="url" rel="index">
+                    <span itemprop="name">实习生</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -420,7 +442,7 @@
 
           
           
-             <span id="/2017/03/02/Review/" class="leancloud_visitors" data-flag-title="Review">
+             <span id="/2017/03/02/Review/" class="leancloud_visitors" data-flag-title="安卓知识复习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -483,7 +505,8 @@
 <h2 id="前台服务"><a href="#前台服务" class="headerlink" title="前台服务"></a>前台服务</h2><p>类似通知样式，因为服务优先级低在后台运行 若想不让GC回收 则用到前台服务 比如彩云天气<br>用法：在继承了服务类中重写Oncreate ：内部创建一个通知 并通过StartForegroud（）调用</p>
 <h2 id="IntentService"><a href="#IntentService" class="headerlink" title="IntentService"></a>IntentService</h2><p>在service中做耗时操作需要开启子线程 并。start并且完事后stopSelf。很麻烦，IntentService就可以实现对这些事的封装。只需继承它，重写OnHandleIntent（其运行在子线程并且自动结束）</p>
 <h2 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h2><p>使用AIDL定义进程间的通信接口. AIDL文件必须以.aidl作为后缀名.接口名需要和文件名相同.方法的参数或返回值是自定义类型时, 该自定义的类型必须实现了Parcelable接口.<br>远程service的作用只是重新建立一个新进程执行，可以独立出去。其他app可以调用这个service。因为是一个新的进程，所以也不能用bindService来建立关联了，用startService<br><strong>使用：</strong><br>1、两个app中都建立一个文件 IPerson.aidl 在里面写接口 ，build一下就变成了接口文件<br>2、服务端创建<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">IPerson.Stub stub = <span class="keyword">new</span> IPerson.Stub() &#123;</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">greet</span><span class="params">(String someone)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</div><div class="line">   Log.i(TAG, <span class="string">"greet() called"</span>);</div><div class="line">   <span class="keyword">return</span> <span class="string">"hello, "</span> + someone;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>并且在onBind中return出去，<br>3、在服务端startService(startIntent);<br>4、在服务端注册<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">".AIDLService"</span><span class="attr">android:process</span>=<span class="string">":remote"</span> 开启独立进程暴露出去&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.AIDLService"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></div><div class="line">5、接收端创建ServiceConnect实例 重写连接方法 将参数内的回掉的Ibinder进行强转</div><div class="line">```java</div><div class="line">IPerson person = IPerson.Stub.asInterface(binder);就可以person。方法名调用了</div></pre></td></tr></table></figure></p>
+<p>并且在onBind中return出去，<br>3、在服务端startService(startIntent);<br>4、在服务端注册<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">".AIDLService"</span><span class="attr">android:process</span>=<span class="string">":remote"</span> 开启独立进程暴露出去&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.AIDLService"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>5、接收端创建ServiceConnect实例 重写连接方法 将参数内的回掉的Ibinder进行强转<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IPerson person = IPerson.Stub.asInterface(binder);就可以person。方法名调用了</div></pre></td></tr></table></figure></p>
 <p>6、接收端启动<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent mIntent = <span class="keyword">new</span> Intent(); </div><div class="line">mIntent.setAction(<span class="string">"android.intent.action.AIDLService"</span>);</div><div class="line">Intent eintent = <span class="keyword">new</span> Intent(getExplicitIntent(<span class="keyword">this</span>,mIntent));</div><div class="line">bindService(eintent, conn, Context.BIND_AUTO_CREATE);</div></pre></td></tr></table></figure></p>
 <h1 id="ANR"><a href="#ANR" class="headerlink" title="ANR"></a><center>ANR</center></h1><p>activity 5秒 、BroadcastReceiver（一般为10秒）、Service—–&gt;20秒</p>
 <h1 id="IPC-1"><a href="#IPC-1" class="headerlink" title="IPC"></a><center>IPC</center></h1><p>四大组件都是运行在主线程中，均能IPC.<br>方式 ：Activity 在Intent中使用Bubdle activity（博客），<br>      广播reciver本身就能接收外部程序的发来的广播。<br>      service AIDL这是需要跨进程调用服务端的方法 用到AIDL实现（Demo）<br>      Content URI 实现跨进程<br>      Messenger方式通过Messenger对象在不同进程中以串行的方式进行传递数据。它是AIDL的轻量级表现 底层是AIDL，如果是大量消息同时请求 服务端只能一个个处理，IDL这是需要跨进程调用服务端的方法 用到AIDL实现<br>      使用socket：网络通信，它分为 流式套接字 和  用户数据报套接字两种 对应网络传输控制层中tcp udp协议 ，<br>      tcp面向连接 提供稳定双向通讯，三次握手，为了提高稳定的数据传输，本身提供了超时重传机制，稳定性高。<br>      Udp捂脸的，提供不稳定单向通信。<br>      性能上udp更好效率缺点不能保证数据一定能传输正确。</p>
@@ -677,7 +700,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

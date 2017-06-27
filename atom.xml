@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jaykuzzi.github.io/"/>
-  <updated>2017-06-27T10:04:07.000Z</updated>
+  <updated>2017-06-27T12:03:05.000Z</updated>
   <id>https://jaykuzzi.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Review</title>
+    <title>安卓知识复习</title>
     <link href="https://jaykuzzi.github.io/2017/03/02/Review/"/>
     <id>https://jaykuzzi.github.io/2017/03/02/Review/</id>
     <published>2017-03-02T09:13:19.000Z</published>
-    <updated>2017-06-27T10:04:07.000Z</updated>
+    <updated>2017-06-27T12:03:05.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2017/03/02/Review/Review.jpg" alt=""><br><a id="more"></a><br>【此文章仅供作者复习使用，表达含糊，看不懂正常～】</p>
 <h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a><center>系统架构</center></h1><h2 id="linux-内核层"><a href="#linux-内核层" class="headerlink" title="linux 内核层"></a>linux 内核层</h2><p>为安卓设备提供了底层的驱动 ——– 显示、音频、蓝牙驱动。电源管理</p>
@@ -56,7 +56,8 @@
 <h2 id="前台服务"><a href="#前台服务" class="headerlink" title="前台服务"></a>前台服务</h2><p>类似通知样式，因为服务优先级低在后台运行 若想不让GC回收 则用到前台服务 比如彩云天气<br>用法：在继承了服务类中重写Oncreate ：内部创建一个通知 并通过StartForegroud（）调用</p>
 <h2 id="IntentService"><a href="#IntentService" class="headerlink" title="IntentService"></a>IntentService</h2><p>在service中做耗时操作需要开启子线程 并。start并且完事后stopSelf。很麻烦，IntentService就可以实现对这些事的封装。只需继承它，重写OnHandleIntent（其运行在子线程并且自动结束）</p>
 <h2 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h2><p>使用AIDL定义进程间的通信接口. AIDL文件必须以.aidl作为后缀名.接口名需要和文件名相同.方法的参数或返回值是自定义类型时, 该自定义的类型必须实现了Parcelable接口.<br>远程service的作用只是重新建立一个新进程执行，可以独立出去。其他app可以调用这个service。因为是一个新的进程，所以也不能用bindService来建立关联了，用startService<br><strong>使用：</strong><br>1、两个app中都建立一个文件 IPerson.aidl 在里面写接口 ，build一下就变成了接口文件<br>2、服务端创建<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">IPerson.Stub stub = <span class="keyword">new</span> IPerson.Stub() &#123;</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">greet</span><span class="params">(String someone)</span> <span class="keyword">throws</span> RemoteException </span>&#123;</div><div class="line">   Log.i(TAG, <span class="string">"greet() called"</span>);</div><div class="line">   <span class="keyword">return</span> <span class="string">"hello, "</span> + someone;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
-<p>并且在onBind中return出去，<br>3、在服务端startService(startIntent);<br>4、在服务端注册<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">".AIDLService"</span><span class="attr">android:process</span>=<span class="string">":remote"</span> 开启独立进程暴露出去&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.AIDLService"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></div><div class="line">5、接收端创建ServiceConnect实例 重写连接方法 将参数内的回掉的Ibinder进行强转</div><div class="line">```java</div><div class="line">IPerson person = IPerson.Stub.asInterface(binder);就可以person。方法名调用了</div></pre></td></tr></table></figure></p>
+<p>并且在onBind中return出去，<br>3、在服务端startService(startIntent);<br>4、在服务端注册<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">".AIDLService"</span><span class="attr">android:process</span>=<span class="string">":remote"</span> 开启独立进程暴露出去&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.AIDLService"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>5、接收端创建ServiceConnect实例 重写连接方法 将参数内的回掉的Ibinder进行强转<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IPerson person = IPerson.Stub.asInterface(binder);就可以person。方法名调用了</div></pre></td></tr></table></figure></p>
 <p>6、接收端启动<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent mIntent = <span class="keyword">new</span> Intent(); </div><div class="line">mIntent.setAction(<span class="string">"android.intent.action.AIDLService"</span>);</div><div class="line">Intent eintent = <span class="keyword">new</span> Intent(getExplicitIntent(<span class="keyword">this</span>,mIntent));</div><div class="line">bindService(eintent, conn, Context.BIND_AUTO_CREATE);</div></pre></td></tr></table></figure></p>
 <h1 id="ANR"><a href="#ANR" class="headerlink" title="ANR"></a><center>ANR</center></h1><p>activity 5秒 、BroadcastReceiver（一般为10秒）、Service—–&gt;20秒</p>
 <h1 id="IPC-1"><a href="#IPC-1" class="headerlink" title="IPC"></a><center>IPC</center></h1><p>四大组件都是运行在主线程中，均能IPC.<br>方式 ：Activity 在Intent中使用Bubdle activity（博客），<br>      广播reciver本身就能接收外部程序的发来的广播。<br>      service AIDL这是需要跨进程调用服务端的方法 用到AIDL实现（Demo）<br>      Content URI 实现跨进程<br>      Messenger方式通过Messenger对象在不同进程中以串行的方式进行传递数据。它是AIDL的轻量级表现 底层是AIDL，如果是大量消息同时请求 服务端只能一个个处理，IDL这是需要跨进程调用服务端的方法 用到AIDL实现<br>      使用socket：网络通信，它分为 流式套接字 和  用户数据报套接字两种 对应网络传输控制层中tcp udp协议 ，<br>      tcp面向连接 提供稳定双向通讯，三次握手，为了提高稳定的数据传输，本身提供了超时重传机制，稳定性高。<br>      Udp捂脸的，提供不稳定单向通信。<br>      性能上udp更好效率缺点不能保证数据一定能传输正确。</p>
@@ -75,6 +76,10 @@
     </summary>
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
+    
+      <category term="Java" scheme="https://jaykuzzi.github.io/categories/Android/Java/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/Java/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
     
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
@@ -482,7 +487,7 @@
     <link href="https://jaykuzzi.github.io/2016/05/02/Receiver/"/>
     <id>https://jaykuzzi.github.io/2016/05/02/Receiver/</id>
     <published>2016-05-02T03:38:57.000Z</published>
-    <updated>2017-06-26T04:03:28.000Z</updated>
+    <updated>2017-06-27T12:02:59.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/2016/05/02/Receiver/main.jpeg" alt=""><br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><center>前言</center></h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p><strong>1.</strong>Android广播分为两个方面：广播发送者和广播接收者，通常情况下，BroadcastReceiver指的就是广播接收者（广播接收器）。<strong><em>广播可以跨进程甚至跨App直接通信。</em></strong><br><strong>2.</strong>你的APP可以接收广播(如当电话呼入时，或者数据网络可用时)进行接收并做出响应。<br><strong>3.</strong>广播接收器没有用户界面。然而，它们可以<strong>启动一个Activity或Service服务</strong>来响应它们收到的信息，或者<strong>用NotificationManager 来通知用户</strong>。通知可以用很多种方式来吸引用户的注意力──闪动背灯、震动、播放声音等。一般来说是在状态栏上放一个持久的图标，用户可以打开它并获取消息。</p>
@@ -532,6 +537,10 @@
     </summary>
     
       <category term="Android" scheme="https://jaykuzzi.github.io/categories/Android/"/>
+    
+      <category term="Java" scheme="https://jaykuzzi.github.io/categories/Android/Java/"/>
+    
+      <category term="实习生" scheme="https://jaykuzzi.github.io/categories/Android/Java/%E5%AE%9E%E4%B9%A0%E7%94%9F/"/>
     
     
       <category term="Android" scheme="https://jaykuzzi.github.io/tags/Android/"/>
