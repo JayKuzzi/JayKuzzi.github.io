@@ -1,0 +1,1178 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,知识复习,面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Woobo'Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="keywords" content="Java,知识复习,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发面试经验总结">
+<meta property="og:url" content="https://jaykuzzi.github.io/2017/04/05/JavaReview/index.html">
+<meta property="og:site_name" content="Woobo'Blog">
+<meta property="og:image" content="https://jaykuzzi.github.io/2017/04/05/JavaReview/review.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-ea1d1ca0f7d5b3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-f6548d60e687ab1f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-37cbb197cf9a1895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-c0c68ba293535da7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-341f731068b1246a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-28T03:51:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开发面试经验总结">
+<meta name="twitter:image" content="https://jaykuzzi.github.io/2017/04/05/JavaReview/review.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '8IA2N5GR5A',
+      apiKey: '031396c620fb110cf991deacf13a46e7',
+      indexName: 'Test',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jaykuzzi.github.io/2017/04/05/JavaReview/"/>
+
+
+
+
+
+  <title> 开发面试经验总结 | Woobo'Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5c6c1e0e765e99bd6d467611c858d18a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Woobo'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book">
+          <a href="http://123.207.216.171" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            作业
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/JayKuzzi" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github-alt"></i> <br />
+            
+            GitHub
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jaykuzzi.github.io/2017/04/05/JavaReview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="汪博">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Woobo'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                开发面试经验总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T10:52:47+08:00">
+                2017-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/知识复习/" itemprop="url" rel="index">
+                    <span itemprop="name">知识复习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/知识复习/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/04/05/JavaReview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/04/05/JavaReview/" class="leancloud_visitors" data-flag-title="开发面试经验总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2017/04/05/JavaReview/review.png" alt=""><br><a id="more"></a></p>
+<h1 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a><center>OSI模型</center></h1><h2 id="OSI模型基础知识速览"><a href="#OSI模型基础知识速览" class="headerlink" title="OSI模型基础知识速览"></a>OSI模型基础知识速览</h2><p><img src="http://upload-images.jianshu.io/upload_images/4821697-ea1d1ca0f7d5b3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="OSI模型"></p>
+<h2 id="五层协议的体系结构"><a href="#五层协议的体系结构" class="headerlink" title="五层协议的体系结构"></a>五层协议的体系结构</h2><p><img src="http://upload-images.jianshu.io/upload_images/4821697-f6548d60e687ab1f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="五层协议"></p>
+<h1 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a><center>TCP协议</center></h1><h2 id="三次握手（建立连接）"><a href="#三次握手（建立连接）" class="headerlink" title="三次握手（建立连接）"></a>三次握手（建立连接）</h2><p>TCP(Transmission Control Protocol)　传输控制协议。TCP是主机对主机层的传输控制协议，提供可靠的连接服务，采用三次握手确认建立一个连接。<br>TCP报文段首部格式：<br><img src="http://upload-images.jianshu.io/upload_images/4821697-37cbb197cf9a1895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TCP报文段"><br><strong>（1）序号：</strong>Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，发起方发送数据时对此进行标记。<br><strong>（2）确认号ack：期待收到对方下一个报文段的第一个数据字节的序号</strong><br><strong>（3）标志位：</strong>共6个，即URG、ACK、PSH、RST、SYN、FIN等，具体含义如下：<br>（A）URG：紧急指针（urgent pointer）有效。<br><strong>（B）确认ACK：确认序号有效。占1位，仅当ACK=1时，确认号字段才有效。ACK=0时，确认号无效。</strong><br>（C）PSH：接收方应该尽快将这个报文交给应用层。<br>（D）RST：重置连接。<br><strong>（E）同步SYN：发起一个新连接。连接建立时用于同步序号。当SYN=1，ACK=0时表示：这是一个连接请求报文段。</strong><br><strong>（F）FIN：释放一个连接。</strong></p>
+<blockquote>
+<p>若同意连接，则在响应报文段中使得SYN=1，ACK=1。<br>因此，SYN=1表示这是一个连接请求，或连接接受报文。<br>终止FIN：用来释放一个连接。<br>FIN=1表示：此报文段的发送方的数据已经发送完毕，并要求释放运输连接</p>
+</blockquote>
+<p><strong>过程</strong><br><strong>第一次握手</strong>：请求连接时，客户端发送SYN=1，ACK=0(连接请求报文段)、自己的seq序号x到服务器，并进入SYN_SEND状态，等待服务器确认；<br><strong>第二次握手</strong>：服务器收到请求，发送SYN=1，ACK=1(连接响应报文段)、自己的seq序号y、确认号ack=x+1，到客户端表示连接接受，此时服务器进入SYN_RECV状态；<br><strong>第三次握手</strong>：客户端收到后检查ack是否正确，即第一次发送的seq(x)+1,以及确认ACK是否为1，若正确再次回应服务器端一个确认ACK=1、确认号ack=y+1和seq(x)+1确认数据段。客户端和服务器进入ESTABLISHED状态<br>完成三次握手，主机A与主机B开始传送数据。<br><img src="http://upload-images.jianshu.io/upload_images/4821697-c0c68ba293535da7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="三次握手"><br><strong>重点分析</strong><br><strong>还要再发送一次确认是为了，防止已失效的连接请求报文段突然又传到了B，因而产生错误。</strong><br><strong>已失效的报文段</strong>：正常情况下：A发出连接请求，但因为丢失了，故而不能收到B的确认。于是A重新发出请求，然后收到确认，建立连接，数据传输完毕后，释放连接，A发了2个，一个丢掉，一个到达，没有“已失效的报文段”。<br>但是，某种情况下，A的第一个在某个节点滞留了，延误到达，本来这是一个早已失效的报文段，但是在A发送第二个，并且得到B的回应，建立了连接以后，这个报文段竟然到达了，于是B就认为，A又发送了一个新的请求，于是发送确认报文段，同意建立连接，假若没有三次的握手，那么这个连接就建立起来了（有一个请求和一个回应），此时，A收到B的确认，但A知道自己并没有发送建立连接的请求，因为不会理睬B的这个确认，于是呢，A也不会发送任何数据，而B呢却以为新的连接建立了起来，一直等待A发送数据给自己，此时B的资源就被白白浪费了。<strong>但是采用三次握手的话，A就不发送确认，那么B由于收不到确认，也就知道并没有要求建立连接。</strong></p>
+<h2 id="四次握手（释放连接）"><a href="#四次握手（释放连接）" class="headerlink" title="四次握手（释放连接）"></a>四次握手（释放连接）</h2><p><strong>终止FIN</strong>：用来释放一个连接。FIN=1表示：此报文段的发送方的数据已经发送完毕，并要求释放运输连接<br><strong>步骤</strong><br>（1）第一次挥手：客户端A发送一个FIN、自己的seq序号u用来关闭客户A到服务器B的数据传送。Client进入<strong>FIN_WAIT_1</strong>状态。<br>（2）第二次挥手：服务器B收到这个FIN，它发回一个ACK=1、ack=u+1、自己的序号seq=v，Server进入<strong>CLOSE_WAIT</strong>状态。<br>（3）第三次挥手：Server发送一个FIN、自己的序号seq=w，用来关闭Server到Client的数据传送，Server进入<strong>LAST_ACK</strong>状态。<br>（4）第四次挥手：Client收到FIN后，Client进入<strong>TIME_WAIT</strong>状态，接着发给Server一个ACK=1、ack=w+1、自己的序号seq=u+1，Server进入<strong>CLOSED</strong>状态，完成四次挥手。<br><img src="http://upload-images.jianshu.io/upload_images/4821697-341f731068b1246a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四次握手"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>为什么建立连接协议是三次握手，而关闭连接却是四次握手呢？</strong><br>这是因为服务端的LISTEN状态下的SOCKET当收到SYN报文的建连请求后，它可以把ACK和SYN（ACK起应答作用，而SYN起同步作用）放在一个报文里来发送。但关闭连接时，ACK却没有和FIN一起发送，原因是因为tcp是全双工模式，当收到对方的FIN报文通知时，它仅仅表示对方没有数据发送给你了；但未必你所有的数据都全部发送给对方了，所以你可以未必会马上会关闭SOCKET,也即你可能还需要发送一些数据给对方之后，再发送FIN报文给对方来表示你同意现在可以关闭连接了，所以它这里的ACK报文和FIN报文多数情况下都是分开发送的.<br><strong>为什么TIME_WAIT状态还需要等2MSL后才能返回到CLOSED状态？</strong><br>①、为了保证A发送的最后一个ACK报文段能够到达B。即最后这个确认报文段很有可能丢失，那么B会超时重传，然后A再一次确认，同时启动2MSL计时器，如此下去。如果没有等待时间，发送完确认报文段就立即释放连接的话，B就无法重传了（连接已被释放，任何数据都不能出传了），因而也就收不到确认，就无法按照步骤进入CLOSE状态，即必须收到确认才能close。<br>②、防止“已失效的连接请求报文段”出现在连接中。经过2MSL，那些在这个连接持续的时间内，产生的所有报文段就可以都从网络中消失。即在这个连接释放的过程中会有一些无效的报文段滞留在楼阁结点，但是呢，经过2MSL这些无效报文段就肯定可以发送到目的地，不会滞留在网络中。这样的话，在下一个连接中就不会出现上一个连接遗留下来的请求报文段了。<br>可以看出：B结束TCP连接的时间比A早一点，因为B收到确认就断开连接了，而A还得等待2MSL.</p>
+<h1 id="强引用、软引用、弱引用、虚引用"><a href="#强引用、软引用、弱引用、虚引用" class="headerlink" title="强引用、软引用、弱引用、虚引用"></a><center>强引用、软引用、弱引用、虚引用</center></h1><p><a href="http://blog.csdn.net/lovoo/article/details/51615423" target="_blank" rel="external">相关链接</a><br>三种类型的引用定义了三种不同层次的可达性级别，由强到弱排列如下：<br>SoftReference &gt; WeakReference &gt; PhantomReference<br>越弱表示对垃圾回收器的限制越少，对象越容易被回收。<br><strong>强引用：</strong>以前我们使用的大部分引用实际上都是强引用，这是使用最普遍的引用。如果一个对象具有强引用，那就类似于必不可少的生活用品，垃圾回收器绝不会回收它。当内存空 间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足问题。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; list = <span class="keyword">new</span> Arraylist&lt;String&gt;();</div></pre></td></tr></table></figure></p>
+<p>list集合里的数据不会释放，即使内存不足也不会<br><strong>软引用：</strong>如果一个对象只具有软引用，那就类似于可有可物的生活用品。如果内存空间足够，垃圾回收器就不会回收它，如果内存空间不足了，就会回收这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用通过SoftReference类来实现<br><strong>弱引用：</strong>如果一个对象只具有弱引用，那就类似于可有可物的生活用品。弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它 所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程， 因此不一定会很快发现那些只具有弱引用的对象。 弱引用通过weakReference类来实现<br><strong>虚引用：</strong>“虚引用”顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。<br>虚引用主要用来跟踪对象被垃圾回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列（ReferenceQueue）联合使用。当垃 圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是 否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。</p>
+<h1 id="关于内部类"><a href="#关于内部类" class="headerlink" title="关于内部类"></a><center>关于内部类</center></h1><h2 id="Java成员内部类中为什么不能定义静态变量"><a href="#Java成员内部类中为什么不能定义静态变量" class="headerlink" title="Java成员内部类中为什么不能定义静态变量"></a>Java成员内部类中为什么不能定义静态变量</h2><p>静态变量是要占用内存的，在编译时只要是定义为静态变量了，系统就会自动分配内存给他，而内部类是在宿主类编译完编译的，也就是说，必须有宿主类存在后才能有内部类，这也就和编译时就为静态变量分配内存产生了冲突，因为系统执行：运行宿主类-&gt;静态变量内存分配-&gt;内部类，而此时内部类的静态变量先于内部类生成，这显然是不可能的，所以不能定义静态变量！</p>
+<h2 id="成员内部类-与-静态内部类差别"><a href="#成员内部类-与-静态内部类差别" class="headerlink" title="成员内部类 与 静态内部类差别"></a>成员内部类 与 静态内部类差别</h2><p>1、静态内部类和普通的类一样，内部类也可以有静态的。不过和非静态内部类相比，区别就在于静态内部类没有了指向外部的引用，正因如此 不可访问外部类的成员变量。<br>2、静态内部类中可以拥有静态数据，静态方法。<br>3、内部类new方式不同<br><strong>成员内部类获得内部类：</strong><br>(I)在外部类作用范围之外得到内部类对象是第一个方法<br>(II)创建外部类对象，用外部类引用去创建内部类 原因：非静态内部类对象有着指向其外部类对象的引用（比如它为何可以访问外部类变量）要想实现这个功能，内部类对象就必须有指向外部类对象的引用。Java编译器在创建内部类对象时，隐式的把其外部类对象的引用也传了进去并一直保存着。这样就使得内部类对象始终可以访问其外部类对象，同时这也是为什么在外部类作用范围之外向要创建内部类对象必须先创建其外部类对象的原因。<br><strong>静态内部类获得内部类：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Outer3.Inner aaa= <span class="keyword">new</span> Outer3.Inner();</div><div class="line">aaa.print();</div></pre></td></tr></table></figure></p>
+<h2 id="内部类的好处"><a href="#内部类的好处" class="headerlink" title="内部类的好处"></a>内部类的好处</h2><p>好处1:内部类的第一个好处就体现出来了 隐藏你不想让别人知道的操作，也即封装性。<br>好处2:访问级别控制protected和private修饰符来控制访问级别<br>好处3：可以访问外部类的私有成员或属性。<br>好处4:可是实现多重继承<br>Java只能继承一个类，它的多重继承在我们没有学习内部类之前是用接口来实现的。但使用接口有时候有很多不方便的地方。比如我们实现一个接口就必须实现它里面的所有方法。而有了内部类就不一样了。它可以使我们的类继承多个具体类或抽象类。<br>好处5:可以避免修改接口而实现同一个类中两种同名方法的调用。<br>如果，你的类要继承一个类，还要实现一个接口，可是你发觉你继承的类和接口里面有两个同名的方法怎么办？你怎么区分它们？？这就需要我们的内部类实现接口和外部类继承分开来就不会与外围类的方法冲突了。</p>
+<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><p><strong>什么时候用？</strong>当你只需要创建一个类的对象而且用不上它的名字时，使用内部类可以使代码看上去简洁清楚。<br>Listener匿名内部类由于没有名字，所以它没有构造函数（但是如果这个匿名内部类继承了一个只含有带参数构造函数的父类，创建它的时候必须带上这些参数，并在实现的过程中使用super关键字调用相应的内容）。如果你想要初始化它的成员变量，有下面几种方法：如果是在一个方法的匿名内部类，可以利用这个方法传进你想要的参数，不过记住，这些参数必须被声明为final。<br><strong>为什么final？</strong><br>首先内部类的实例可以在方法结束后依然存活，局部变量在方法结束后却无法存活，所以在内部类中无法访问NON-final的局部变量；而成员变量的存活时间是取决于外部类的实例的，内部类实例中都会引用当前外部类实例，所以他们拥有一致的生命周期，于是可以访问成员变量。</p>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a><center>设计模式</center></h1><p>《Head Hirst Design Pattern》《大话设计模式》</p>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。用于如多个模块使用同一个数据源连接对象等等。<br><strong>优点</strong><br>1.对于那些比较耗内存的类，只实例化一次可以大大提高性能，尤其是在移动开发中。<br>2.保持程序运行的时候该中始终只有一个实例存在内存中,避免多个线程操作不一致状态。<br>注意：只能使用单例类提供的方法得到单例对象，（虽然private构造方法）但不要使用反射，否则将会实例化一个新对象。<br><a href="http://www.cnblogs.com/android-blogs/p/5530239.html" target="_blank" rel="external">相关链接</a><br><strong>缺点</strong><br>1.由于单利模式中没有抽象层，因此单例类的扩展有很大的困难。<br>2.单例类的职责过重，在一定程度上违背了“单一职责原则”。<br>3.滥用单例将带来一些负面问题，如为了节省资源将数据库连接池对象设计为的单例类，可能会导致共享连接池对象的程序过多而出现连接池溢出；如果实例化的对象长时间不被利用，系统会认为是垃圾而被回收，这将导致对象状态的丢失。</p>
+<h2 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h2><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂方法使一个类的实例化延迟到其子类。在工厂方法模式中，核心的工厂类不再负责所有的对象的创建，而是将具体创建的工作交给子类去做。这个核心类则摇身一变，成为了一个抽象工厂角色，仅负责给出具体工厂子类必须实现的接口，而不接触哪一个类应当被实例化这种细节。<br><a href="http://blog.csdn.net/jason0539/article/details/23020989#comments" target="_blank" rel="external">相关链接</a><br><strong>优点</strong><br>克服了简单工厂违背开放-封闭原则的缺点，工厂类定义成了接口,而每新增的产品,就增加该种类型对应工厂类的实现【因为每增加一种新产品，都要在工厂类中增加相应的创建业务逻辑（createBMW(int type)方法需要新增case），这显然是违背开闭原则的。】又保留了封装对象创建过程的优点,降低客户端和工厂的耦合性，所以说“工厂模式”是“简单工厂模式”的进一步抽象和推广。<br><strong>缺点</strong><br>每增加一个产品，相应的也要增加一个子工厂，加大了额外的开发量。对系统的维护和扩展非常不利</p>
+<h1 id="volatile与synchronized"><a href="#volatile与synchronized" class="headerlink" title="volatile与synchronized"></a><center>volatile与synchronized</center></h1><h2 id="volatile作用"><a href="#volatile作用" class="headerlink" title="volatile作用"></a>volatile作用</h2><p>Java内存模型知识相关<br>（1）Java所有变量都存储在主内存中<br>（2）每个线程都有自己独立的工作内存，里面保存该线程的使用到的变量副本（该副本就是主内存中该变量的一份拷贝）<br>首先我们要先意识到有这样的现象,编译器为了加快程序运行的速度,对一些变量的写操作会先在寄存器或者是CPU缓存上进行,最后才写入内存.而在这个过程中,变量的新值对其他线程是不可见的.【volatile主要用在】多个线程感知实例变量被更改了场合，从而使得各个线程获得最新的值。它强制线程每次从主内存中讲到变量，而不是从线程的私有内存中读取变量，从而保证了数据的可见性。</p>
+<h2 id="与synchronized区别"><a href="#与synchronized区别" class="headerlink" title="与synchronized区别"></a>与synchronized区别</h2><p>1）volatile本质是在告诉jvm当前变量在寄存器中的值是不确定的,需要从主存中读取,synchronized则是锁定当前变量,只有当前线程可以访问该变量,其他线程被阻塞住. 也可以对象锁，就是就是synchronized 给某个对象 加锁，若多个线程拥有同一个类的对象，则这些方法只能以同步的方式执行。即，执行完一个synchronized修饰的方法后，才能执行另一个synchronized修饰的方法。<br>2）volatile仅能使用在变量级别,synchronized则可以使用在变量,方法。<br>3）volatile只能保证数据的可见性，不能用来同步，因为多个线程并发访问volatile修饰的变量不会阻塞线程。<br>4）volatile仅能实现变量的修改可见性,而synchronized则可以保证变量的修改可见性和原子性.Synchronized能够实现原子性和可见性；在Java内存模型中，synchronized规定，线程在加锁时，先清空工作内存→在主内存中拷贝最新变量的副本到工作内存→执行完代码→将更改后的共享变量的值刷新到主内存中→释放互斥锁。<br><a href="http://blog.csdn.net/guyuealian/article/details/52525724" target="_blank" rel="external">原子性实例</a><br>【Volatile：保证可见性，但不保证操作的原子性】<br>【原子性】即不可再分了，不能分为多步操作。比如赋值或者return。比如”a = 1;”和 “return a;”这样的操作都具有原子性。类似”a += b”这样的操作不具有原子性，在某些JVM中”a += b”可能要经过这样三个步骤：①取出a和b ②计算a+b ③将计算结果写入内存</p>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a><center>框架</center></h1><p><a href="http://blog.csdn.net/song_qingwei/article/details/52230946" target="_blank" rel="external">相关链接</a></p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>单来说就是通过controller（各种activity）的控制去操作model层（各种Java bean的、类似repository类）数据，并且返回给view层（layout.xml里面的xml文件）展示，用户出发事件的时候，view层会发送指令到controller层，接着controller去通知model层更新数据，model层更新完数据以后直接显示在view层上，这就是MVC的工作原理。<br>缺点：控制能力实在太弱了，你想去动态的改变一个页面的背景，或者动态的隐藏/显示一个按钮，这些都没办法在xml中做，只能把代码写在activity中，造成了activity既是controller层，又是view层的这样一个窘境。大家回想一下自己写的代码，如果是一个逻辑很复杂的页面，activity或者fragment是不是动辄上千行呢？这样不仅写起来麻烦，维护起来更是噩梦。</p>
+<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><p>最明显的差别就是view层和model层不再相互可知，完全的解耦，取而代之的presenter层充当了桥梁的作用，用于操作view层发出的事件传递到presenter层中，presenter层去操作model层，并且将数据返回给view层，整个过程中view层和model层完全没有联系。activity和fragment不再是controller层，而是纯粹的view层，所有关于用户事件的转发全部交由presenter层处理。<br>优点：解决了MVC模式中测试，维护难的问题。<br><a href="http://blog.csdn.net/zengguangchun/article/details/52778649" target="_blank" rel="external">其他开源框架</a></p>
+<h1 id="内存相关"><a href="#内存相关" class="headerlink" title="内存相关"></a><center>内存相关</center></h1><h2 id="内存溢出"><a href="#内存溢出" class="headerlink" title="内存溢出"></a>内存溢出</h2><p>JVM内存过小、程序不严密，产生了过多的垃圾。导致OutOfMemoryError异常的常见原因有以下几种：<br>1.内存中加载的数据量过于庞大，如一次从数据库取出过多数据；<br>2.集合类中有对对象的引用，使用完后未清空，使得JVM不能回收；<br>3.启动参数内存值设定的过小；</p>
+<h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>对象已经没有被应用程序使用，但是垃圾回收器没办法移除它们，因为还在被引用着。 最终导致内存溢出。比如动态注册的广播。 io流</p>
+<h1 id="线程相关"><a href="#线程相关" class="headerlink" title="线程相关"></a><center>线程相关</center></h1><h2 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h2><p>在同一个线程运行前面的运行完在运行后面的 ，有先后顺序 。控制共享资源，多个线程一起运行，每次只有一个线程访问，其他等待。<br>异步：是几个程序同时运行 CPU会每个程序都运行一会。</p>
+<h2 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h2><p>线程的同步化可能会造成死锁，死锁发生在两个线程相互持有对方正在等待的东西（实际是两个线程共享的东西）。</p>
+<h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><p><strong>1、新建状态New</strong><br>new操作符创建一个新线程时，如 new Thread(r), 该线程还没有开始运行线程中的代码<br><strong>2、就绪状态Runnable</strong><br>一旦调用start()方法，线程就处于runnable状态。状态位于“可运行线程池”中。一旦时间分片机制有空闲的CPU周期提供给一个线程，那个线程便可立即开始运行。（有可能没运行，比如被阻塞，没获得时间片）。<br><strong>3、运行状态(Running)</strong><br>就绪状态的线程获取了CPU，执行程序代码。run（）<br><strong>4、阻塞状态(Blocked)</strong><br>因为某种原因放弃CPU使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。<br><strong>5、死亡状态(Dead)</strong><br>线程执行完了或者因异常退出了run()方法，该线程结束生命周期。</p>
+<h2 id="线程阻塞状态"><a href="#线程阻塞状态" class="headerlink" title="线程阻塞状态"></a>线程阻塞状态</h2><p><strong>1、等待阻塞</strong><br>运行的线程执行wait()方法，该线程会释放占用的所有资源，JVM会把该线程放入“等待池”中。进入这个状态后，是不能自动唤醒的，必须依靠其他线程调用notify()或notifyAll()方法才能被唤醒。<br><strong>2、同步阻塞</strong><br>运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入“锁池”中。synchronized.<br><strong>其他阻塞</strong><br>运行的线程执行sleep()或join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入就绪状态。</p>
+<h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a><center>JVM</center></h1><p><a href="http://blog.csdn.net/tonytfjing/article/details/44278233" target="_blank" rel="external">相关链接</a></p>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p><strong>方法区(Method Area)</strong><br>用于存储类结构信息的地方，包括常量池、静态变量、构造函数等。虽然JVM规范把方法区描述为堆的一个逻辑部分， 但它却有个别名non-heap（非堆），所以大家不要搞混淆了。方法区还包含一个运行时常量池。<br><strong>java堆(Heap)</strong><br>存储java实例或者对象的地方。这块是GC的主要区域（后面解释）。从存储的内容我们可以很容易知道，方法区和堆是被所有java线程共享的。<br><strong>java栈(Stack)</strong><br>java栈总是和线程关联在一起，每当创建一个线程时，JVM就会为这个线程创建一个对应的java栈。在这个java栈中又会包含多个栈帧，每运行一个方法就创建一个栈帧，用于存储局部变量表、操作栈、方法返回值等。每一个方法从调用直至执行完成的过程，就对应一个栈帧在java栈中入栈到出栈的过程。所以java栈是现成私有的。<br><strong>程序计数器(PC Register)</strong>用于保存当前线程执行的内存地址。由于JVM程序是多线程执行的（线程轮流切换），所以为了保证线程切换回来后，还能恢复到原先状态，就需要一个独立的计数器，记录之前中断的地方，可见程序计数器也是线程私有的。<br><strong>本地方法栈(Native Method Stack)</strong>和java栈的作用差不多，只不过是为JVM使用到的native方法服务的。</p>
+<h2 id="成员变量在哪里分配"><a href="#成员变量在哪里分配" class="headerlink" title="成员变量在哪里分配"></a>成员变量在哪里分配</h2><p>成员变量有静态和非静态，静态成员变量是共享数据，在共享区中，也叫方法区中。<br>非静态成员变量在堆内存中，作用于整个类中。<br>而局部变量在栈内存中，定义在函数中，函数结束内存释放。<br>字符串常量池和堆一样是被所有线程共享的<br><a href="http://www.cnblogs.com/A_ming/archive/2010/04/13/1711395.html" target="_blank" rel="external">string、stringBuffer、线程安全线程不安全相关</a><br><a href="http://www.cnblogs.com/xudong-bupt/p/3961159.html" target="_blank" rel="external">string、stringBuffer、线程安全线程不安全相关</a></p>
+<h2 id="类什么时候销毁"><a href="#类什么时候销毁" class="headerlink" title="类什么时候销毁"></a>类什么时候销毁</h2><p>销毁对象，java有很好的垃圾回收机制。<br>当对象在内存中没有对应的地址是，如吧null赋给对象；或者对象超出作用范围时对象会被回收。<br>当然你也可以用System.gc方法强制启动垃圾回收器，java垃圾回收机制已十分完善，这种方法一般用不到。</p>
+<h2 id="类会在下面三种情况下被加载"><a href="#类会在下面三种情况下被加载" class="headerlink" title="类会在下面三种情况下被加载"></a>类会在下面三种情况下被加载</h2><p>第一：生成该类对象的时候，会加载该类及该类的所有父类；<br>第二：访问该类的静态成员的时候；<br>第三：class．forName(“类名”)；<br>而毁灭应该是在程序中没有对它的引用时，由垃圾回收器处理的。</p>
+<h1 id="范型"><a href="#范型" class="headerlink" title="范型"></a><center>范型</center></h1><p>范型<t> :”<t>“可以代表任意类型的。K表示键，V表示值，T表示type类型，E表示enum枚举  ? 表示不确定的类型</t></t></p>
+<blockquote>
+<p><strong>整理作者：</strong><a href="http://woobo.me" target="_blank" rel="external">汪博</a><br><strong>个人名言：</strong>少壮不努力，老大徒悲伤。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="汪博 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>微信二维码</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="汪博 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="汪博 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/知识复习/" rel="tag"># 知识复习</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/02/Review/" rel="prev" title="安卓知识复习">
+                安卓知识复习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="汪博" />
+          <p class="site-author-name" itemprop="name">汪博</p>
+           
+              <p class="site-description motion-element" itemprop="description">致力进军IT行业，并一直为此付诸行动。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JayKuzzi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/19513cee1eb8" target="_blank" title="JianShu">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  JianShu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI模型基础知识速览"><span class="nav-number">1.1.</span> <span class="nav-text">OSI模型基础知识速览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五层协议的体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">五层协议的体系结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP协议"><span class="nav-number">2.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手（建立连接）"><span class="nav-number">2.1.</span> <span class="nav-text">三次握手（建立连接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次握手（释放连接）"><span class="nav-number">2.2.</span> <span class="nav-text">四次握手（释放连接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强引用、软引用、弱引用、虚引用"><span class="nav-number">3.</span> <span class="nav-text">强引用、软引用、弱引用、虚引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于内部类"><span class="nav-number">4.</span> <span class="nav-text">关于内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java成员内部类中为什么不能定义静态变量"><span class="nav-number">4.1.</span> <span class="nav-text">Java成员内部类中为什么不能定义静态变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类-与-静态内部类差别"><span class="nav-number">4.2.</span> <span class="nav-text">成员内部类 与 静态内部类差别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类的好处"><span class="nav-number">4.3.</span> <span class="nav-text">内部类的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类"><span class="nav-number">4.4.</span> <span class="nav-text">匿名内部类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">5.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">5.1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">5.2.</span> <span class="nav-text">工厂方法模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volatile与synchronized"><span class="nav-number">6.</span> <span class="nav-text">volatile与synchronized</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile作用"><span class="nav-number">6.1.</span> <span class="nav-text">volatile作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与synchronized区别"><span class="nav-number">6.2.</span> <span class="nav-text">与synchronized区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">7.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">7.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">7.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存相关"><span class="nav-number">8.</span> <span class="nav-text">内存相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存溢出"><span class="nav-number">8.1.</span> <span class="nav-text">内存溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏"><span class="nav-number">8.2.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程相关"><span class="nav-number">9.</span> <span class="nav-text">线程相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步"><span class="nav-number">9.1.</span> <span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程死锁"><span class="nav-number">9.2.</span> <span class="nav-text">线程死锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程状态"><span class="nav-number">9.3.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程阻塞状态"><span class="nav-number">9.4.</span> <span class="nav-text">线程阻塞状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM"><span class="nav-number">10.</span> <span class="nav-text">JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">10.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员变量在哪里分配"><span class="nav-number">10.2.</span> <span class="nav-text">成员变量在哪里分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类什么时候销毁"><span class="nav-number">10.3.</span> <span class="nav-text">类什么时候销毁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类会在下面三种情况下被加载"><span class="nav-number">10.4.</span> <span class="nav-text">类会在下面三种情况下被加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#范型"><span class="nav-number">11.</span> <span class="nav-text">范型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">汪博</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "5825dc9947c64560bd650e469d61b111",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("OpoWRhWQhY7q2aJaNfEed18l-gzGzoHsz", "jA46wsGuqL12oHGFIyuwCssg");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
