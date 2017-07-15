@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,知识复习,面试," />
+  <meta name="keywords" content="Java,面试,知识复习," />
 
 
 
@@ -107,7 +107,7 @@
 
 
 
-<meta name="keywords" content="Java,知识复习,面试">
+<meta name="keywords" content="Java,面试,知识复习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发面试经验总结">
 <meta property="og:url" content="https://jaykuzzi.github.io/2017/04/05/JavaReview/index.html">
@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-37cbb197cf9a1895.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-c0c68ba293535da7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4821697-341f731068b1246a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-28T03:58:35.000Z">
+<meta property="og:updated_time" content="2017-07-09T11:36:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发面试经验总结">
 <meta name="twitter:image" content="https://jaykuzzi.github.io/2017/04/05/JavaReview/review.png">
@@ -511,6 +511,7 @@
 <h2 id="类什么时候销毁"><a href="#类什么时候销毁" class="headerlink" title="类什么时候销毁"></a>类什么时候销毁</h2><p>销毁对象，java有很好的垃圾回收机制。<br>当对象在内存中没有对应的地址是，如吧null赋给对象；或者对象超出作用范围时对象会被回收。<br>当然你也可以用System.gc方法强制启动垃圾回收器，java垃圾回收机制已十分完善，这种方法一般用不到。</p>
 <h2 id="类会在下面三种情况下被加载"><a href="#类会在下面三种情况下被加载" class="headerlink" title="类会在下面三种情况下被加载"></a>类会在下面三种情况下被加载</h2><p>第一：生成该类对象的时候，会加载该类及该类的所有父类；<br>第二：访问该类的静态成员的时候；<br>第三：class．forName(“类名”)；<br>而毁灭应该是在程序中没有对它的引用时，由垃圾回收器处理的。</p>
 <h1 id="范型"><a href="#范型" class="headerlink" title="范型"></a><center>范型</center></h1><p>范型<t> :”<t>“可以代表任意类型的。K表示键，V表示值，T表示type类型，E表示enum枚举  ? 表示不确定的类型</t></t></p>
+<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a><center>接口</center></h1><p>java类是单继承的。classB Extends classA java接口可以多继承。Interface3 Extends Interface0, Interface1, interface……<br>不允许类多重继承的主要原因是，如果A同时继承B和C，而b和c同时有一个D方法，A如何决定该继承那一个呢？ 但接口不存在这样的问题，接口全都是抽象方法继承谁都无所谓，所以接口可以继承多个接口。<br>注意： 1）一个类如果实现了一个借口，则要实现该接口的所有方法。<br>2）方法的名字、返回类型、参数必须与接口中完全一致。如果方法的返回类型不是void，则方法体必须至少有一条return语句。<br>3）因为接口的方法默认是public类型的，所以在实现的时候一定要用public来修饰（否则默认为protected类型，缩小了方法的使用范围）。</p>
 <blockquote>
 <p><strong>整理作者：</strong><a href="http://woobo.me" target="_blank" rel="external">汪博</a><br><strong>个人名言：</strong>少壮不努力，老大徒悲伤。</p>
 </blockquote>
@@ -571,9 +572,9 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/知识复习/" rel="tag"># 知识复习</a>
-          
             <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+            <a href="/tags/知识复习/" rel="tag"># 知识复习</a>
           
         </div>
       
@@ -585,6 +586,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/09/Factory/" rel="next" title="Java设计模式 —— 工厂模式">
+                <i class="fa fa-chevron-left"></i> Java设计模式 —— 工厂模式
+              </a>
             
           </div>
 
@@ -691,7 +696,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -702,7 +707,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -713,7 +718,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -775,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI模型基础知识速览"><span class="nav-number">1.1.</span> <span class="nav-text">OSI模型基础知识速览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五层协议的体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">五层协议的体系结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP协议"><span class="nav-number">2.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手（建立连接）"><span class="nav-number">2.1.</span> <span class="nav-text">三次握手（建立连接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次握手（释放连接）"><span class="nav-number">2.2.</span> <span class="nav-text">四次握手（释放连接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强引用、软引用、弱引用、虚引用"><span class="nav-number">3.</span> <span class="nav-text">强引用、软引用、弱引用、虚引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于内部类"><span class="nav-number">4.</span> <span class="nav-text">关于内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java成员内部类中为什么不能定义静态变量"><span class="nav-number">4.1.</span> <span class="nav-text">Java成员内部类中为什么不能定义静态变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类-与-静态内部类差别"><span class="nav-number">4.2.</span> <span class="nav-text">成员内部类 与 静态内部类差别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类的好处"><span class="nav-number">4.3.</span> <span class="nav-text">内部类的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类"><span class="nav-number">4.4.</span> <span class="nav-text">匿名内部类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">5.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">5.1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">5.2.</span> <span class="nav-text">工厂方法模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volatile与synchronized"><span class="nav-number">6.</span> <span class="nav-text">volatile与synchronized</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile作用"><span class="nav-number">6.1.</span> <span class="nav-text">volatile作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与synchronized区别"><span class="nav-number">6.2.</span> <span class="nav-text">与synchronized区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">7.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">7.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">7.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存相关"><span class="nav-number">8.</span> <span class="nav-text">内存相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存溢出"><span class="nav-number">8.1.</span> <span class="nav-text">内存溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏"><span class="nav-number">8.2.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程相关"><span class="nav-number">9.</span> <span class="nav-text">线程相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步"><span class="nav-number">9.1.</span> <span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程死锁"><span class="nav-number">9.2.</span> <span class="nav-text">线程死锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程状态"><span class="nav-number">9.3.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程阻塞状态"><span class="nav-number">9.4.</span> <span class="nav-text">线程阻塞状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM"><span class="nav-number">10.</span> <span class="nav-text">JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">10.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员变量在哪里分配"><span class="nav-number">10.2.</span> <span class="nav-text">成员变量在哪里分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类什么时候销毁"><span class="nav-number">10.3.</span> <span class="nav-text">类什么时候销毁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类会在下面三种情况下被加载"><span class="nav-number">10.4.</span> <span class="nav-text">类会在下面三种情况下被加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#范型"><span class="nav-number">11.</span> <span class="nav-text">范型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OSI模型"><span class="nav-number">1.</span> <span class="nav-text">OSI模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI模型基础知识速览"><span class="nav-number">1.1.</span> <span class="nav-text">OSI模型基础知识速览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五层协议的体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">五层协议的体系结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP协议"><span class="nav-number">2.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手（建立连接）"><span class="nav-number">2.1.</span> <span class="nav-text">三次握手（建立连接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次握手（释放连接）"><span class="nav-number">2.2.</span> <span class="nav-text">四次握手（释放连接）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强引用、软引用、弱引用、虚引用"><span class="nav-number">3.</span> <span class="nav-text">强引用、软引用、弱引用、虚引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于内部类"><span class="nav-number">4.</span> <span class="nav-text">关于内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java成员内部类中为什么不能定义静态变量"><span class="nav-number">4.1.</span> <span class="nav-text">Java成员内部类中为什么不能定义静态变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类-与-静态内部类差别"><span class="nav-number">4.2.</span> <span class="nav-text">成员内部类 与 静态内部类差别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类的好处"><span class="nav-number">4.3.</span> <span class="nav-text">内部类的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类"><span class="nav-number">4.4.</span> <span class="nav-text">匿名内部类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">5.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式"><span class="nav-number">5.1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">5.2.</span> <span class="nav-text">工厂方法模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volatile与synchronized"><span class="nav-number">6.</span> <span class="nav-text">volatile与synchronized</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile作用"><span class="nav-number">6.1.</span> <span class="nav-text">volatile作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与synchronized区别"><span class="nav-number">6.2.</span> <span class="nav-text">与synchronized区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">7.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">7.1.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">7.2.</span> <span class="nav-text">MVP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存相关"><span class="nav-number">8.</span> <span class="nav-text">内存相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存溢出"><span class="nav-number">8.1.</span> <span class="nav-text">内存溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏"><span class="nav-number">8.2.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程相关"><span class="nav-number">9.</span> <span class="nav-text">线程相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程同步"><span class="nav-number">9.1.</span> <span class="nav-text">线程同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程死锁"><span class="nav-number">9.2.</span> <span class="nav-text">线程死锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程状态"><span class="nav-number">9.3.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程阻塞状态"><span class="nav-number">9.4.</span> <span class="nav-text">线程阻塞状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM"><span class="nav-number">10.</span> <span class="nav-text">JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">10.1.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员变量在哪里分配"><span class="nav-number">10.2.</span> <span class="nav-text">成员变量在哪里分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类什么时候销毁"><span class="nav-number">10.3.</span> <span class="nav-text">类什么时候销毁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类会在下面三种情况下被加载"><span class="nav-number">10.4.</span> <span class="nav-text">类会在下面三种情况下被加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#范型"><span class="nav-number">11.</span> <span class="nav-text">范型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口"><span class="nav-number">12.</span> <span class="nav-text">接口</span></a></li></ol></div>
             
 
           </div>
